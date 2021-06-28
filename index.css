@@ -1,0 +1,144 @@
+:root {
+    font-size: 1em;
+    box-sizing: border-box;
+  }
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+
+
+.main-nav {
+
+    border-bottom: 1px solid black;
+}
+
+.main-nav .nav-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.main-nav  a {
+    display: block;
+    padding: 0.7em 1.5em;
+    text-decoration: none;
+}
+
+.main-nav a:hover {
+    background-color: khaki;
+    transition-duration: 0.2s;
+}
+
+main {
+    /* padding: 0 1.5em; */
+}
+
+
+h1 {
+    text-align: left;
+    font-size: 2rem;
+    padding: 1em 0em;
+}
+
+h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    padding-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+.subgroup {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid black;
+}
+
+.second-member {
+    margin-top: 4em;
+}
+
+.game-name {
+    padding-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.member-name {
+    /* padding: 0.5em 0; */
+    margin: 0.5em 1.5em;
+    font-size: 1.3em;
+}
+
+.description {
+    margin: 0.5em 2em;
+}
+
+
+.img-set {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.img-set > a {
+    margin: 0.5em 2em;
+}
+
+.table-of-content {
+    justify-content: flex-start;
+    line-height: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 2em;
+
+}
+
+.second-group-nav {
+    margin-left: 3em;
+}
+
+.table-of-content a {
+    text-decoration: none;
+    display: block;
+}
+
+li {
+    margin-left: 2em;
+}
+
+.vote-best-nav {
+    margin-top: 1em;
+}
+
+.vote {
+    margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
