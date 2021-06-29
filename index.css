@@ -66,6 +66,10 @@ h3 {
     font-size: 1.5rem;
 }
 
+p {
+    margin-bottom: 1em;
+}
+
 .subgroup {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -130,12 +134,12 @@ li {
 
 .vote {
     margin-top: 1em;
+    display: block;
 }
 
-.media-voting  {
-    position: absolute;
+p + p {
+    margin-bottom: 2em;
 }
-
 
 
 
