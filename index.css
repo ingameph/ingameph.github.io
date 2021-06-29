@@ -64,9 +64,14 @@ h3 {
     font-size: 1.5rem;
 }
 
-p {
+.description p {
     margin-bottom: 1em;
 }
+
+.description p:last-child {
+    margin-bottom: 0;
+}
+
 
 .subgroup {
     padding-top: 0.5em;
@@ -91,6 +96,7 @@ p {
 
 .description {
     margin: 0.5em 2em;
+    width: 55%;
 }
 
 
