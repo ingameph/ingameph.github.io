@@ -140,7 +140,7 @@ figure {
     display: block;
 }
 
-@media (max-width: 700px) {
+@media only screen and (max-width: 700px) {
     nav.table-of-content {
         display: none;
     }
