@@ -102,6 +102,7 @@ h3 {
 
 .img-set > a {
     margin: 0.5em 0em;
+
 }
 
 .table-of-content {
@@ -142,11 +143,33 @@ figure {
     display: block;
 }
 
+@media (max-width: 768px) {
+    .img-set a img {
+        width: 40%;
+    }
+
+    .description {
+        width: 80%;
+    }
+}
+
+@media (max-width: 325px) {
+    .img-set a img {
+        width: 48%;
+    }
+
+    .description {
+        width: 80%;
+    }
+}
+
 @media only screen and (max-width: 700px) {
     nav.table-of-content {
         display: none;
     }
 }
+
+
 
 
 
