@@ -215,6 +215,9 @@ p + p {
 
 
 
+
+
+
 @media screen and (min-width: 20em) {
     .img-set > a > img {
         max-width: 40%;
@@ -277,6 +280,7 @@ p + p {
         display: none;
     }
 }
+
 
 
 
