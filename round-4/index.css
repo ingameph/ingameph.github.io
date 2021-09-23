@@ -148,6 +148,10 @@ figcaption > p {
 
 }
 
+.img-set > a > img.one-img {
+    max-width: 35%;
+}
+
 .img-set > a > img {
     display: inline-block;
     max-width: 20%;
@@ -155,6 +159,8 @@ figcaption > p {
     margin: 0.3em 0.3em;
     vertical-align: middle;
 }
+
+
 
 p {
     line-height: 1.5em;
