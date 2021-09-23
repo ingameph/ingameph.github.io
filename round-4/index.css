@@ -276,6 +276,11 @@ p + p {
         flex-direction: row;
     }
 
+    .img-set > a > img.one-img {
+        max-width: 35%;
+    }
+    
+
     .img-set > a > img {
         max-width: 20%;
         margin: 0.3em 0.3em;
