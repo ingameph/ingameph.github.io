@@ -283,12 +283,12 @@ p + p {
     }
 
     .img-set > a > img {
-        max-width: 20%;
+        max-width: 30%;
         margin: 0.3em 0.3em;
     }
 
     figure {
-        max-width: 20%;
+        max-width: 30%;
         margin: 0.3em 0.3em;
     }
 }
