@@ -1,0 +1,75 @@
+
+.judje {
+  margin-top: 2em;
+}
+
+
+h2 {
+  margin-bottom: 0.75em;
+}
+
+
+.points {
+  margin-bottom: 2em;
+}
+
+p + p {
+  margin: 0;
+}
+
+.subgroup h3 {
+  font-size: 1.5rem;
+}
+
+
+.game-name {
+    padding: 0.5em 0em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    border-radius: 2px;
+    background-color: white;
+    font-weight: bold;
+}
+
+.subgroup {
+  margin-top: 1em;
+
+}
+
+.subgroup {
+  padding-top: 1em;
+  padding-bottom: 0em;
+  border-bottom: 1px solid black;
+}
+
+.general {
+  margin-top: 1em;
+}
+
+
+
+.audience-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.audience-table td, .audience-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.audience-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.audience-table tr:hover {background-color: #ddd;}
+
+.audience-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: white;
+  
+}
+
+.overall {
+  margin-top: 5em;
+}
