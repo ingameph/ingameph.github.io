@@ -384,6 +384,10 @@ p + p {
     nav.table-of-content {
         display: none;
     }
+    .imgset{
+        
+        grid-gap: 1em;
+    }
 }
 
 
