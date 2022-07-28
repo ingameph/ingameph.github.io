@@ -232,8 +232,90 @@ p + p {
   }
 
 
+  .imgset{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    /* grid-auto-columns: auto; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-gap: 4em;
+    align-items: center;
+    justify-items: center;
+    align-content: space-between;
+
+    
+
+}
 
 
+.imgset  > a > img {
+    /* display: inline-block; */
+    max-width: 100%;
+    /* height: auto; */
+    /* margin: 0.3em 0.3em; */
+    /* vertical-align: middle; */
+}
+
+.imgset * {
+    grid-column: auto / span 2;
+}
+
+
+.imgset.broken-windows-2 * {
+    grid-column: auto / span 3;
+}
+
+.imgset.broken-windows-3 * {
+    grid-column: auto / span 3;
+}
+
+.imgset.aaaaaaaaa .el-1, .imgset.aaaaaaaaa .el-2 {
+    grid-column: auto / span 3;
+} 
+
+.imgset.safluns .el-4{
+    grid-column: 1 / 4;
+}
+
+.imgset.safluns .el-5 {
+    grid-column: 4 / 7;
+}
+
+.imgset.pppppp .el-1, .imgset.pppppp .el-2 {
+    grid-column: auto / span 3;
+}
+
+.imgset.diogen-bez-bochki .el-1, .imgset.diogen-bez-bochki .el-2 {
+    grid-column: auto / span 3;
+}
+
+.imgset.kandid .el-1 {
+    grid-column: 1 / 7; 
+}
+
+.imgset.perfect-snake .el-4,
+.imgset.perfect-snake .el-5,
+.imgset.perfect-snake .el-6,
+.imgset.perfect-snake .el-7 {
+    grid-column: auto / span 3;
+}
+
+.imgset.kuznetcvi .el-1, .imgset.kuznetcvi .el-2 {
+    grid-column: auto / span 3;
+}
+
+.imgset.dot * {
+    grid-column: auto / span 3;
+}
+
+.imgset.vitalik-romanchenko * {
+    grid-column: auto / span 3;
+}
+
+.imgset.vitalik-romanchenko .el-3 {
+    grid-column: 1 / 7;
+}
 
 
 
