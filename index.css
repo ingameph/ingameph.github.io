@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 1500px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -155,6 +155,35 @@ figcaption > p {
     vertical-align: middle;
 }
 
+.imgset{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    /* grid-auto-columns: auto; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-rows: repeat(3, 1fr); */
+    grid-gap: 4em;
+    align-items: center;
+    justify-items: center;
+    align-content: space-between;
+
+    
+
+}
+
+
+.imgset  > a > img {
+    /* display: inline-block; */
+    max-width: 100%;
+    /* height: auto; */
+    /* margin: 0.3em 0.3em; */
+    /* vertical-align: middle; */
+}
+
+.imgset * {
+    grid-column: auto / span 2;
+}
+
 
 .table-of-content {
     justify-content: flex-start;
@@ -214,8 +243,67 @@ p + p {
 }
 
 
+.imgset.danila-khozayev .el-1,
+.imgset.danila-khozayev .el-2 {
+    grid-column: auto / span 3;
+}
 
+.imgset.danila-khozayev .el-7 {
+    grid-column: 3 / 7;
+}
 
+.imgset.hypernothingness .el-1,
+.imgset.hypernothingness .el-2,
+.imgset.hypernothingness .el-9,
+.imgset.hypernothingness .el-10 {
+    grid-column: auto /span 3;
+}
+
+.imgset.jyjgry-1 *,
+.imgset.jyjgry-2 * {
+    grid-column: auto / span 3;
+}
+
+.imgset.imgset.jyjgry-2 .el-1 {
+    grid-column: 1 / 7;
+}
+
+.imgset.jyjgry-4 .el-1,
+.imgset.jyjgry-4 .el-2,
+.imgset.jyjgry-4 .el-6,
+.imgset.jyjgry-4 .el-7,
+.imgset.jyjgry-4 .el-8,
+.imgset.jyjgry-4 .el-9 {
+    grid-column: auto / span 3;
+}
+
+.imgset.meow-wow .el-1 {
+    grid-column: 1 / 7;
+}
+
+.imgset.maxim-semisenko * {
+    grid-column: auto / span 3;
+}
+
+.imgset.maxim-semisenko * {
+    grid-column: auto / span 3;
+}
+
+.imgset.aimbot * {
+    grid-column: auto / span 3;
+}
+
+.imgset.yakov-andreevich .el-1 {
+    grid-column: 1 / 7;
+}
+
+.imgset.alexander-pavlov * {
+    grid-column: auto / span 3;
+}
+
+.imgset.alexander-kovalev .el-1 {
+    grid-column: 1 / 7;
+}
 
 
 

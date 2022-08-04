@@ -118,9 +118,14 @@ h3.inside-des {
     background-color: lightgray;
 }
 
+.first-member .member-name {
+    margin-top: 1em;
+}
+
+
 .member-name {
     padding: 0 0.5em;
-    margin: 0.5em 0;
+    margin-top: 2.5em;
     font-size: 1.3em;
 }
 
@@ -316,6 +321,27 @@ p + p {
 .imgset.vitalik-romanchenko .el-3 {
     grid-column: 1 / 7;
 }
+
+.imgset.sasha-markina * {
+    grid-column: auto / span 2;
+}
+
+.imgset.sasha-markina .el-1, .imgset.sasha-markina .el-2 {
+    grid-column: auto / span 3;
+}
+
+.imgset.ruslan * {
+    grid-column: auto / span 2;
+}
+
+.imgset.ruslan .el-1, .imgset.ruslan .el-2 {
+    grid-column: auto / span 3;
+}
+
+.imgset.useless  * {
+    grid-column: auto / span 2;
+}
+
 
 
 
