@@ -296,7 +296,7 @@ p + p {
     grid-column: auto / span 2;
 }
 
-.imgset.sasha-markina .el-1 {
+.imgset.sasha-markina .el-1,  .imgset.sasha-markina .el-8{
     grid-column: 1 / 7;
 }
 
@@ -313,12 +313,10 @@ p + p {
 }
 
 .imgset.amaru-viales * {
-    grid-column: auto / span 2;
-}
-
-.imgset.amaru-viales .el-1, .imgset.amaru-viales .el-2 {
     grid-column: auto / span 3;
 }
+
+
 
 .imgset.imgset.vitalik-romanchenko * {
     grid-column: auto / span 2;
