@@ -334,7 +334,7 @@ p + p {
 }
 
 .imgset.stefan-uberstein * {
-    grid-column: auto / span 2;
+    grid-column: auto / span 3;
 }
 
 .imgset.stefan-uberstein .el-1, .imgset.stefan-uberstein .el-2 {
