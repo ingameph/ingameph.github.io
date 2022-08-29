@@ -288,10 +288,13 @@ p + p {
     grid-column: auto / span 2;
 }
 
-.imgset.alexander-kovalev .el-1 {
+.imgset.alexander-kovalev .el-1{
     grid-column: 1 / 7;
 }
 
+.imgset.alexander-kovalev .el-11, .imgset.alexander-kovalev .el-12{
+    grid-column: auto / span 3;
+}
 .imgset.imgset.sasha-markina * {
     grid-column: auto / span 2;
 }
