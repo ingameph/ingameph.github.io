@@ -316,6 +316,13 @@ p + p {
     grid-column: auto / span 3;
 }
 
+.imgset.amaru-viales-1 * {
+    grid-column: auto / span 2;
+}
+
+.imgset.amaru-viales-1 .el-1-1, .imgset.amaru-viales-1 .el-2-01 {
+    grid-column: 1 / 7;
+}
 
 
 .imgset.imgset.vitalik-romanchenko * {
