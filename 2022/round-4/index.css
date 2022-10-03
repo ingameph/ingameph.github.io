@@ -305,6 +305,14 @@ p + p {
 }
 
 .imgset.amaru-viales * {
+    grid-column: auto / span 2;
+}
+
+.imgset.amaru-viales .el-1 {
+    grid-column: 1 / 7;
+}
+
+.imgset.amaru-viales .el-2, .imgset.amaru-viales .el-3 {
     grid-column: auto / span 3;
 }
 
