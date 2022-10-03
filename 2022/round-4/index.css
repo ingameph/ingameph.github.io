@@ -369,13 +369,10 @@ p + p {
     grid-column: 1 / 7;
 }
 .imgset.safluns * {
-    grid-column: auto / span 2;
-}
-
-.imgset.safluns .el-1, .imgset.safluns .el-2,
-.imgset.safluns .el-15, .imgset.safluns .el-16 {
     grid-column: auto / span 3;
 }
+
+
 
 .imgset.safluns .el-9 {
     grid-column: 3 / 5;
