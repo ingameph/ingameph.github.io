@@ -361,7 +361,7 @@ p + p {
 }
 
 .imgset.diogen-bez-bochki * {
-    grid-column: auto / span 2;
+    grid-column: auto / span 3;
 }
 
 .imgset.diogen-bez-bochki .el-1, .imgset.diogen-bez-bochki .el-8 {
