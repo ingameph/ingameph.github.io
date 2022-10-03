@@ -235,6 +235,11 @@ p + p {
     margin-top: 20px;
   }
 
+.public-age {
+    margin-top: 0.5em;
+    font-size: 1rem;
+}
+
 
   .imgset{
     margin: 2.5em 0;
