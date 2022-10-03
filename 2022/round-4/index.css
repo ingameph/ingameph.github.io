@@ -356,6 +356,10 @@ p + p {
     grid-column: auto / span 3;
 }
 
+.imgset.kuznetcvi .el-1 {
+    grid-column: 1 / 7;
+}
+
 .imgset.safluns * {
     grid-column: auto / span 2;
 }
