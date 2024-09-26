@@ -234,6 +234,16 @@ p + p {
   margin-bottom: 2em;
 }
 
+.main-nav a:hover {
+  background-color: khaki;
+  transition-duration: 0.2s;
+}
+
+.main-nav a.active {
+  background-color: khaki;
+  transition-duration: 0.2s;
+}
+
 .imgset.anatoly-alexandriysky .el-1 {
   grid-column: 3/7;
 }
