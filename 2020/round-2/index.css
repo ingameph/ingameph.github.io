@@ -322,11 +322,11 @@ p + p {
 }
 
 .imgset.maksim-novikov .el-1 {
-  grid-column: auto / span 6;
+  grid-column: auto / span 3;
 }
 
 .imgset.yash-kyurke .el-1 {
-  grid-column: auto / span 3;
+  grid-column: auto / span 4;
 }
 
 .imgset.sofya-volman .el-1 {
@@ -370,6 +370,20 @@ p + p {
 .imgset.artem-lotov .el-1 {
   grid-column: auto / span 3;
 }
+
+.imgset.jeyjgry .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.vitalik-romanchenko .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.homepunk .el-1 {
+  grid-column: auto / span 6;
+}
+
+
 
 @media screen and (min-width: 20em) {
   .img-set > a > img {
