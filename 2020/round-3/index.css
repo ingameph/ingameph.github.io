@@ -176,6 +176,7 @@ figcaption > p {
   grid-column: auto / span 2;
 }
 
+
 .table-of-content {
   justify-content: flex-start;
   line-height: 1.5em;
@@ -270,7 +271,7 @@ p + p {
 }
 
 .imgset.perfect-snake .el-1 {
-  grid-column: auto / span 4;
+  grid-column: auto / span 3;
 }
 
 .imgset.perfect-snake .el-2 {
@@ -282,12 +283,9 @@ p + p {
 }
 
 .imgset.aleksandr-pavlov .el-1 {
-  grid-column: auto / span 4;
-}
-
-.imgset.aleksandr-pavlov .el-2 {
   grid-column: auto / span 3;
 }
+
 
 .imgset.myau-vau .el-1 {
   grid-column: auto / span 3;
@@ -301,9 +299,6 @@ p + p {
   grid-column: auto / span 3;
 }
 
-.imgset.dima-matveev .el-3 {
-  grid-column: auto / span 3;
-}
 
 .imgset.larisa-drak .el-1 {
   grid-column: auto / span 3;
@@ -314,12 +309,9 @@ p + p {
 }
 
 .imgset.konstantin-karakushko .el-1 {
-  grid-column: auto / span 3;
+  grid-column: auto / span 6;
 }
 
-.imgset.konstantin-karakushko .el-1 {
-  grid-column: auto / span 3;
-}
 
 .imgset.maksim-novikov .el-1 {
   grid-column: auto / span 6;
@@ -330,7 +322,7 @@ p + p {
 }
 
 .imgset.sofya-volman .el-1 {
-  grid-column: auto / span 3;
+  grid-column: auto / span 6;
 }
 
 .imgset.katya-gradova .el-1 {
@@ -344,28 +336,18 @@ p + p {
 .imgset.egor-tyurin .el-1 {
   grid-column: auto / span 6;
 }
-.imgset.roman-svetov .el-1 {
-  grid-column: auto / span 3;
+.imgset.egor-tyurin .el-1 {
+  grid-row: auto / span 6;
 }
 
-.imgset.gleb-letov .el-1 {
-  grid-column: auto / span 3;
-}
 
-.imgset.ruslan-sharaev .el-1 {
-  grid-column: auto / span 3;
-}
+
 .imgset.amelia-stark .el-1 {
   grid-column: auto / span 3;
 }
 
-.imgset.amelia-stark .el-2 {
-  grid-column: auto / span 6;
-}
 
-.imgset.pusya-s-povidlom .el-1 {
-  grid-column: auto / span 3;
-}
+
 
 .imgset.artem-lotov .el-1 {
   grid-column: auto / span 3;
@@ -386,6 +368,12 @@ p + p {
 .imgset.meow-wow .el-1 {
   grid-column: auto / span 6;
 }
+
+.imgset.dasha-zemtsova .el-1 {
+  grid-column: auto / span 3;
+}
+
+
 
 @media screen and (min-width: 20em) {
   .img-set > a > img {
