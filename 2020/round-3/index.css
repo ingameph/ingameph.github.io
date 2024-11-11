@@ -100,13 +100,18 @@ h3 {
   margin-top: 3em;
 }
 
-.game-name {
+
+
+.game-name{
   padding: 0.5em 0.5em;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 0.5em;
   border-radius: 2px;
   background-color: lightgray;
 }
+
+
+
 
 .member-name {
   padding: 0 0.5em;
@@ -177,6 +182,8 @@ figcaption > p {
 }
 
 
+
+
 .table-of-content {
   justify-content: flex-start;
   line-height: 1.5em;
@@ -243,6 +250,10 @@ p + p {
 .main-nav a.active {
   background-color: khaki;
   transition-duration: 0.2s;
+}
+
+.member-commentary {
+  margin-bottom: 2em;
 }
 
 .imgset.anatoly-alexandriysky .el-1 {
