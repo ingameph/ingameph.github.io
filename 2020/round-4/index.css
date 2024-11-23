@@ -1,0 +1,449 @@
+:root {
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.main-nav {
+  flex-wrap: wrap;
+  border-bottom: 1px solid black;
+}
+
+.main-nav .nav-right {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+ol {
+  list-style: decimal;
+}
+a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 300ms;
+}
+
+a:hover {
+  text-decoration-color: rgb(255, 0, 191);
+}
+
+.main-nav a {
+  display: block;
+  padding: 0.7em 1.5em;
+}
+
+.main-nav a:hover {
+  background-color: khaki;
+  transition-duration: 0.2s;
+}
+
+main {
+  margin: 0 0em;
+}
+
+p {
+  line-height: 1.5em;
+}
+
+h1 {
+  text-align: left;
+  font-size: 3rem;
+  margin-top: 1em;
+}
+
+h2 {
+  text-align: left;
+  font-size: 3rem;
+  margin-top: 0.7em;
+}
+
+.subgroup > h2 {
+  font-size: 2rem;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.description p {
+  margin-bottom: 1em;
+}
+
+.description p:last-child {
+  margin-bottom: 3em;
+}
+
+.subgroup {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid black;
+}
+
+.second-member {
+  margin-top: 3em;
+}
+
+
+
+.game-name{
+  padding: 0.5em 0.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 2px;
+  background-color: lightgray;
+}
+
+
+
+
+.member-name {
+  padding: 0 0.5em;
+  margin: 0.5em 0;
+  font-size: 1.3em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.description {
+  padding: 0 0.65em;
+  margin: 0.5em 0em;
+  width: 55%;
+}
+
+figure {
+  display: inline-block;
+  max-width: 20%;
+  height: auto;
+  margin: 0.3em 0.3em;
+  vertical-align: top;
+}
+
+figure > a > img {
+  max-width: 100%;
+}
+
+figcaption > p {
+  font-size: 0.85rem;
+}
+
+/* .img-set {
+  display: block;
+}
+
+.img-set > a > img {
+  display: inline-block;
+  max-width: 20%;
+  height: auto;
+  margin: 0.3em 0.3em;
+  vertical-align: middle;
+} */
+
+.imgset {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
+  /* grid-auto-columns: auto; */
+  /* grid-template-columns: repeat(3, 1fr); */
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-gap: 0.5em;
+  align-items: center;
+  justify-items: center;
+  align-content: space-between;
+  margin-bottom: 3em;
+}
+
+.imgset > a > img {
+  /* display: inline-block; */
+  max-width: 100%;
+  /* height: auto; */
+  /* margin: 0.3em 0.3em; */
+  /* vertical-align: middle; */
+}
+
+.imgset * {
+  grid-column: auto / span 2;
+}
+
+
+
+
+.table-of-content {
+  justify-content: flex-start;
+  line-height: 1.5em;
+  margin-top: 1em;
+}
+
+.second-group-nav {
+  margin-left: 3em;
+}
+
+.table-of-content a {
+  text-decoration: underline 0.15em rgba(0, 0, 0, 0);
+  transition: text-decoration-color 300ms;
+  display: block;
+}
+
+.table-of-content a:hover {
+  text-decoration-color: rgb(255, 0, 191);
+}
+
+li {
+  margin-left: 2em;
+}
+
+.line-thr {
+  text-decoration: line-through;
+}
+
+.vote-best-nav {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
+.vote {
+  margin-top: 1em;
+  display: block;
+  width: 55%;
+  margin-bottom: 6em;
+}
+
+.best-work {
+  margin-top: 2em;
+}
+
+.vote-best {
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.vote-best .vote {
+  margin-right: 2em;
+  flex: 1;
+}
+
+p + p {
+  margin-bottom: 2em;
+}
+
+.main-nav a:hover {
+  background-color: khaki;
+  transition-duration: 0.2s;
+}
+
+.main-nav a.active {
+  background-color: khaki;
+  transition-duration: 0.2s;
+}
+
+.member-commentary {
+  margin-bottom: 2em;
+}
+
+.imgset.anatoly-alexandriysky .el-1 {
+  grid-column: 3/7;
+}
+
+.imgset.mikhail-marushkin .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.nikon-gerasimenko .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.aleksandr-kovalev .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.danila-khozayev .el-1,
+.imgset.danila-khozayev .el-2 {
+  grid-column: auto / span 3;
+}
+
+.imgset.egor-chernykh .el-1 {
+  grid-column: auto / span 4;
+}
+
+.imgset.perfect-snake .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.perfect-snake .el-2 {
+  grid-column: auto / span 6;
+}
+
+.imgset.perfect-snake .el-3 {
+  grid-column: auto / span 3;
+}
+
+.imgset.aleksandr-pavlov .el-1 {
+  grid-column: auto / span 3;
+}
+
+
+.imgset.myau-vau .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.dima-matveev .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.dima-matveev .el-2 {
+  grid-column: auto / span 3;
+}
+
+
+.imgset.larisa-drak .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.vera-dozhdeva .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.konstantin-karakushko .el-1 {
+  grid-column: auto / span 6;
+}
+
+
+.imgset.maksim-novikov .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.yash-kyurke .el-1 {
+  grid-column: auto / span 4;
+}
+
+.imgset.sofya-volman .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.katya-gradova .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.katya-gradova .el-2 {
+  grid-column: auto / span 3;
+}
+
+.imgset.egor-tyurin .el-1 {
+  grid-column: auto / span 6;
+}
+.imgset.egor-tyurin .el-1 {
+  grid-row: auto / span 6;
+}
+
+
+
+.imgset.amelia-stark .el-1 {
+  grid-column: auto / span 3;
+}
+
+
+
+
+.imgset.artem-lotov .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.jeyjgry .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.vitalik-romanchenko .el-1 {
+  grid-column: auto / span 3;
+}
+
+.imgset.homepunk .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.meow-wow .el-1 {
+  grid-column: auto / span 6;
+}
+
+.imgset.dasha-zemtsova .el-1 {
+  grid-column: auto / span 3;
+}
+
+
+
+@media screen and (min-width: 20em) {
+  .img-set > a > img {
+    max-width: 40%;
+    margin: 0.3em 0.3em;
+  }
+
+  figure {
+    max-width: 40%;
+    margin: 0.3em 0.3em;
+  }
+
+  .description {
+    width: 80%;
+  }
+
+  .vote {
+    width: 100%;
+  }
+
+  .vote-best {
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 30em) {
+  .vote {
+    width: 80%;
+  }
+
+  .img-set > a > img {
+    max-width: 30%;
+    margin: 0.3em 0.3em;
+  }
+
+  figure {
+    max-width: 30%;
+    margin: 0.3em 0.3em;
+  }
+}
+
+@media screen and (min-width: 43em) {
+  .vote-best {
+    flex-direction: row;
+  }
+
+  .img-set > a > img {
+    max-width: 20%;
+    margin: 0.3em 0.3em;
+  }
+
+  figure {
+    max-width: 20%;
+    margin: 0.3em 0.3em;
+  }
+}
+
+@media screen and (max-width: 43em) {
+  nav.table-of-content {
+    display: none;
+  }
+}
