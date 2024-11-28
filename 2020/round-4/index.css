@@ -256,6 +256,11 @@ p + p {
   margin-bottom: 2em;
 }
 
+.vote-best-nav {
+  margin-top: 1em;
+  margin-left: 2em;
+}
+
 .imgset.anatoly-alexandriysky .el-1 {
   grid-column: 3/7;
 }
@@ -294,6 +299,11 @@ p + p {
 }
 
 .imgset.aleksandr-pavlov .el-1 {
+  grid-column: auto / span 6;
+}
+
+
+.imgset.aleksandr-pavlov .el-2 {
   grid-column: auto / span 3;
 }
 
@@ -304,6 +314,10 @@ p + p {
 
 .imgset.dima-matveev .el-1 {
   grid-column: auto / span 6;
+}
+
+.imgset.aimbot .el-1 {
+  grid-column: auto / span 3;
 }
 
 .imgset.dima-matveev .el-2 {
@@ -329,7 +343,7 @@ p + p {
 }
 
 .imgset.yash-kyurke .el-1 {
-  grid-column: auto / span 4;
+  grid-column: auto / span 3 ;
 }
 
 .imgset.sofya-volman .el-1 {
@@ -383,6 +397,10 @@ p + p {
 .imgset.dasha-zemtsova .el-1 {
   grid-column: auto / span 3;
 }
+.imgset.dasha-zemtsova .el-2 {
+  grid-column: auto / span 6;
+}
+
 
 
 
