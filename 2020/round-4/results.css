@@ -50,6 +50,10 @@ i {
   border-bottom: 1px solid black;
 }
 
+.b {
+  font-weight: bold;
+}
+
 .general {
   margin-top: 1em;
 }
