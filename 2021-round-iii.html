@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"> 
+    <title>2021 - Раунд III</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <style>
+      :root {
+        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
+        --secondary-text-color: #666; --border-color: #e0e0e0; --accent-color: #8e44ad;
+        --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
+        --content-indent: 25px;
+      }
+      body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
+      .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; }
+      
+      .main-nav { position: sticky; top: 0; background-color: var(--surface-color); border-bottom: 1px solid var(--border-color); z-index: 1000; display: flex; justify-content: space-between; align-items: center; min-height: var(--nav-height); padding: 0 15px; }
+      .nav-toggle { display: none; background: transparent; border: none; padding: 0; width: 30px; height: 30px; flex-direction: column; justify-content: space-around; cursor: pointer; z-index: 1001; }
+      .nav-toggle .line { width: 100%; height: 3px; background-color: var(--primary-text-color); border-radius: 3px; transition: transform 0.3s, opacity 0.3s; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+      
+      .nav-links { display: flex; align-items: center; width: 100%; justify-content: space-between; }
+      .nav-group { display: flex; align-items: center; height: 100%; flex-wrap: wrap; }
+      .year-nav { justify-content: flex-end; }
+      
+      .nav-group-title { display: none; }
+      .nav-group a { padding: 0 15px; text-decoration: none; color: var(--secondary-text-color); font-weight: 700; display: flex; align-items: center; height: var(--nav-height); transition: all 0.2s; }
+      .nav-group a:hover { color: var(--primary-text-color); }
+      .nav-group a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; }
+      
+      .results-link-nav { font-size: 0.8em; font-weight: 400; margin-left: 8px; opacity: 0.7; color: var(--accent-color); text-decoration: none; cursor: pointer; }
+      .nav-group a:hover .results-link-nav, .nav-group a.active .results-link-nav { text-decoration: underline; opacity: 1; }
+
+      .main-header, .subgroups-nav-container, .subgroup-header, .pair-divider { padding-left: var(--content-indent); }
+      .main-header { padding-top: 20px; margin-bottom: 30px; }
+      .main-header h1 { font-size: 3.5rem; margin: 0; text-align: left; }
+      .main-header h2 { font-size: 3rem; margin: 10px 0; text-align: left; }
+      .subgroups-nav-container { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; }
+      .subgroup-nav-column { flex: 1; min-width: 0; }
+      .subgroup-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 15px; }
+      .subgroup-nav-column ol { padding-left: 20px; margin: 0; }
+      .subgroup-nav-column li { margin-bottom: 8px; }
+      .subgroup-nav-column a { color: var(--accent-color); text-decoration: none; }
+      .subgroup-nav-column a:hover { text-decoration: underline; }
+      .subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+      .pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
+      .pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+      .pair-divider:first-of-type { margin-top: 0; }
+      .author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
+      .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); text-decoration: none; }
+      .author-header .author-name a:hover { color: var(--accent-color); }
+      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 5px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
+      .text-block p { margin: 0 0 0.75em 0; }
+      .text-block p:last-child { margin-bottom: 0; }
+      .text-block a { color: var(--accent-color); }
+      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+      .image-row { display: flex; flex-direction: row; gap: 10px; }
+      .image-item { flex-grow: 1; position: relative; line-height: 0;   }
+      .image-item img { width: 100%; height: auto; display: block; }
+      .image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
+      .results-link-container { margin-top: 60px; padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color); }
+      .results-link-button { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white; font-size: 1.2rem; font-weight: 700; text-decoration: none; border-radius: 12px; transition: transform 0.2s, background-color 0.2s; }
+      .results-link-button:hover { background-color: #7a3a9a; transform: scale(1.05); }
+      .poll-container { margin-top: 30px; display: flex; justify-content: center; }
+      .subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+      .subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; } 
+
+      @media (max-width: 768px) {
+          :root { --content-indent: 15px; }
+          .container { padding: 10px; }
+          .main-nav { justify-content: flex-end; }
+          .nav-toggle { display: flex; }
+          
+          .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background-color: var(--surface-color); border-top: 1px solid var(--border-color); max-height: calc(100vh - var(--nav-height) - 1px); }
+          .nav-links.is-open { display: flex; flex-direction: column; }
+          .round-nav { order: 1; overflow-y: auto; }
+          .year-nav { order: 2; }
+          
+          .nav-group { flex-direction: column; width: 100%; align-items: stretch; }
+          .nav-group-title { display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary-text-color); background-color: #e9ecef; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
+          
+          .round-nav a { justify-content: flex-start; border-bottom: 1px solid var(--border-color); }
+          .round-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-left: 4px solid var(--accent-color); padding-left: calc(15px - 4px); }
+          
+          .year-nav {
+              display: flex;
+              flex-direction: row;
+              flex-wrap: nowrap;
+              background-color: #e9ecef;
+              align-items: stretch;
+          }
+          .year-nav .nav-group-title { display: none; }
+          
+          .year-nav::before {
+              content: '';
+              flex-grow: 1;
+          }
+          
+          .year-nav a { 
+              flex-shrink: 0;
+              justify-content: center; 
+              border-left: 1px solid var(--border-color); 
+              border-bottom: none; 
+          }
+          .year-nav a:first-of-type {
+              border-left: none;
+          }
+          .year-nav a.active { 
+              background-color: var(--nav-active-bg);
+              color: var(--nav-active-text);
+              font-weight: 800;
+              border-right: 4px solid var(--accent-color);
+              border-left: 1px solid var(--border-color);
+              padding-right: calc(15px - 4px);
+          }
+
+          .subgroups-nav-container { display: none; }
+          .main-header h1 { font-size: 2.2rem; }
+          .main-header h2 { font-size: 1.8rem; }
+          .image-row { flex-direction: column; }
+          .image-item { flex-basis: auto !important; width: 100%; }
+          .main-header h1, .main-header h2, .subgroup-header, .pair-divider span { white-space: normal; overflow-wrap: break-word; word-wrap: break-word; }
+      }
+    </style>
+</head>
+<body>
+    
+<nav class="main-nav">
+  <button class="nav-toggle" aria-controls="main-nav-links" aria-expanded="false">
+    <span class="sr-only">Открыть меню</span>
+    <span class="line"></span><span class="line"></span><span class="line"></span>
+  </button>
+
+  <div class="nav-links" id="main-nav-links">
+    <div class="nav-group round-nav">
+      <div class="nav-group-title">Раунды 2021</div>
+      
+        <a href="/2021-round-i.html" class="">
+          Раунд I
+          
+          
+        </a>
+      
+        <a href="/2021-round-ii.html" class="">
+          Раунд II
+          
+          
+        </a>
+      
+        <a href="/2021-round-iii.html" class="active">
+          Раунд III
+          
+          
+            <span class="results-link-nav">[Итоги]</span>
+          
+        </a>
+      
+    </div>
+    <div class="nav-group year-nav">
+      <div class="nav-group-title">Другие годы</div>
+      
+        <a href="/2021.html" class="active">2021</a>
+      
+        <a href="/2025.html" >2025</a>
+      
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      <header class="main-header">
+        <h1>2021 — Раунд III</h1>
+        <h2>Голосование</h2>
+      </header>
+      <div class="subgroups-nav-container">
+        
+          <div class="subgroup-nav-column">
+            <ol><li>
+                  <a class="smooth-scroll-link" href="#author-1-homepunk">homepunk vs Анатолий Александрийский | Far Cry 2</a>
+                </li><li>
+                  <a class="smooth-scroll-link" href="#author-3-sofya-volman">Софья Вольман vs Perfect Snake | Dark Messiah of Might &amp; Magic</a>
+                </li><li>
+                  <a href="#"><del>Максим Семисенко</del> vs <del>Hypernothingness</del> | Goat Simulator</a>
+                </li><li>
+                  <a class="smooth-scroll-link" href="#author-7-sergey-khramtsov">Сергей Храмцов vs <del>Даша Земцова</del> | Grand Theft Auto IV</a>
+                </li><li>
+                  <a class="smooth-scroll-link" href="#author-10-sasha-markina"><del>Максим Новиков</del> vs Саша Маркина | Max Payne 2</a>
+                </li></ol>
+          </div>
+        
+          <div class="subgroup-nav-column">
+            <ol><li>
+                  <a class="smooth-scroll-link" href="#author-11-myau-vau">мяу вау | Far Cry 2</a>
+                </li></ol>
+          </div>
+        
+      </div>
+      
+        
+        <div class="subgroup-header">Подгруппа 1: Физика</div>
+        
+        
+            <div class="pair-divider"><span>Пара #1 | Far Cry 2</span></div>
+            
+              
+                <section id="author-1-homepunk" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/homepunk.html">homepunk</a></h2></div>
+                  
+                  
+                    
+                      <div class="text-block"><p>Иллюстрация протекания взрыва как одного из самых быстротекущих физических процессов, а также силы его воздействия на окружающие объекты.</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/1.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/1.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/2.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/2.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/3.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/3.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/4.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/4.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/5.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/5.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/6.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/6.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/7.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/7.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/8.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/8.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/9.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/9.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/10.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 235px;">
+                                  <img src="/thumbnails/1-homepunk/10.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/11.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 235px;">
+                                  <img src="/thumbnails/1-homepunk/11.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/12.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 369px;">
+                                  <img src="/thumbnails/1-homepunk/12.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/13.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/13.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/14.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/14.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/1-homepunk/15.png" data-lightbox="author-1-homepunk-block-1" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/1-homepunk/15.png" alt="Медиа от homepunk" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+              
+                <section id="author-2-anatoliy-aleksandriyskiy" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/anatoliy-aleksandriyskiy.html">Анатолий Александрийский</a></h2></div>
+                  <div class="instruments">Инструменты: ReShade</div>
+                  
+                    
+                      <div class="text-block"><p>Итак, если ты когда-нибудь, среди ясной ночи смотря на несказанную красоту звезд, составлял себе понятие о Художнике всяческих, Кто Сей испестривший небо сими цветами, и почему в видимом мире более необходимого, нежели приятного. И опять, если во время дня трезвенным разумом изучал ты дивные чудеса, то пришел ты сюда готовым слушателем, достойным того, чтобы восполнить собою сие честное и блаженное позорище.</p>
+<p>Приступите же! Как в городах берут за руку и всюду водят людей, в них не бывавших, так и я введу вас в сокровенные чудеса сего великого града. А в этом граде, в котором древнее наше отечество, и из которого изгнал нас человекоубийца-демон, поработивший человека своими приманками, – в этом граде увидишь ты первое бытие человека и вскоре постигшую нас смерть, которую породил грех – этот первородный плод начальника зла – демона. Здесь познаешь и себя самого, земного по природе, но дело Божиих рук, много уступающего бессловесным в силе, но поставленного властелином над бессловесными и неодушевленными тварями, умаленного в том, чем снабдила природа, но по превосходству разума способного возноситься в самое небо.</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/000.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/000.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/1.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/1.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/001.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/001.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/002.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/002.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/003.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/003.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/005.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/005.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/010.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/010.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/011.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/011.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/012.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/012.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/014.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/014.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/015.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/015.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/016.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/016.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/018.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/018.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/022.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/022.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/028.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/028.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/030.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/030.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/2-anatoliy-aleksandriyskiy/032.png" data-lightbox="author-2-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2-anatoliy-aleksandriyskiy/032.png" alt="Медиа от Анатолий Александрийский" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+          
+          
+        
+            <div class="pair-divider"><span>Пара #2 | Dark Messiah of Might &amp; Magic</span></div>
+            
+              
+                <section id="author-3-sofya-volman" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/sofya-volman.html">Софья Вольман</a></h2></div>
+                  <div class="instruments">Инструменты: Сonsole commands | ReShade</div>
+                  
+                    
+                      <div class="text-block"><p>Отладочная визуализация как визуализация физики игры</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/1.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/3-sofya-volman/1.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/2.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/3-sofya-volman/2.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/3.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/3.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/4.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/4.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/5.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/5.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/6.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/6.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/7.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/7.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/8.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/3-sofya-volman/8.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/9.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 283px;">
+                                  <img src="/thumbnails/3-sofya-volman/9.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/10.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 279px;">
+                                  <img src="/thumbnails/3-sofya-volman/10.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/11.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 278px;">
+                                  <img src="/thumbnails/3-sofya-volman/11.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/12.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 422px;">
+                                  <img src="/thumbnails/3-sofya-volman/12.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/13.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 208px;">
+                                  <img src="/thumbnails/3-sofya-volman/13.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/14.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 210px;">
+                                  <img src="/thumbnails/3-sofya-volman/14.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/15.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 598px;">
+                                  <img src="/thumbnails/3-sofya-volman/15.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/16.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 252px;">
+                                  <img src="/thumbnails/3-sofya-volman/16.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/17.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 264px;">
+                                  <img src="/thumbnails/3-sofya-volman/17.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/18.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 265px;">
+                                  <img src="/thumbnails/3-sofya-volman/18.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/19.png" data-lightbox="author-3-sofya-volman-block-1" data-title="Софья Вольман" class="image-item" style="flex-basis: 312px;">
+                                  <img src="/thumbnails/3-sofya-volman/19.png" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                    
+                      <div class="text-block"><p>Консольные команды и скрипты для игры — как законы физики для реальности. <br>За реалистичными объектами и пейзажами скрываются коды, команды, вычисления...</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/1-1.jpg" data-lightbox="author-3-sofya-volman-block-3" data-title="Софья Вольман" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/3-sofya-volman/1-1.jpg" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/2-1.jpg" data-lightbox="author-3-sofya-volman-block-3" data-title="Софья Вольман" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/3-sofya-volman/2-1.jpg" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/3-sofya-volman/3-1.jpg" data-lightbox="author-3-sofya-volman-block-3" data-title="Софья Вольман" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/3-sofya-volman/3-1.jpg" alt="Медиа от Софья Вольман" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+              
+                <section id="author-4-perfect-snake" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/perfect-snake.html">Perfect Snake</a></h2></div>
+                  
+                  
+                    
+                      <div class="text-block"><p>В рамках темы "Физика" я хотел показать оптические искажения, которые я получил, зайдя персонажем в переливающийся луч света и установив значение угла обзора на 179 градусов.</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/1.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/1.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/2.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/2.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/3.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/3.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/4.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/4.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/5.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/5.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/4-perfect-snake/6.jpg" data-lightbox="author-4-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/4-perfect-snake/6.jpg" alt="Медиа от Perfect Snake" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+          
+          
+        
+          
+        
+            <div class="pair-divider"><span>Пара #4 | Grand Theft Auto IV</span></div>
+            
+              
+                <section id="author-7-sergey-khramtsov" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/sergey-khramtsov.html">Сергей Храмцов</a></h2></div>
+                  
+                  
+                    
+                      <div class="text-block"><p>Не знаю зачем писать текст, я всё сказал в скриншотах. А надо ещё и два. (но правила есть правила, соблюдаю их)</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/1.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/1.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/2.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/2.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/3.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/3.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/4.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/4.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/5.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/5.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/6.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/6.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/7.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/7.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/8.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/8.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/9.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/9.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/7-sergey-khramtsov/10.jpg" data-lightbox="author-7-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/7-sergey-khramtsov/10.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+              
+            
+          
+          
+        
+            <div class="pair-divider"><span>Пара #5 | Max Payne 2</span></div>
+            
+              
+            
+              
+                <section id="author-10-sasha-markina" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/sasha-markina.html">Саша Маркина</a></h2></div>
+                  
+                  
+                    
+                      <div class="text-block"><p>ЛЕВИТАЦИЯ - Предположительно существующая способность организма человека преодолевать физические силы земного притяжения и перемещаться в пространстве по воздуху.</p>
+<p>героиня моей серии - учительница физики, которая мечтает преодолеть силу притяжения и взлететь. каждый день перед сном она прыгает на кровати в своей спальне, пытаясь поймать момент невесомости. а вечерами, после проверки тетрадок, она проводит эксперименты с реактивной тягой пистолетов во дворе своего дома. но взлететь никак не получается. тем обиднее наблюдать, как твои собственные ученики, завалившие егэ и устроившиеся работать уборщиками в клининговый сервис Squeky, поднимаются в воздух легчайшим усилием воли. история заканчивается трагически: наша героиня выходит в окно, совершает первый и последний в своей жизни полёт и приземляется на холодном асфальте. обеспокоенные выпускники, спешащие на помощь, уже не смогут её спасти. остаётся надеяться, что в следующей жизни она родится птицей.</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/1.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/10-sasha-markina/1.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/2.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/2.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/3.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/3.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/4.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/4.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/5.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/5.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/6.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/6.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/7.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/7.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/8.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 281px;">
+                                  <img src="/thumbnails/10-sasha-markina/8.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/9.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 279px;">
+                                  <img src="/thumbnails/10-sasha-markina/9.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/10.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/10.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/11.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/11.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/12.jpg" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/12.jpg" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/13.png" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/13.png" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/14.png" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/14.png" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/15.png" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/15.png" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/10-sasha-markina/16.png" data-lightbox="author-10-sasha-markina-block-1" data-title="Саша Маркина" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/10-sasha-markina/16.png" alt="Медиа от Саша Маркина" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+          
+          
+        
+        
+      
+        
+        <div class="subgroup-header">Подгруппа 2: Сверхъестественное</div>
+        
+        
+            <div class="pair-divider"><span>Пара #6 | Far Cry 2</span></div>
+            
+              
+                <section id="author-11-myau-vau" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/myau-vau.html">мяу вау</a></h2></div>
+                  <div class="instruments">Инструменты: Cheat Engine | Far Cry 2 Multifixer</div>
+                  
+                    
+                      <div class="text-block"><p>о̯̯ч̛̛̯̯̯̯̯̯̯̯̯̯̯̯̯̯̰̰̰̽ч̰̰̰̰̰̰̰̰̰̰̰̰̰̱̱̱̱̱̱̱̽̾̾ч̱̱̱̱̱̱̱̱̱ки . <br>единственное што осталось от мистера пупс᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂ͤͤи᷂ка после того большого взрыва в Жыже <br>он не успел сдел̫̫̫̫̫̫̫̫̫̫̫̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̔̔а̬ть кое что важное спеть нелепую песню перед своими друзьями которых он считал животными или мразями или губусеницами</p>
+<p>сначала были пятна͎͎͎ и он думал што его друзья наконец то пл̴̖̖̖̖̖̖̖̖̖̗̗̗̗̗̀́а̵̗̗̗̗̗̗̗̗̗̗̗́вятся от его пения но он не заметил што занимался этим сам (плавался) и он немного расстроился сначала что это были не его друзя но потом окоченел и успокоился</p>
+<p>кажется ему больше комфортнее быть без лица и тела теперь никто не сможет прочитать какие морщины на его лице отвечают за убийство тысяч невинных чипсиков лэйс <br>пр̳̳̳̳̳̳̳̳̳̳̳̳̳̀̀а̳̳̳вда колу теперь особо не попьеш и не пописаеш и не подрочиш <br>но ладно мне и так хорошо <br>но все это загадочно <br>во т</p>
+<p>-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡ -͟͡-͟͡-͟͡</p>
+<p>техническая инфа. использовались консольные команды (активируются на команду devmodeon. для работы нужен far cry 2 multifixer) env_TimeScale, env_Hour и env_Minutes. лавированием этих трех команд удалось выследить с помощью cheat engine значения, отвечающие за свечения облаков (при включенном bloom'е)</p>
+<p>для визуальных приколов использовалась команда draw_method (4,10 и 24 снимки)</p>
+<p>для удобства нахождения в игре использовались ai_IgnorePlayer, cheat_GodMode, cheat_UnlimitedAmmo</p>
+<p>для прыганий по локациям использовалась команда teleport_to_current_objective</p>
+<p>с помощью cheat engine были найдены fov, ячейки с разрешением игры (благодаря чему можно было делать около сплитскрины и штото странное еше)(за помощи спасибо i̵͖͖͖͖͖͖͆͆͆͆͆͆ͅu᷂᷂̪̪̪̪̪͆͌͌͌͌̓ͅm͇͕͕͊͗͗͗͗), камера, и еше разные мистические приколы которые не очень легко описать</p>
+</div>
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/1.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/11-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/2.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/3.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                                  <img src="/thumbnails/11-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/4.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/5.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                                  <img src="/thumbnails/11-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/6.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 349px;">
+                                  <img src="/thumbnails/11-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/7.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                                  <img src="/thumbnails/11-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/8.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/9.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/10.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/10.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/11.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/11.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/11f.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                                  <img src="/thumbnails/11-myau-vau/11f.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/12.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/12.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/13.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                                  <img src="/thumbnails/11-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/14.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/14.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/15.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/15.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/16.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/16.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/17.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                                  <img src="/thumbnails/11-myau-vau/17.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/18.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                                  <img src="/thumbnails/11-myau-vau/18.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/19.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/19.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/20.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/20.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/21.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/11-myau-vau/21.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/23.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 351px;">
+                                  <img src="/thumbnails/11-myau-vau/23.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/24.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 499px;">
+                                  <img src="/thumbnails/11-myau-vau/24.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                
+                                <a href="/images/11-myau-vau/25.png" data-lightbox="author-11-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/11-myau-vau/25.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+          
+          
+        
+        
+       
+      
+      <div class="results-link-container">
+        <a href="/2021-round-iii-results.html" class="results-link-button">
+          🏆 Посмотреть итоги раунда 🏆
+        </a>
+      </div>
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/static/lightbox/js/lightbox.min.js"></script>
+    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+                const resultsLink = document.querySelector('.results-link-nav');
+        if (resultsLink) {
+          resultsLink.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); window.location.href = `/2021-round-iii-results.html`; });
+        }
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('#main-nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', navLinks.classList.contains('is-open'));
+            });
+            document.addEventListener('click', function(event) {
+                const isClickInsideMenu = navLinks.contains(event.target);
+                const isClickOnToggle = navToggle.contains(event.target);
+                if (navLinks.classList.contains('is-open') && !isClickInsideMenu && !isClickOnToggle) {
+                    navLinks.classList.remove('is-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>секретный участник* | Портфолио</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <style>
+      :root {
+        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
+        --secondary-text-color: #555; --border-color: #e0e0e0; --accent-color: #8e44ad;
+        --round-card-bg: #ffffff;
+        --content-indent: 30px;
+      }
+      body { margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); scroll-behavior: smooth; }
+      .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+      
+      .main-header {
+          padding: 20px 0; 
+          margin-bottom: 40px; 
+          border-bottom: 1px solid var(--border-color);
+          padding-left: var(--content-indent);
+          text-align: left;
+      }
+      .main-header h1 { font-size: 3rem; margin: 0; }
+      .main-header .portfolio-link { display: inline-block; margin-top: 10px; color: var(--accent-color); text-decoration: none; font-size: 1.2rem; }
+      .main-header .portfolio-link:hover { text-decoration: underline; }
+      
+      .back-link {
+          display: inline-block; margin-bottom: 20px; 
+          color: var(--secondary-text-color); text-decoration: none; font-weight: bold;
+          padding-left: var(--content-indent);
+      }
+      .back-link:hover { color: var(--primary-text-color); }
+      
+      .round-block {
+          background-color: var(--round-card-bg); 
+          border: 1px solid var(--border-color); 
+          border-radius: 12px; 
+          margin-bottom: 40px;
+          padding: 15px var(--content-indent) var(--content-indent);
+          scroll-margin-top: 20px;  
+      }
+      .round-header { padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); }
+      .round-header h2 { font-size: 2.2rem; margin: 0; }
+      .round-header h3 { font-size: 1.5rem; color: var(--secondary-text-color); margin: 5px 0 0 0; font-weight: 400; }
+      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 15px; }
+      
+      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
+      .text-block p { margin: 0 0 0.75em 0; }
+      .text-block p:last-child { margin-bottom: 0; }
+      .text-block a { color: var(--accent-color); }
+
+      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
+      .image-row { display: flex; flex-direction: row; gap: 10px; }
+      .image-item { flex-grow: 1; position: relative; }
+      .image-item img { width: 100%; height: auto; display: block; }
+
+      @media (max-width: 768px) {
+          :root { --content-indent: 15px; }
+          .container { padding: 10px; }
+          .main-header h1 { font-size: 2rem; }
+          .round-header h2 { font-size: 1.5rem; }
+          .round-header h3 { font-size: 1.1rem; }
+          .image-row { flex-direction: column; }
+          .image-item { flex-basis: auto !important; width: 100%; }
+          .main-header h1, .round-header h2, .round-header h3 { overflow-wrap: break-word; word-wrap: break-word; }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <a href="/authors.html" class="back-link">← К списку авторов</a>
+      <header class="main-header">
+        <h1>секретный участник*</h1>
+        
+      </header>
+      
+      <section class="round-block" id="submission-2021">
+        <div class="round-header">
+          <h2>2021 — Раунд I</h2>
+          <h3>Тема: Решающий момент | Игра: серия Thief</h3>
+<div class="instruments">Инструменты: Sneaky Tweaker | Cheat Engine | Move Mouse</div>
+        </div>
+        
+          
+            <div class="text-block"><p>изображение, которое было на экране, когда мышь начала двигаться, становится фоновой картинкой. поверх неё в небольшом окошке настраиваемого размера отрисовывается то, что происходит в игре прямо сейчас (аналогичное по размеру прозрачное окошко в левом верхнем углу экрана постепенно заполняется белой пеленой блума). как только мышь останавливается, фоновая картинка пропадает, и игра возвращается к нормальному отображению.\</p>
+<p>в фокусе оказывается нечто ускользающее — но не привычный момент, а небольшой фрагмент времени, готовая исчезнуть связь между настоящим и совсем недавним прошлым, к сохранению которой нужно прилагать физическое усилие.</p>
+<p>(или нет)</p>
+<p>координировать свои движения во время съёмки было довольно трудно, так что я автоматизировал процесс: программа Move Mouse двигала за меня мышь в случайном направлении с заданным интервалом, а для самой съёмки я использовал функцию "Повтор захвата экрана каждые (сек.)" в Bandicam, которая также с регулярным интервалом запечатлевала происходящее на экране. от меня предварительно требовалось лишь создать нужную ситуацию в игре и установить через Cheat Engine координаты камеры (или двух камер, между которыми я мог переключаться горячими клавишами). при этом, поскольку я использовал SRWE, чтобы снимать в разрешении больше экранного, во время съёмки я видел только небольшой фрагмент своего будущего кадра (обычно SRWE используется вместе с паузой, чтобы изображение могло быть тщательно спланировано до того, как будет изменено разрешение — но я стремился выхватывать моменты из непрерывного потока времени, и пауза мне бы только помешала).<br>в дополнение ко всему этому я изменял цвета атмосферного и точечного освещения, перемещал источники света, осторожно ломал анимации Гаррета, делал мир прозрачным и поднимал в воздух NPC.</p>
+<p>________________<br>*на самом деле я не должен был быть секретным участником; эта роль отводилась кому-то более непредсказуемому, но в самый последний момент из этих планов ничего не вышло, увы!</p>
+</div>
+          
+        
+          
+            <div class="images-gallery">
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/1.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/1.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/2.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/2.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/3.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/3.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/4.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/4.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/5.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/5.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/6.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/6.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/7.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 360px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/7.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/8.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 240px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/8.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/9.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 240px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/9.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/10.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 233px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/10.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/11.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 233px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/11.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/12.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 373px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/12.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/13.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/13.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/14.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/14.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/15.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/15.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/16.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/16.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/17.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/17.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/18.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/18.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/19.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 860px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/19.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/20.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/20.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/21.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/21.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/22.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/22.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+                <div class="image-row">
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/23.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 425px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/23.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                    <a href="/images/36-sekretnyy-uchastnik/24.png" data-lightbox="submission-0-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 425px;">
+                      <img src="/thumbnails/36-sekretnyy-uchastnik/24.png" alt="Фото секретный участник*" loading="lazy">
+                    </a>
+                  
+                </div>
+              
+            </div>
+          
+        
+      </section>
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/static/lightbox/js/lightbox.min.js"></script>
+    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+</body>
+</html>
