@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"> 
+    <title>2021 - Раунд IV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <style>
+      :root {
+        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
+        --secondary-text-color: #444444; --border-color: #e0e0e0; --accent-color: #8e44ad;
+        --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
+        --content-indent: 25px;
+      }
+      body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
+      .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; }
+      
+      .main-nav { position: sticky; top: 0; background-color: var(--surface-color); border-bottom: 1px solid var(--border-color); z-index: 1000; display: flex; justify-content: space-between; align-items: center; min-height: var(--nav-height); padding: 0 15px; }
+      .nav-toggle { display: none; background: transparent; border: none; padding: 0; width: 30px; height: 30px; flex-direction: column; justify-content: space-around; cursor: pointer; z-index: 1001; }
+      .nav-toggle .line { width: 100%; height: 3px; background-color: var(--primary-text-color); border-radius: 3px; transition: transform 0.3s, opacity 0.3s; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+      
+      .nav-links { display: flex; align-items: center; width: 100%; justify-content: space-between; }
+      .nav-group { display: flex; align-items: center; height: 100%; flex-wrap: wrap; }
+      .year-nav { justify-content: flex-end; }
+      
+      .nav-group-title { display: none; }
+      .nav-group a { padding: 0 15px; text-decoration: none; color: var(--secondary-text-color); font-weight: 700; display: flex; align-items: center; height: var(--nav-height); transition: all 0.2s; }
+      .nav-group a:hover { color: var(--primary-text-color); }
+      .nav-group a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; }
+      
+      .results-link-nav { font-size: 0.8em; font-weight: 400; margin-left: 8px; opacity: 0.7; color: var(--accent-color); text-decoration: none; cursor: pointer; }
+      .nav-group a:hover .results-link-nav, .nav-group a.active .results-link-nav { text-decoration: underline; opacity: 1; }
+
+      .main-header, .subgroups-nav-container, .subgroup-header, .pair-divider { padding-left: var(--content-indent); }
+      .main-header { padding-top: 20px; margin-bottom: 30px; }
+      .main-header h1 { font-size: 3.5rem; margin: 0; text-align: left; }
+      .main-header h2 { font-size: 3rem; margin: 10px 0; text-align: left; }
+      .subgroups-nav-container { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; }
+      .subgroup-nav-column { flex: 1; min-width: 0; }
+      .subgroup-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 15px; }
+      .subgroup-nav-column ol { padding-left: 20px; margin: 0; }
+      .subgroup-nav-column li { margin-bottom: 12px; }
+      .subgroup-nav-column a { color: var(--accent-color); }
+      .subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+      .pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
+      .pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+      .pair-divider:first-of-type { margin-top: 0; }
+      .author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
+      .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); }
+      .author-header .author-name a:hover { color: var(--accent-color); }
+      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 5px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
+      .text-block p { margin: 0 0 0.75em 0; }
+      .text-block p:last-child { margin-bottom: 0; }
+      .text-block a { color: var(--accent-color); }
+      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+      .image-row { display: flex; flex-direction: row; gap: 10px; }
+      .image-item { flex-grow: 1; position: relative; line-height: 0; }
+      .image-item img { width: 100%; height: auto; display: block; }
+      .image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
+      
+      .results-link-container { margin-top: 60px; padding: 40px var(--content-indent); text-align: center; border-top: 1px solid var(--border-color); }
+      .results-link-button { display: inline-block; padding: 12px 24px; border: 2px solid var(--accent-color); background-color: transparent; color: var(--accent-color); font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+      .results-link-button:hover { background-color: var(--accent-color); color: white; }
+
+      .poll-container { margin-top: 30px; display: flex; justify-content: center; }
+      .subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+      .subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; } 
+      .strikethrough { text-decoration: line-through; text-decoration-thickness: 1px; text-decoration-color: var(--secondary-text-color); }
+
+.subgroup-nav-column a,
+.author-header .author-name a {
+  text-decoration: underline;
+  text-decoration-color: transparent;  
+  text-decoration-thickness: 2px;  
+  text-underline-offset: 3px;  
+  transition: text-decoration-color 300ms ease;  
+}
+
+.subgroup-nav-column a:hover,
+.author-header .author-name a:hover {
+  text-decoration-color: var(--accent-color);  
+}
+      
+      @media (max-width: 768px) {
+          :root { --content-indent: 15px; }
+          .container { padding: 10px; }
+          .main-nav { justify-content: flex-end; }
+          .nav-toggle { display: flex; }
+          .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background-color: var(--surface-color); border-top: 1px solid var(--border-color); max-height: calc(100vh - var(--nav-height) - 1px); }
+          .nav-links.is-open { display: flex; flex-direction: column; }
+          .round-nav { order: 1; overflow-y: auto; }
+          .year-nav { order: 2; }
+          .nav-group { flex-direction: column; width: 100%; align-items: stretch; }
+          .nav-group-title { display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary-text-color); background-color: #e9ecef; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
+          .round-nav a { justify-content: flex-start; border-bottom: 1px solid var(--border-color); }
+          .round-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-left: 4px solid var(--accent-color); padding-left: calc(15px - 4px); }
+          .year-nav { display: flex; flex-direction: row; flex-wrap: nowrap; background-color: #e9ecef; align-items: stretch; }
+          .year-nav .nav-group-title { display: none; }
+          .year-nav::before { content: ''; flex-grow: 1; }
+          .year-nav a { flex-shrink: 0; justify-content: center; border-left: 1px solid var(--border-color); border-bottom: none; }
+          .year-nav a:first-of-type { border-left: none; }
+          .year-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-right: 4px solid var(--accent-color); border-left: 1px solid var(--border-color); padding-right: calc(15px - 4px); }
+          .subgroups-nav-container { display: none; }
+          .main-header h1 { font-size: 2.2rem; }
+          .main-header h2 { font-size: 1.8rem; }
+          .image-row { flex-direction: column; }
+          .image-item { flex-basis: auto !important; width: 100%; }
+          .main-header h1, .main-header h2, .subgroup-header, .pair-divider span { white-space: normal; overflow-wrap: break-word; word-wrap: break-word; }
+      }
+    </style>
+</head>
+<body>
+    
+<nav class="main-nav">
+  <button class="nav-toggle" aria-controls="main-nav-links" aria-expanded="false">
+    <span class="sr-only">Открыть меню</span>
+    <span class="line"></span><span class="line"></span><span class="line"></span>
+  </button>
+
+  <div class="nav-links" id="main-nav-links">
+    <div class="nav-group round-nav">
+      <div class="nav-group-title">Раунды 2021</div>
+      
+        <a href="/2021-round-i.html" class="">
+          Раунд I
+          
+          
+        </a>
+      
+        <a href="/2021-round-ii.html" class="">
+          Раунд II
+          
+          
+        </a>
+      
+        <a href="/2021-round-iii.html" class="">
+          Раунд III
+          
+          
+        </a>
+      
+        <a href="/2021-round-iv.html" class="active">
+          Раунд IV
+          
+          
+        </a>
+      
+    </div>
+    <div class="nav-group year-nav">
+      <div class="nav-group-title">Другие годы</div>
+      
+        <a href="/2021.html" class="active">2021</a>
+      
+        <a href="/2025.html" >2025</a>
+      
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+      <header class="main-header">
+        <h1>2021 — Раунд IV</h1>
+        <h2>Голосование</h2>
+      </header>
+      <div class="subgroups-nav-container">
+        
+          <div class="subgroup-nav-column">
+            <ol><li><a class="smooth-scroll-link" href="#author-1-myau-vau">мяу вау | Mount &amp; Blade</a>
+                </li></ol>
+          </div>
+        
+      </div>
+      
+        
+        <div class="subgroup-header">Автопортрет</div>
+        
+        
+            <div class="pair-divider"><span>Пара #1 | Mount &amp; Blade</span></div>
+            
+              
+                <section id="author-1-myau-vau" class="author-block">
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/myau-vau.html">мяу вау</a></h2></div>
+                  
+                  
+                    
+                  
+                    
+                      <div class="images-gallery">
+                        
+                      </div>
+                    
+                  
+                </section>
+              
+            
+          
+          
+        
+        
+       
+
+
+      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/static/lightbox/js/lightbox.min.js"></script>
+    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+                const resultsLink = document.querySelector('.results-link-nav');
+        if (resultsLink) {
+          resultsLink.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); window.location.href = `/2021-round-iv-results.html`; });
+        }
+
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('#main-nav-links');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('is-open');
+                this.setAttribute('aria-expanded', navLinks.classList.contains('is-open'));
+            });
+            document.addEventListener('click', function(event) {
+                const isClickInsideMenu = navLinks.contains(event.target);
+                const isClickOnToggle = navToggle.contains(event.target);
+                if (navLinks.classList.contains('is-open') && !isClickInsideMenu && !isClickOnToggle) {
+                    navLinks.classList.remove('is-open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+      });
+    </script>
+</body>
+</html>
