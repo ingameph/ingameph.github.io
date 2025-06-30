@@ -11,7 +11,7 @@
     <style>
       :root {
         --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #666; --border-color: #e0e0e0; --accent-color: #8e44ad;
+        --secondary-text-color: #444444; --border-color: #e0e0e0; --accent-color: #8e44ad;
         --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
         --content-indent: 25px;
       }
@@ -43,15 +43,14 @@
       .subgroup-nav-column { flex: 1; min-width: 0; }
       .subgroup-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 15px; }
       .subgroup-nav-column ol { padding-left: 20px; margin: 0; }
-      .subgroup-nav-column li { margin-bottom: 8px; }
-      .subgroup-nav-column a { color: var(--accent-color); text-decoration: none; }
-      .subgroup-nav-column a:hover { text-decoration: underline; }
+      .subgroup-nav-column li { margin-bottom: 12px; }
+      .subgroup-nav-column a { color: var(--accent-color); }
       .subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
       .pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
       .pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
       .pair-divider:first-of-type { margin-top: 0; }
       .author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
-      .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); text-decoration: none; }
+      .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); }
       .author-header .author-name a:hover { color: var(--accent-color); }
       .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 5px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); }
       .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
@@ -60,65 +59,52 @@
       .text-block a { color: var(--accent-color); }
       .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
       .image-row { display: flex; flex-direction: row; gap: 10px; }
-      .image-item { flex-grow: 1; position: relative; line-height: 0;   }
+      .image-item { flex-grow: 1; position: relative; line-height: 0; }
       .image-item img { width: 100%; height: auto; display: block; }
       .image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
-      .results-link-container { margin-top: 60px; padding: 40px 0; text-align: center; border-top: 1px solid var(--border-color); }
-      .results-link-button { display: inline-block; padding: 15px 30px; background-color: var(--accent-color); color: white; font-size: 1.2rem; font-weight: 700; text-decoration: none; border-radius: 12px; transition: transform 0.2s, background-color 0.2s; }
-      .results-link-button:hover { background-color: #7a3a9a; transform: scale(1.05); }
+      
+      .results-link-container { margin-top: 60px; padding: 40px var(--content-indent); text-align: left; border-top: 1px solid var(--border-color); }
+      .results-link-button { display: inline-block; padding: 12px 24px; border: 2px solid var(--accent-color); background-color: transparent; color: var(--accent-color); font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+      .results-link-button:hover { background-color: var(--accent-color); color: white; }
+
       .poll-container { margin-top: 30px; display: flex; justify-content: center; }
       .subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
       .subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; } 
+      .strikethrough { text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--secondary-text-color); }
 
+.subgroup-nav-column a,
+.author-header .author-name a {
+  text-decoration: underline;
+  text-decoration-color: transparent;  
+  text-decoration-thickness: 2px;  
+  text-underline-offset: 3px;  
+  transition: text-decoration-color 300ms ease;  
+}
+
+.subgroup-nav-column a:hover,
+.author-header .author-name a:hover {
+  text-decoration-color: var(--accent-color);  
+}
+      
       @media (max-width: 768px) {
           :root { --content-indent: 15px; }
           .container { padding: 10px; }
           .main-nav { justify-content: flex-end; }
           .nav-toggle { display: flex; }
-          
           .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background-color: var(--surface-color); border-top: 1px solid var(--border-color); max-height: calc(100vh - var(--nav-height) - 1px); }
           .nav-links.is-open { display: flex; flex-direction: column; }
           .round-nav { order: 1; overflow-y: auto; }
           .year-nav { order: 2; }
-          
           .nav-group { flex-direction: column; width: 100%; align-items: stretch; }
           .nav-group-title { display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary-text-color); background-color: #e9ecef; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
-          
           .round-nav a { justify-content: flex-start; border-bottom: 1px solid var(--border-color); }
           .round-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-left: 4px solid var(--accent-color); padding-left: calc(15px - 4px); }
-          
-          .year-nav {
-              display: flex;
-              flex-direction: row;
-              flex-wrap: nowrap;
-              background-color: #e9ecef;
-              align-items: stretch;
-          }
+          .year-nav { display: flex; flex-direction: row; flex-wrap: nowrap; background-color: #e9ecef; align-items: stretch; }
           .year-nav .nav-group-title { display: none; }
-          
-          .year-nav::before {
-              content: '';
-              flex-grow: 1;
-          }
-          
-          .year-nav a { 
-              flex-shrink: 0;
-              justify-content: center; 
-              border-left: 1px solid var(--border-color); 
-              border-bottom: none; 
-          }
-          .year-nav a:first-of-type {
-              border-left: none;
-          }
-          .year-nav a.active { 
-              background-color: var(--nav-active-bg);
-              color: var(--nav-active-text);
-              font-weight: 800;
-              border-right: 4px solid var(--accent-color);
-              border-left: 1px solid var(--border-color);
-              padding-right: calc(15px - 4px);
-          }
-
+          .year-nav::before { content: ''; flex-grow: 1; }
+          .year-nav a { flex-shrink: 0; justify-content: center; border-left: 1px solid var(--border-color); border-bottom: none; }
+          .year-nav a:first-of-type { border-left: none; }
+          .year-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-right: 4px solid var(--accent-color); border-left: 1px solid var(--border-color); padding-right: calc(15px - 4px); }
           .subgroups-nav-container { display: none; }
           .main-header h1 { font-size: 2.2rem; }
           .main-header h2 { font-size: 1.8rem; }
@@ -180,46 +166,28 @@
       <div class="subgroups-nav-container">
         
           <div class="subgroup-nav-column">
-            <ol><li>
-                  <a class="smooth-scroll-link" href="#author-1-dinila-khozayev">Данила Хозяев vs Hypernothingness | Tomb Raider: Legend</a>
-                </li><li>
-                  <a href="#"><del>Никита Спасский</del> vs <del>Полина Мельникова</del> | The Elder Scrolls III: Morrowind</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-5-jeyjgry">jeyjgry vs <del>Антон Ткаленко</del> | Syndicate</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-7-myau-vau">мяу вау vs Максим Семисенко | Deus Ex</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-9-aimbot">aimbot vs Яков Андреевич | Gothic 3</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-11-fedor-pushkarev">Фёдор Пушкарёв vs Александр Павлов | Doom III</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-13-aleksander-kovalev">Александр Ковалев vs <del>Евгения Уткина</del> | Urban Chaos</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-15-homepunk">homepunk vs <del>Михаил Макрушин</del> | Grand Theft Auto: San Andreas</a>
-                </li><li>
-                  <a href="#"><del>Kaspar Fahrenheit</del> vs <del>Никита Сомов</del> | серия Thief</a>
+            <ol><li><a class="smooth-scroll-link" href="#author-1-dinila-khozayev">Данила Хозяев vs Hypernothingness | Tomb Raider: Legend</a>
+                </li><li><a href="#"><span class="strikethrough">Никита Спасский vs Полина Мельникова | The Elder Scrolls III: Morrowind</span></a>
+                </li><li><a class="smooth-scroll-link" href="#author-5-jeyjgry">jeyjgry vs <span class="strikethrough">Антон Ткаленко</span> | Syndicate</a>
+                </li><li><a class="smooth-scroll-link" href="#author-7-myau-vau">мяу вау vs Максим Семисенко | Deus Ex</a>
+                </li><li><a class="smooth-scroll-link" href="#author-9-aimbot">aimbot vs Яков Андреевич | Gothic 3</a>
+                </li><li><a class="smooth-scroll-link" href="#author-11-fedor-pushkarev">Фёдор Пушкарёв vs Александр Павлов | Doom III</a>
+                </li><li><a class="smooth-scroll-link" href="#author-13-aleksander-kovalev">Александр Ковалев vs <span class="strikethrough">Евгения Уткина</span> | Urban Chaos</a>
+                </li><li><a class="smooth-scroll-link" href="#author-15-homepunk">homepunk vs <span class="strikethrough">Михаил Макрушин</span> | Grand Theft Auto: San Andreas</a>
+                </li><li><a href="#"><span class="strikethrough">Kaspar Fahrenheit vs Никита Сомов | серия Thief</span></a>
                 </li></ol>
           </div>
         
           <div class="subgroup-nav-column">
-            <ol><li>
-                  <a class="smooth-scroll-link" href="#author-20-dasha-zemtsova"><del>Очень Ласково</del> vs Даша Земцова | Tomb Raider: Legend</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-22-sergey-khramtsov"><del>Лев Брекалов</del> vs Сергей Храмцов | The Elder Scrolls III: Morrowind</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-23-anatoliy-aleksandriyskiy">Анатолий Александрийский vs Perfect Snake | Syndicate(2012)</a>
-                </li><li>
-                  <a href="#"><del>Арсений Авраменко</del> vs <del>Пётр Абрамов</del> | Deus Ex</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-27-kirill-zelenkovskiy">Кирилл Зеленковский vs <del>Кирилл Евстифеев</del> | Gothic 3</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-30-amelia-stark"><del>Евгения Уткина</del> vs Amelia Stark | Doom III</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-31-egor-chernykh">Егор Черных vs Dima Matveev | Urban Chaos</a>
-                </li><li>
-                  <a href="#"><del>Константин Каракушко</del> vs <del>Алексей Чичов</del> | Grand Theft Auto: San Andreas</a>
-                </li><li>
-                  <a class="smooth-scroll-link" href="#author-35-vitalik-romanchenko">Виталик Романченко vs секретный участник* | серия Thief</a>
+            <ol><li><a class="smooth-scroll-link" href="#author-20-dasha-zemtsova"><span class="strikethrough">Очень Ласково</span> vs Даша Земцова | Tomb Raider: Legend</a>
+                </li><li><a class="smooth-scroll-link" href="#author-22-sergey-khramtsov"><span class="strikethrough">Лев Брекалов</span> vs Сергей Храмцов | The Elder Scrolls III: Morrowind</a>
+                </li><li><a class="smooth-scroll-link" href="#author-23-anatoliy-aleksandriyskiy">Анатолий Александрийский vs Perfect Snake | Syndicate(2012)</a>
+                </li><li><a href="#"><span class="strikethrough">Арсений Авраменко vs Пётр Абрамов | Deus Ex</span></a>
+                </li><li><a class="smooth-scroll-link" href="#author-27-kirill-zelenkovskiy">Кирилл Зеленковский vs <span class="strikethrough">Кирилл Евстифеев</span> | Gothic 3</a>
+                </li><li><a class="smooth-scroll-link" href="#author-30-amelia-stark"><span class="strikethrough">Евгения Уткина</span> vs Amelia Stark | Doom III</a>
+                </li><li><a class="smooth-scroll-link" href="#author-31-egor-chernykh">Егор Черных vs Dima Matveev | Urban Chaos</a>
+                </li><li><a href="#"><span class="strikethrough">Константин Каракушко vs Алексей Чичов | Grand Theft Auto: San Andreas</span></a>
+                </li><li><a class="smooth-scroll-link" href="#author-35-vitalik-romanchenko">Виталик Романченко vs секретный участник* | серия Thief</a>
                 </li></ol>
           </div>
         
@@ -242,14 +210,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/1.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Лара исследует заснеженные руины в Непале." class="image-item" style="flex-basis: 327px;">
                                   <img src="/thumbnails/1-dinila-khozayev/1.jpg" alt="Лара исследует заснеженные руины в Непале." loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Данила Хозяев" class="image-item" style="flex-basis: 523px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2.jpg" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -260,21 +226,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/3.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Данила Хозяев" class="image-item" style="flex-basis: 259px;">
                                   <img src="/thumbnails/1-dinila-khozayev/3.jpg" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/4.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Данила Хозяев" class="image-item" style="flex-basis: 265px;">
                                   <img src="/thumbnails/1-dinila-khozayev/4.jpg" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/5.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Акробатический прыжок." class="image-item" style="flex-basis: 316px;">
                                   <img src="/thumbnails/1-dinila-khozayev/5.jpg" alt="Акробатический прыжок." loading="lazy">
                                 </a>
@@ -285,14 +248,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/6.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Данила Хозяев" class="image-item" style="flex-basis: 271px;">
                                   <img src="/thumbnails/1-dinila-khozayev/6.jpg" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/7.jpg" data-lightbox="author-1-dinila-khozayev-block-0" data-title="Панорамный вид на гробницу. Это описание для широкого изображения." class="image-item" style="flex-basis: 579px;">
                                   <img src="/thumbnails/1-dinila-khozayev/7.jpg" alt="Панорамный вид на гробницу. Это описание для широкого изображения." loading="lazy">
                                 </a>
@@ -309,21 +270,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-1.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-1.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-2.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-2.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-3.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-3.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -334,21 +292,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-4.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-4.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-5.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-5.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-6.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-6.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -359,21 +314,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-7.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-7.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-8.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-8.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-9.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-9.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -384,21 +336,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-10.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-10.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-11.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-11.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-12.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-12.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -409,21 +358,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-13.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-13.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-14.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-14.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-15.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-15.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -434,21 +380,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-16.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-16.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-17.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-17.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/1-dinila-khozayev/2-18.png" data-lightbox="author-1-dinila-khozayev-block-1" data-title="Данила Хозяев" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/1-dinila-khozayev/2-18.png" alt="Медиа от Данила Хозяев" loading="lazy">
                                 </a>
@@ -478,14 +421,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/1.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/2-hypernothingness/1.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/2.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/2-hypernothingness/2.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
@@ -496,21 +437,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/3.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/3.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/4.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/4.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/5.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/5.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
@@ -521,21 +459,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/6.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/6.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/7.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/7.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/8.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/2-hypernothingness/8.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
@@ -546,14 +481,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/9.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/2-hypernothingness/9.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/2-hypernothingness/10.png" data-lightbox="author-2-hypernothingness-block-1" data-title="Hypernothingness" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/2-hypernothingness/10.png" alt="Медиа от Hypernothingness" loading="lazy">
                                 </a>
@@ -590,14 +523,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/1-1.jpg" data-lightbox="author-5-jeyjgry-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 427px;">
                                   <img src="/thumbnails/5-jeyjgry/1-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/1-2.jpg" data-lightbox="author-5-jeyjgry-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 423px;">
                                   <img src="/thumbnails/5-jeyjgry/1-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -608,14 +539,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/1-3.jpg" data-lightbox="author-5-jeyjgry-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
                                   <img src="/thumbnails/5-jeyjgry/1-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/1-4.jpg" data-lightbox="author-5-jeyjgry-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
                                   <img src="/thumbnails/5-jeyjgry/1-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -637,7 +566,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/2-1.jpg" data-lightbox="author-5-jeyjgry-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/5-jeyjgry/2-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -648,14 +576,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/2-2.jpg" data-lightbox="author-5-jeyjgry-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/5-jeyjgry/2-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/2-3.jpg" data-lightbox="author-5-jeyjgry-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/5-jeyjgry/2-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -678,21 +604,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-1.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/5-jeyjgry/3-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-2.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/5-jeyjgry/3-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-3.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/5-jeyjgry/3-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -703,21 +626,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-4.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
                                   <img src="/thumbnails/5-jeyjgry/3-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-5.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 282px;">
                                   <img src="/thumbnails/5-jeyjgry/3-5.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/3-6.jpg" data-lightbox="author-5-jeyjgry-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/5-jeyjgry/3-6.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -740,14 +660,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-1.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/5-jeyjgry/4-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-2.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/5-jeyjgry/4-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -758,21 +676,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-3.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
                                   <img src="/thumbnails/5-jeyjgry/4-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-4.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/5-jeyjgry/4-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-5.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 281px;">
                                   <img src="/thumbnails/5-jeyjgry/4-5.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -783,14 +698,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-6.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
                                   <img src="/thumbnails/5-jeyjgry/4-6.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-7.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
                                   <img src="/thumbnails/5-jeyjgry/4-7.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -801,14 +714,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-8.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
                                   <img src="/thumbnails/5-jeyjgry/4-8.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/5-jeyjgry/4-9.jpg" data-lightbox="author-5-jeyjgry-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
                                   <img src="/thumbnails/5-jeyjgry/4-9.jpg" alt="Медиа от jeyjgry" loading="lazy">
                                 </a>
@@ -855,7 +766,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/1.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/7-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -866,21 +776,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/2.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/3.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/4.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -891,21 +798,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/5.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/6.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/7.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -916,21 +820,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/8.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
                                   <img src="/thumbnails/7-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/9.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
                                   <img src="/thumbnails/7-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/10.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
                                   <img src="/thumbnails/7-myau-vau/10.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -941,21 +842,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/11.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/11.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/12.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/12.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/13.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -966,21 +864,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/14.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/14.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/15.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/15.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/16.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/16.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -991,21 +886,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/7-myau-vau/17.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/17.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/18.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/18.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/7-myau-vau/19.png" data-lightbox="author-7-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/7-myau-vau/19.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
@@ -1039,14 +931,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/1.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/1.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/2.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/2.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
@@ -1057,14 +947,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/3.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/3.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/4.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/4.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
@@ -1075,14 +963,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/5.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/5.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/8-maksim-semisenko/6.jpg" data-lightbox="author-8-maksim-semisenko-block-1" data-title="Максим Семисенко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/8-maksim-semisenko/6.jpg" alt="Медиа от Максим Семисенко" loading="lazy">
                                 </a>
@@ -1112,14 +998,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/9-aimbot/1.jpg" data-lightbox="author-9-aimbot-block-0" data-title="aimbot" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/9-aimbot/1.jpg" alt="Медиа от aimbot" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/9-aimbot/2.jpg" data-lightbox="author-9-aimbot-block-0" data-title="aimbot" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/9-aimbot/2.jpg" alt="Медиа от aimbot" loading="lazy">
                                 </a>
@@ -1144,7 +1028,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/01.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/10-yakov-andreevich/01.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
@@ -1155,21 +1038,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/02.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/02.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/03.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/03.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/04.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/04.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
@@ -1180,21 +1060,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/05.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/05.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/06.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/06.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/07.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/07.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
@@ -1205,21 +1082,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/08.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/08.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/09.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/09.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/10-yakov-andreevich/10.jpg" data-lightbox="author-10-yakov-andreevich-block-0" data-title="Яков Андреевич" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/10-yakov-andreevich/10.jpg" alt="Медиа от Яков Андреевич" loading="lazy">
                                 </a>
@@ -1249,21 +1123,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/01.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/01.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/02.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/02.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/03.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/03.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
@@ -1274,21 +1145,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/04.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/04.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/05.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/05.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/06.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/06.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
@@ -1299,21 +1167,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/07.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/07.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/08.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/08.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/11-fedor-pushkarev/09.jpg" data-lightbox="author-11-fedor-pushkarev-block-0" data-title="Фёдор Пушкарёв" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/11-fedor-pushkarev/09.jpg" alt="Медиа от Фёдор Пушкарёв" loading="lazy">
                                 </a>
@@ -1338,14 +1203,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/12-aleksandr-pavlov/1.jpg" data-lightbox="author-12-aleksandr-pavlov-block-0" data-title="Александр Павлов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/12-aleksandr-pavlov/1.jpg" alt="Медиа от Александр Павлов" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/12-aleksandr-pavlov/2.jpg" data-lightbox="author-12-aleksandr-pavlov-block-0" data-title="Александр Павлов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/12-aleksandr-pavlov/2.jpg" alt="Медиа от Александр Павлов" loading="lazy">
                                 </a>
@@ -1375,7 +1238,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/01.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/01.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
@@ -1386,21 +1248,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/02.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 262px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/02.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/03.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 316px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/03.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/04.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 262px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/04.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
@@ -1411,21 +1270,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/05.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 276px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/05.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/06.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 276px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/06.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/07.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 288px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/07.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
@@ -1436,21 +1292,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/08.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 241px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/08.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/09.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 303px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/09.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/13-aleksander-kovalev/10.jpg" data-lightbox="author-13-aleksander-kovalev-block-0" data-title="Александр Ковалев" class="image-item" style="flex-basis: 296px;">
                                   <img src="/thumbnails/13-aleksander-kovalev/10.jpg" alt="Медиа от Александр Ковалев" loading="lazy">
                                 </a>
@@ -1482,21 +1335,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/15-homepunk/1.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/1.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/2.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/2.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/3.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/3.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
@@ -1507,21 +1357,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/15-homepunk/4.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/4.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/5.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/5.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/6.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/6.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
@@ -1532,21 +1379,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/15-homepunk/7.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/7.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/8.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/8.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/15-homepunk/9.jpg" data-lightbox="author-15-homepunk-block-0" data-title="homepunk" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/15-homepunk/9.jpg" alt="Медиа от homepunk" loading="lazy">
                                 </a>
@@ -1569,7 +1413,6 @@
         
         
         <div class="subgroup-polls-container">
-          
           
             <h4>Голосование за лучшую серию в подгруппе</h4>
           
@@ -1601,14 +1444,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/20-dasha-zemtsova/01.jpg" data-lightbox="author-20-dasha-zemtsova-block-0" data-title="Даша Земцова" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/20-dasha-zemtsova/01.jpg" alt="Медиа от Даша Земцова" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/20-dasha-zemtsova/02.jpg" data-lightbox="author-20-dasha-zemtsova-block-0" data-title="Даша Земцова" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/20-dasha-zemtsova/02.jpg" alt="Медиа от Даша Земцова" loading="lazy">
                                 </a>
@@ -1619,14 +1460,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/20-dasha-zemtsova/03.jpg" data-lightbox="author-20-dasha-zemtsova-block-0" data-title="Даша Земцова" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/20-dasha-zemtsova/03.jpg" alt="Медиа от Даша Земцова" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/20-dasha-zemtsova/04.jpg" data-lightbox="author-20-dasha-zemtsova-block-0" data-title="Даша Земцова" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/20-dasha-zemtsova/04.jpg" alt="Медиа от Даша Земцова" loading="lazy">
                                 </a>
@@ -1667,14 +1506,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/22-sergey-khramtsov/1.jpg" data-lightbox="author-22-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/22-sergey-khramtsov/1.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/22-sergey-khramtsov/2.jpg" data-lightbox="author-22-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/22-sergey-khramtsov/2.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
                                 </a>
@@ -1685,14 +1522,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/22-sergey-khramtsov/3.jpg" data-lightbox="author-22-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/22-sergey-khramtsov/3.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/22-sergey-khramtsov/4.jpg" data-lightbox="author-22-sergey-khramtsov-block-1" data-title="Сергей Храмцов" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/22-sergey-khramtsov/4.jpg" alt="Медиа от Сергей Храмцов" loading="lazy">
                                 </a>
@@ -1727,14 +1562,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/1.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/1.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/2.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/2.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
@@ -1745,21 +1578,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/3.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/3.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/4.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/4.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/5.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/5.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
@@ -1770,21 +1600,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/6.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/6.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/7.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/7.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/23-anatoliy-aleksandriyskiy/8.jpg" data-lightbox="author-23-anatoliy-aleksandriyskiy-block-1" data-title="Анатолий Александрийский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/23-anatoliy-aleksandriyskiy/8.jpg" alt="Медиа от Анатолий Александрийский" loading="lazy">
                                 </a>
@@ -1814,21 +1641,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/1.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/24-perfect-snake/1.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/2.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/24-perfect-snake/2.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/3.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/24-perfect-snake/3.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
@@ -1839,21 +1663,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/4.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 222px;">
                                   <img src="/thumbnails/24-perfect-snake/4.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/5.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 395px;">
                                   <img src="/thumbnails/24-perfect-snake/5.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/6.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 222px;">
                                   <img src="/thumbnails/24-perfect-snake/6.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
@@ -1864,21 +1685,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/7.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 222px;">
                                   <img src="/thumbnails/24-perfect-snake/7.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/8.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 395px;">
                                   <img src="/thumbnails/24-perfect-snake/8.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/24-perfect-snake/9.jpg" data-lightbox="author-24-perfect-snake-block-1" data-title="Perfect Snake" class="image-item" style="flex-basis: 222px;">
                                   <img src="/thumbnails/24-perfect-snake/9.jpg" alt="Медиа от Perfect Snake" loading="lazy">
                                 </a>
@@ -1910,21 +1728,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/1.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/1.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/2.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/2.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/3.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/3.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
@@ -1935,21 +1750,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/4.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/4.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/5.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/5.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/6.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/6.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
@@ -1960,21 +1772,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/7.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/7.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/8.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/8.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/27-kirill-zelenkovskiy/9.jpg" data-lightbox="author-27-kirill-zelenkovskiy-block-0" data-title="Кирилл Зеленковский" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/27-kirill-zelenkovskiy/9.jpg" alt="Медиа от Кирилл Зеленковский" loading="lazy">
                                 </a>
@@ -2013,7 +1822,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/1.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Большой взрыв" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/30-amelia-stark/1.jpg" alt="Большой взрыв" loading="lazy">
                                 </a>
@@ -2024,21 +1832,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/2.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Amelia Stark" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/2.jpg" alt="Медиа от Amelia Stark" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/3.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Amelia Stark" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/3.jpg" alt="Медиа от Amelia Stark" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/4.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Подостыли" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/4.jpg" alt="Подостыли" loading="lazy">
                                 </a>
@@ -2049,21 +1854,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/5.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Вода на Земле!" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/5.jpg" alt="Вода на Земле!" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/6.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Появление человека" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/6.jpg" alt="Появление человека" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/7.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Огонь добытый" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/7.jpg" alt="Огонь добытый" loading="lazy">
                                 </a>
@@ -2074,21 +1876,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/8.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Распятие" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/8.jpg" alt="Распятие" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/9.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Гипотеза симуляции" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/9.jpg" alt="Гипотеза симуляции" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/30-amelia-stark/10.jpg" data-lightbox="author-30-amelia-stark-block-1" data-title="Amelia Stark" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/30-amelia-stark/10.jpg" alt="Медиа от Amelia Stark" loading="lazy">
                                 </a>
@@ -2123,14 +1922,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/1.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/31-egor-chernykh/1.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/2.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/31-egor-chernykh/2.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
@@ -2141,21 +1938,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/3.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/3.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/4.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/4.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/5.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/5.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
@@ -2166,21 +1960,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/6.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/6.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/7.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/7.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/31-egor-chernykh/8.jpg" data-lightbox="author-31-egor-chernykh-block-1" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/31-egor-chernykh/8.jpg" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
@@ -2212,14 +2003,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/1.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Dima Matveev" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/32-dima-matveev/1.jpg" alt="Медиа от Dima Matveev" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/2.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Jump
 
                                 &#34;Наконец-то хоть один человек в этом сумасшедшем городе перестал воспринимать
@@ -2246,14 +2035,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/3.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Dima Matveev" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/32-dima-matveev/3.jpg" alt="Медиа от Dima Matveev" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/4.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Target UC 
 
                                 &#34;На город нацелены три ракеты, которые должны вот-вот взлететь. Если это
@@ -2270,14 +2057,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/5.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Dima Matveev" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/32-dima-matveev/5.jpg" alt="Медиа от Dima Matveev" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/32-dima-matveev/6.jpg" data-lightbox="author-32-dima-matveev-block-1" data-title="Day of Reckoning 
 
                             &#34;«Убить Бэйна» – как давно я ждал этих слов! Иными словами, ты добрался до финала,
@@ -2321,14 +2106,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/1.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/1.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/2.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/2.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
@@ -2339,21 +2122,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/3.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/3.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/4.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/4.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/5.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/5.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
@@ -2364,21 +2144,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/6.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/6.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/7.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/7.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/35-vitalik-romanchenko/8.jpg" data-lightbox="author-35-vitalik-romanchenko-block-1" data-title="Виталик Романченко" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/35-vitalik-romanchenko/8.jpg" alt="Медиа от Виталик Романченко" loading="lazy">
                                 </a>
@@ -2412,21 +2189,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/1.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/1.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/2.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/2.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/3.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/3.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2437,21 +2211,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/4.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/4.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/5.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/5.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/6.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/6.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2462,21 +2233,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/7.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 360px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/7.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/8.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 240px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/8.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/9.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 240px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/9.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2487,21 +2255,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/10.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 233px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/10.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/11.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 233px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/11.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/12.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 373px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/12.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2512,21 +2277,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/13.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/13.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/14.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/14.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/15.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/15.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2537,21 +2299,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/16.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/16.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/17.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/17.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/18.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/18.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2562,7 +2321,6 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/19.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 860px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/19.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2573,21 +2331,18 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/20.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/20.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/21.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/21.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/22.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 280px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/22.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2598,14 +2353,12 @@
                           <div class="image-row">
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/23.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/23.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
                               
                             
                               
-                                
                                 <a href="/images/36-sekretnyy-uchastnik/24.png" data-lightbox="author-36-sekretnyy-uchastnik-block-1" data-title="секретный участник*" class="image-item" style="flex-basis: 425px;">
                                   <img src="/thumbnails/36-sekretnyy-uchastnik/24.png" alt="Медиа от секретный участник*" loading="lazy">
                                 </a>
@@ -2625,7 +2378,6 @@
         
         <div class="subgroup-polls-container">
           
-          
             <h4>Голосование за лучшую серию в подгруппе</h4>
           
           
@@ -2638,7 +2390,7 @@
       
       <div class="results-link-container">
         <a href="/2021-round-i-results.html" class="results-link-button">
-          🏆 Посмотреть итоги раунда 🏆
+          Посмотреть итоги раунда
         </a>
       </div>
       

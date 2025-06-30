@@ -10,7 +10,7 @@
     <style>
       :root {
         --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #666; --border-color: #e0e0e0; --accent-color: #8e44ad;
+        --secondary-text-color: #555555; --border-color: #e0e0e0; --accent-color: #8e44ad;
         --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
         --content-indent: 25px;
       }
@@ -34,18 +34,37 @@
       .results-link-nav { font-size: 0.8em; font-weight: 400; margin-left: 8px; opacity: 0.7; color: var(--accent-color); text-decoration: none; cursor: pointer; }
       .nav-group a:hover .results-link-nav, .nav-group a.active .results-link-nav { text-decoration: underline; opacity: 1; }
       
-      .main-header { padding-top: 20px; margin-bottom: 30px; padding-left: var(--content-indent); }
+      .main-header { padding-top: 0; margin-bottom: 30px; padding-left: var(--content-indent); }
+      .container > .main-header { padding-top: 20px; }
       .main-header h1 { font-size: 3.5rem; margin: 0; text-align: left; }
       .main-header h2 { font-size: 3rem; margin: 10px 0; text-align: left; color: var(--secondary-text-color); }
 
-      .subgroups-nav-container { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; padding-left: var(--content-indent); }
-      .subgroup-nav-column { flex: 1; min-width: 0; }
-      .subgroup-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 8px; margin-top: 15px; }
-      .subgroup-nav-column ol { padding-left: 0; margin: 0; list-style-type: none; }
-      .subgroup-nav-column li { margin-bottom: 8px; }
-      .subgroup-nav-column a { color: var(--accent-color); text-decoration: none; }
-      .subgroup-nav-column a:hover { text-decoration: underline; }
+      .subgroups-nav-container { padding-left: var(--content-indent); margin-bottom: 50px; }
+      .subgroup-nav-column h3, .results-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 15px; margin-top: 0; }
+      .subgroup-nav-column ol, .results-nav-column ol { padding-left: 0; margin: 0; list-style-type: none; }
+      .subgroup-nav-column li, .results-nav-column li { margin-bottom: 12px; }
       
+      .page-intro-grid { display: flex; gap: 40px; margin-bottom: 50px; }
+      .intro-content-column { flex: 3; min-width: 0; }
+      .intro-poster-column {
+        flex: 3;
+        min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: var(--content-indent);
+      }
+      .intro-poster-column img {
+        width: 100%;
+        height: auto%;
+max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+      }
+
+      .intro-content-column .main-header { padding-left: var(--content-indent); margin-bottom: 40px; }
+      .intro-content-column .results-nav-column { padding-left: var(--content-indent); }
+
       .scroll-target { scroll-margin-top: calc(var(--nav-height) + 20px); }
       .results-table-section { margin-bottom: 50px; }
       .results-table-section h3 { font-size: 1.8rem; font-weight: 700; color: var(--primary-text-color); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-left: var(--content-indent); }
@@ -66,13 +85,12 @@
       .subgroup-section { margin-bottom: 40px; }
       .subgroup-theme { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-bottom: 20px; padding-left: var(--content-indent); }
       .pair-section { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px var(--content-indent); margin-bottom: 20px; }
-      .pair-game { font-size: 1.3rem; font-weight: 700; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+      .pair-game { font-size: 1.3rem; font-weight: 700; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); color: var(--secondary-text-color); }
       .author-separator { border: 0; height: 1px; background-color: var(--border-color); margin: 20px 0; }
       .author-review { margin-bottom: 15px; }
       .author-review:last-child { margin-bottom: 0; }
       .author-review-header { font-size: 1.1rem; font-weight: bold; }
-      .author-review-header a { color: inherit; text-decoration: none; }
-      .author-review-header a:hover { color: var(--accent-color); text-decoration: underline; }
+      .author-review-header a { color: inherit; }
       .author-review-comment { margin-top: 8px; line-height: 1.5; color: #333; }
       .pair-overall-comment { margin-bottom: 25px; }
       
@@ -81,7 +99,6 @@
         color: var(--accent-color);
       }
 
-       
       #summary-judges .results-table,
       #summary-audience .results-table,
       [id^="summary-final-"] .results-table {
@@ -94,7 +111,7 @@
       #summary-audience .results-table td:first-child,
       [id^="summary-final-"] .results-table th:first-child,
       [id^="summary-final-"] .results-table td:first-child {
-        width: 25%; 
+        width: 30%; 
       }
       .results-table-section .results-table th:not(:first-child),
       .results-table-section .results-table td:not(:first-child) {
@@ -107,8 +124,29 @@
         white-space: normal;
         word-wrap: break-word;
       }
-       
       
+      .results-nav-column a,
+      .author-review-header a,
+      .results-table td a {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        transition: text-decoration-color 300ms ease;
+      }
+      .results-nav-column a,
+      .results-table td a {
+        color: var(--accent-color);
+      }
+      .results-nav-column a:hover,
+      .author-review-header a:hover,
+      .results-table td a:hover {
+        text-decoration-color: var(--accent-color);
+      }
+      .author-review-header a:hover {
+        color: var(--accent-color);
+      }
+
       @media (max-width: 768px) {
           :root { --content-indent: 15px; }
           .container { padding: 10px; }
@@ -128,7 +166,23 @@
           .year-nav a {  flex-shrink: 0; justify-content: center;  border-left: 1px solid var(--border-color);  border-bottom: none;  }
           .year-nav a:first-of-type { border-left: none; }
           .year-nav a.active {  background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-right: 4px solid var(--accent-color); border-left: 1px solid var(--border-color); padding-right: calc(15px - 4px); }
-          .subgroups-nav-container { display: none; }
+          
+          .page-intro-grid { flex-direction: column; gap: 30px; }
+  .intro-poster-column { 
+    order: -1;
+    flex: none;  
+    width: 100%;
+  }
+  
+  .intro-poster-column img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;  
+    border: 1px solid var(--border-color);
+    display: block;  
+  }
+          .main-header { padding-left: 0; }
+
           .main-header h1 { font-size: 2.2rem; } .main-header h2 { font-size: 1.8rem; }
           .results-table-section h3 { font-size: 1.5rem; } .judge-name { font-size: 1.8rem; }
           .subgroup-theme { font-size: 1.4rem; } .pair-game { font-size: 1.1rem; }
@@ -183,53 +237,57 @@
 </nav>
 
     <div class="container">
-      <header class="main-header">
-        <h1>Раунд III</h1>
-        
-          <h2>Итоги раунда</h2>
-        
-      </header>
       
-      <div class="subgroups-nav-container">
-        <div class="subgroup-nav-column">
+      
+        <header class="main-header">
+          <h1>Раунд III</h1>
           
-            <h3>Решения судей</h3>
-            <ol>
-              
-              <li><a href="#judge-nastya-torchinova">Настя Торчинова</a></li>
-              
-              <li><a href="#judge-ivan-netkachev">Иван Неткачев</a></li>
-              
-              <li><a href="#judge-sergey-rudakov">Сергей Рудаков</a></li>
-              
-            </ol>
+            <h2>Итоги раунда</h2>
           
-          
-            <h3>Отзывы участников</h3>
-            <ol>
-                <li><a href="#participants-reviews">Перейти к отзывам</a></li>
-            </ol>
-          
-          
-            <h3>Итоги</h3>
-            <ol>
-              
-              <li><a href="#summary-judges">Сводка по судьям</a></li>
-              
-              
-              <li><a href="#summary-audience">Зрительское голосование</a></li>
-              
-              
-                
-                <li><a href="#summary-final-0">Общий итог в раунде</a></li>
-                
-                <li><a href="#summary-final-1">Общий итог</a></li>
-                
-              
-            </ol>
-          
+        </header>
+        <div class="subgroups-nav-container">
+          <div class="subgroup-nav-column">
+            
+  
+    <h3>Решения судей</h3>
+    <ol>
+      
+      <li><a href="#judge-nastya-torchinova">Настя Торчинова</a></li>
+      
+      <li><a href="#judge-ivan-netkachev">Иван Неткачев</a></li>
+      
+      <li><a href="#judge-sergey-rudakov">Сергей Рудаков</a></li>
+      
+    </ol>
+  
+  
+    <h3>Отзывы участников</h3>
+    <ol>
+        <li><a href="#participants-reviews">Перейти к отзывам</a></li>
+    </ol>
+  
+  
+    <h3>Итоги</h3>
+    <ol>
+      
+      <li><a href="#summary-judges">Сводка по судьям</a></li>
+      
+      
+      <li><a href="#summary-audience">Зрительское голосование</a></li>
+      
+      
+        
+        <li><a href="#summary-final-0">Общий итог в раунде</a></li>
+        
+        <li><a href="#summary-final-1">Общий итог</a></li>
+        
+      
+    </ol>
+  
+
+          </div>
         </div>
-      </div>
+      
 
       
         
@@ -244,7 +302,7 @@
             
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>В паре, работавшей с игрой FarCry 2, авторы продемонстрировали разные подходы. homepunk исследовал процесс протекания взрыва с разных ракурсов, в то время как Анатолий Александрийский интерпретировал задачу метафизически — и ему удалось перенести меня в некое первоначальное пространство, в котором есть лишь маленький экран с картинкой плохого качества. Последнее показалось мне очень интригующим.</p>
@@ -273,7 +331,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>В Dark Messiah of Might & Magic София Вольман представила стильное визуальное исследование внутриигровой физики, добившись, на мой взгляд, точного попадания в задачу, стоявшей перед подгруппой, в совокупности с высокой визуальной привлекательностью и эстетизмом. То, как автор использует консольные команды и работает с геометрией форм и пространства, выделяет ее среди остальных участников. Perfect Snake, который избрал любимый в визуальных искусствах раздел физики — оптику, исследовал свойства света. Благодаря описанию итоговый результат меня впечатлил, но при этом мне субъективно не хватило фигуративности, присущей выбранной игре.</p>
@@ -302,7 +360,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #3 | Grand Theft Auto IV</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>Избалованная исчерпывающими подписями в предшествующих работах, я попала на серию Сергея Храмцова из GTA IV, где мне пришлось выуживать трактовки из прикрепленной цитаты. Будем разбираться. Передо мной черно-белая серия фотографий с прикрепленной к ним одной и той же цитатой Р.С. Томаса, которая на одной из картинок обрезается, на другой — деформируется в динамике вместе с фотографией. Движущей силой серии является ярость, которой как бы одержим персонаж, запечатленный в момент сразу после взаимодействия с предметом с целью его разрушения; а подлинное его разрушение — уже дело законов физики. Это очень перформативная работа. Не стоит относиться к этому слову плохо, если вдруг засомневались — просто это такой затянутый момент предвкушения неотвратимости. И так снова и снова, объект за объектом, все они подвергнутся силе притяжения, которая предусмотрена игрой. Может быть, сама игра выступает тем самым зеркалом, обителью демонов ярости.</p>
@@ -322,7 +380,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Max Payne 2</h5>
+              <h5 class="pair-game">Пара #4 | Max Payne 2</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>Саша Маркина в Max Payne 2 решила, что в игре предполагаемая способность преодолевать закон притяжения вполне реальна. Я, кстати, не могу не согласиться. Для подкрепления она придумала историю о женщине, которая живет в мире, где левитация — норма, но сама не способна овладеть этим навыком. Автору удалось создать эмоциональное, полное драматизма повествование. Сопротивление силе притяжения приводит главную героиню к трагедии. Хочется отметить сильное впечатление от зависающих в пространстве объектов, динамику движений главной героини, продуманную драматургию, и в особенности моменты полета в деформированном пространстве и столкновения с “поверхностью”.</p>
@@ -351,7 +409,7 @@
 </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>В Far Cry 2 мяу вау сделала какой-то шедевр, серьезно. Это сложно описывать вот так сходу, потому что это очень медиум-специфично, а техническую составляющую автор исчерпывающе описала, кое-где даже с конкретным указанием на работы. Поэтому отмечу главные преимущества: совершенство композиционного построения, включающее уместное использование разных световых, геометрических элементов, игровых объектов и текста, прекрасная работа с цветом. Очень, на мой взгляд, красивые работы у соперника, Кирилла Зеленковского. Они напоминают коллажи и постеры и выглядят очень самодостаточно даже в отрыве от серии.</p>
@@ -371,7 +429,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Кирилл Зеленковский
+                    <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
                     — 3 
                   </div>
                   
@@ -380,7 +438,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>Еще одна из моих любимых в плане работы с цветом и композицией серий этой подгруппы сделана Федором Пушкаревым в игре Dark Messiah of Might and Magic. Но при этом хочется отметить работу соперника Dima Matveev, которому удалось создать завершенный образ сверхъестественного существа.</p>
@@ -391,7 +449,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Фёдор Пушкарев
+                    <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
                     — 3 
                   </div>
                   
@@ -400,7 +458,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Dima Matveev
+                    <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
                     — 2 
                   </div>
                   
@@ -409,7 +467,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Goat Simulator</h5>
+              <h5 class="pair-game">Пара #3 | Goat Simulator</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>На следующих фотографиях NPC встретились с матричной природой их мира и божеством/ангелом в виде козы, что, кстати, рождает очень интересные мистические трактовки. Кто бы мог подумать, что можно сделать такую крутую серию с матрицей в симуляторе козы? Я не думала об этом. Виктория Кузнецова придумала, а мне очень понравилось.</p>
@@ -420,7 +478,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Виктория Кузнецова
+                    <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
                     — 2 
                   </div>
                   
@@ -429,7 +487,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #4 | Grand Theft Auto IV</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>jeyjgry создала саморефлексивную серию, в которой показала картинку, знакомую, пожалуй, каждому: ускользающие видения и ожившие тени. Это то состояние, вследствие которого обыденные вещи, привычная обстановка вдруг сгущаются и порождают иррациональный страх, а подсознание дорисовывает тревожные образы, которые будто видишь боковым зрением, но не можешь зафиксироваться на них. И понимаешь, что это нереально, а страшно все равно.</p>
@@ -440,7 +498,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    jeyjgry
+                    <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
                     — 3 
                   </div>
                   
@@ -449,7 +507,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">The Matrix: Path of Neo</h5>
+              <h5 class="pair-game">Пара #5 | The Matrix: Path of Neo</h5>
               
               <div class="author-review-comment pair-overall-comment">
                 <p>Мне понравились две работы в The Matrix: Path of Neo из серий разных авторов (Виталика Романченко и Егора Черных). Это те работы, которые сделаны с использованием интерфейса Windows, что очень интересно коррелирует со смыслом известной всем нам франшизы. Хоть фактически это и не внутриигровая фотография, очень концептуальным получился скриншот с ярлыками-копиями игры у Виталика Романченко. Пожалуй, я поставлю чуть более высокую оценку за столь интересное высказывание.</p>
@@ -493,7 +551,7 @@
 </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               
                 <div class="author-review">
@@ -517,7 +575,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               
                 <div class="author-review">
@@ -541,7 +599,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #3 | Grand Theft Auto IV</h5>
               
               
                 <div class="author-review">
@@ -556,7 +614,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Max Payne 2</h5>
+              <h5 class="pair-game">Пара #4 | Max Payne 2</h5>
               
               
                 <div class="author-review">
@@ -580,7 +638,7 @@
 </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               
                 <div class="author-review">
@@ -595,7 +653,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Кирилл Зеленковский
+                    <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
                     — 2 
                   </div>
                   
@@ -604,13 +662,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Фёдор Пушкарев
+                    <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
                     — 4 (лучшая серия подгруппы) 
                   </div>
                   
@@ -619,7 +677,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Dima Matveev
+                    <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
                     — 2 
                   </div>
                   
@@ -628,13 +686,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Goat Simulator</h5>
+              <h5 class="pair-game">Пара #3 | Goat Simulator</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Виктория Кузнецова
+                    <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
                     — 2 
                   </div>
                   
@@ -643,13 +701,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #4 | Grand Theft Auto IV</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    jeyjgry
+                    <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
                     — 2 
                   </div>
                   
@@ -658,7 +716,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">The Matrix: Path of Neo</h5>
+              <h5 class="pair-game">Пара #5 | The Matrix: Path of Neo</h5>
               
               
                 <div class="author-review">
@@ -697,7 +755,7 @@
 </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               
                 <div class="author-review">
@@ -721,7 +779,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               
                 <div class="author-review">
@@ -745,7 +803,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #3 | Grand Theft Auto IV</h5>
               
               
                 <div class="author-review">
@@ -760,7 +818,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Max Payne 2</h5>
+              <h5 class="pair-game">Пара #4 | Max Payne 2</h5>
               
               
                 <div class="author-review">
@@ -784,7 +842,7 @@
 </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Far Cry 2</h5>
+              <h5 class="pair-game">Пара #1 | Far Cry 2</h5>
               
               
                 <div class="author-review">
@@ -799,7 +857,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Кирилл Зеленковский
+                    <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
                     — 4 (лучшая серия подгруппы) 
                   </div>
                   
@@ -808,13 +866,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Dark Messiah of Might &amp; Magic</h5>
+              <h5 class="pair-game">Пара #2 | Dark Messiah of Might &amp; Magic</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Фёдор Пушкарев
+                    <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
                     — 2 
                   </div>
                   
@@ -823,7 +881,7 @@
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Dima Matveev
+                    <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
                     — 3 
                   </div>
                   
@@ -832,13 +890,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Goat Simulator</h5>
+              <h5 class="pair-game">Пара #3 | Goat Simulator</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    Виктория Кузнецова
+                    <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
                     — 3 
                   </div>
                   
@@ -847,13 +905,13 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">Grand Theft Auto IV</h5>
+              <h5 class="pair-game">Пара #4 | Grand Theft Auto IV</h5>
               
               
                 <div class="author-review">
                   <div class="author-review-header ">
                     
-                    jeyjgry
+                    <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
                     — 2 
                   </div>
                   
@@ -862,7 +920,7 @@
             </div>
             
             <div class="pair-section">
-              <h5 class="pair-game">The Matrix: Path of Neo</h5>
+              <h5 class="pair-game">Пара #5 | The Matrix: Path of Neo</h5>
               
               
                 <div class="author-review">
@@ -1171,33 +1229,89 @@
           <h3>Решения судей (сводка)</h3>
           <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Настя Торчинова</th><th>Иван Неткачев</th><th>Сергей Рудаков</th></tr></thead><tbody>
               <tr class="pair-shade">
-                <td>homepunk</td><td>1</td><td>1</td><td>3</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-1-homepunk" title="Посмотреть работу">homepunk</a>
+                  
+                </td><td>1</td><td>1</td><td>3</td></tr>
               <tr class="pair-shade">
-                <td>Анатолий Александрийский</td><td>2</td><td>2</td><td>1</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-2-anatoliy-aleksandriyskiy" title="Посмотреть работу">Анатолий Александрийский</a>
+                  
+                </td><td>2</td><td>2</td><td>1</td></tr>
               <tr >
-                <td>Софья Вольман</td><td>4</td><td>4</td><td>4</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-3-sofya-volman" title="Посмотреть работу">Софья Вольман</a>
+                  
+                </td><td>4</td><td>4</td><td>4</td></tr>
               <tr >
-                <td>Perfect Snake</td><td>2</td><td>2</td><td>3</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-4-perfect-snake" title="Посмотреть работу">Perfect Snake</a>
+                  
+                </td><td>2</td><td>2</td><td>3</td></tr>
               <tr >
-                <td>Сергей Храмцов</td><td>3</td><td>2</td><td>2</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-7-sergey-khramtsov" title="Посмотреть работу">Сергей Храмцов</a>
+                  
+                </td><td>3</td><td>2</td><td>2</td></tr>
               <tr class="pair-shade">
-                <td>Саша Маркина</td><td>3</td><td>1</td><td>3</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-10-sasha-markina" title="Посмотреть работу">Саша Маркина</a>
+                  
+                </td><td>3</td><td>1</td><td>3</td></tr>
               <tr >
-                <td>мяу вау</td><td>4</td><td>3</td><td>3</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-11-myau-vau" title="Посмотреть работу">мяу вау</a>
+                  
+                </td><td>4</td><td>3</td><td>3</td></tr>
               <tr >
-                <td>Кирилл Зеленковский</td><td>3</td><td>2</td><td>4</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
+                  
+                </td><td>3</td><td>2</td><td>4</td></tr>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
+                  
+                </td><td>3</td><td>4</td><td>2</td></tr>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
+                  
+                </td><td>2</td><td>2</td><td>3</td></tr>
               <tr >
-                <td>Фёдор Пушкарев</td><td>3</td><td>4</td><td>2</td></tr>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
+                  
+                </td><td>2</td><td>2</td><td>3</td></tr>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
+                  
+                </td><td>3</td><td>2</td><td>2</td></tr>
               <tr >
-                <td>Dima Matveev</td><td>2</td><td>2</td><td>3</td></tr>
+                <td>
+                  
+                    Егор Черных
+                  
+                </td><td>1</td><td>1</td><td>2</td></tr>
               <tr >
-                <td>Виктория Кузнецова</td><td>2</td><td>2</td><td>3</td></tr>
-              <tr >
-                <td>jeyjgry</td><td>3</td><td>2</td><td>2</td></tr>
-              <tr >
-                <td>Егор Черных</td><td>1</td><td>1</td><td>2</td></tr>
-              <tr >
-                <td>Виталик Романченко</td><td>2</td><td>2</td><td>1</td></tr></tbody></table></div>
+                <td>
+                  
+                    Виталик Романченко
+                  
+                </td><td>2</td><td>2</td><td>1</td></tr></tbody></table></div>
         </section>
         
         
@@ -1205,59 +1319,115 @@
           <h3>Итоги зрительского голосования</h3>
           <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Баллы</th></tr></thead><tbody>
               <tr class="pair-shade">
-                <td>homepunk</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-1-homepunk" title="Посмотреть работу">homepunk</a>
+                  
+                </td>
                 <td>3 </td>
               </tr>
               <tr class="pair-shade">
-                <td>Анатолий Александрийский</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-2-anatoliy-aleksandriyskiy" title="Посмотреть работу">Анатолий Александрийский</a>
+                  
+                </td>
                 <td>0 </td>
               </tr>
               <tr >
-                <td>Софья Вольман</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-3-sofya-volman" title="Посмотреть работу">Софья Вольман</a>
+                  
+                </td>
                 <td>3 </td>
               </tr>
               <tr >
-                <td>Perfect Snake</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-4-perfect-snake" title="Посмотреть работу">Perfect Snake</a>
+                  
+                </td>
                 <td> </td>
               </tr>
               <tr >
-                <td>Сергей Храмцов</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-7-sergey-khramtsov" title="Посмотреть работу">Сергей Храмцов</a>
+                  
+                </td>
                 <td>3 </td>
               </tr>
               <tr class="pair-shade">
-                <td>Саша Маркина</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-10-sasha-markina" title="Посмотреть работу">Саша Маркина</a>
+                  
+                </td>
                 <td>4 (лучшая серия подгруппы) </td>
               </tr>
               <tr >
-                <td>мяу вау</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-11-myau-vau" title="Посмотреть работу">мяу вау</a>
+                  
+                </td>
                 <td>3 </td>
               </tr>
               <tr >
-                <td>Кирилл Зеленковский</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
+                  
+                </td>
                 <td>0 </td>
               </tr>
-              <tr >
-                <td>Фёдор Пушкарев</td>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
+                  
+                </td>
                 <td>3.5 (лучшая серия подгруппы / ничья с Викторией Кузнецовой) </td>
               </tr>
-              <tr >
-                <td>Dima Matveev</td>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
+                  
+                </td>
                 <td>0 </td>
               </tr>
               <tr >
-                <td>Виктория Кузнецова</td>
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
+                  
+                </td>
                 <td>3.5 (лучшая серия подгруппы / ничья с Фёдором Пушкарёвым) </td>
               </tr>
-              <tr >
-                <td>jeyjgry</td>
+              <tr class="pair-shade">
+                <td>
+                  
+                    <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
+                  
+                </td>
                 <td>3 </td>
               </tr>
               <tr >
-                <td>Егор Черных</td>
+                <td>
+                  
+                    Егор Черных
+                  
+                </td>
                 <td>0 </td>
               </tr>
               <tr >
-                <td>Виталик Романченко</td>
+                <td>
+                  
+                    Виталик Романченко
+                  
+                </td>
                 <td>3 </td>
               </tr></tbody></table></div>
         </section>
@@ -1266,18 +1436,478 @@
           
           <section id="summary-final-0" class="results-table-section scroll-target">
             <h3>Общий итог в раунде</h3>
-            <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Судейские баллы</th><th>Зрительские баллы</th><th>Итог</th></tr></thead><tbody><tr><td>Софья Вольман</td><td>12</td><td>3</td><td>15</td></tr><tr><td>мяу вау</td><td>10</td><td>3</td><td>13</td></tr><tr><td>Фёдор Пушкарев</td><td>9</td><td>3.5</td><td>12.5</td></tr><tr><td>Саша Маркина</td><td>7</td><td>4</td><td>11</td></tr><tr><td>Виктория Кузнецова</td><td>7</td><td>3.5</td><td>10.5</td></tr><tr><td>jeyjgry</td><td>7</td><td>3</td><td>10</td></tr><tr><td>Сергей Храмцов</td><td>7</td><td>3</td><td>10</td></tr><tr><td>Кирилл Зеленковский</td><td>9</td><td>0</td><td>9</td></tr><tr><td>homepunk</td><td>5</td><td>3</td><td>8</td></tr><tr><td>Виталик Романченко</td><td>5</td><td>3</td><td>8</td></tr><tr><td>Perfect Snake</td><td>7</td><td>0</td><td>7</td></tr><tr><td>Dima Matveev</td><td>7</td><td>0</td><td>7</td></tr><tr><td>Анатолий Александрийский</td><td>5</td><td>0</td><td>5</td></tr><tr><td>Егор Черных</td><td>4</td><td>0</td><td>4</td></tr></tbody></table></div>
+            <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Судейские баллы</th><th>Зрительские баллы</th><th>Итог</th></tr></thead><tbody><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-3-sofya-volman" title="Посмотреть работу">Софья Вольман</a>
+                        
+                      </td>
+                    
+                      <td>12</td>
+                    
+                      <td>3</td>
+                    
+                      <td>15</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-11-myau-vau" title="Посмотреть работу">мяу вау</a>
+                        
+                      </td>
+                    
+                      <td>10</td>
+                    
+                      <td>3</td>
+                    
+                      <td>13</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
+                        
+                      </td>
+                    
+                      <td>9</td>
+                    
+                      <td>3.5</td>
+                    
+                      <td>12.5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-10-sasha-markina" title="Посмотреть работу">Саша Маркина</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>4</td>
+                    
+                      <td>11</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>3.5</td>
+                    
+                      <td>10.5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>3</td>
+                    
+                      <td>10</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-7-sergey-khramtsov" title="Посмотреть работу">Сергей Храмцов</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>3</td>
+                    
+                      <td>10</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
+                        
+                      </td>
+                    
+                      <td>9</td>
+                    
+                      <td>0</td>
+                    
+                      <td>9</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-1-homepunk" title="Посмотреть работу">homepunk</a>
+                        
+                      </td>
+                    
+                      <td>5</td>
+                    
+                      <td>3</td>
+                    
+                      <td>8</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Виталик Романченко
+                        
+                      </td>
+                    
+                      <td>5</td>
+                    
+                      <td>3</td>
+                    
+                      <td>8</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-4-perfect-snake" title="Посмотреть работу">Perfect Snake</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>0</td>
+                    
+                      <td>7</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    
+                      <td>0</td>
+                    
+                      <td>7</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-2-anatoliy-aleksandriyskiy" title="Посмотреть работу">Анатолий Александрийский</a>
+                        
+                      </td>
+                    
+                      <td>5</td>
+                    
+                      <td>0</td>
+                    
+                      <td>5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Егор Черных
+                        
+                      </td>
+                    
+                      <td>4</td>
+                    
+                      <td>0</td>
+                    
+                      <td>4</td>
+                    </tr></tbody></table></div>
           </section>
           
           <section id="summary-final-1" class="results-table-section scroll-target">
             <h3>Общий итог</h3>
-            <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Итоговый балл</th></tr></thead><tbody><tr><td>мяу вау</td><td>41</td></tr><tr><td>Софья Вольман</td><td>32</td></tr><tr><td>Кирилл Зеленковский</td><td>32</td></tr><tr><td>homepunk</td><td>31</td></tr><tr><td>Фёдор Пушкарев</td><td>28.5</td></tr><tr><td>Анатолий Александрийский</td><td>28</td></tr><tr><td>Егор Черных</td><td>27</td></tr><tr><td>Виталик Романченко</td><td>25</td></tr><tr><td>Dima Matveev</td><td>24</td></tr><tr><td>Perfect Snake</td><td>24</td></tr><tr><td>Виктория Кузнецова</td><td>23.5</td></tr><tr><td>jeyjgry</td><td>20</td></tr><tr><td>Сергей Храмцов</td><td>20</td></tr><tr><td>Александр Ковалев</td><td>18</td></tr><tr><td>Саша Маркина</td><td>17</td></tr><tr><td>Максим Семисенко</td><td>15</td></tr><tr><td>Hypernothingness</td><td>15</td></tr><tr><td>Данила Хозяев</td><td>13</td></tr><tr><td>Даша Земцова</td><td>12</td></tr><tr><td>Александр Павлов</td><td>8</td></tr><tr><td>Amelia Stark</td><td>7</td></tr><tr><td>Яков Андреевич</td><td>7</td></tr><tr><td>aimbot</td><td>6</td></tr><tr><td>Максим Новиков</td><td>5</td></tr><tr><td>Лев Брекалов</td><td>3</td></tr></tbody></table></div>
+            <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Итоговый балл</th></tr></thead><tbody><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-11-myau-vau" title="Посмотреть работу">мяу вау</a>
+                        
+                      </td>
+                    
+                      <td>41</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-3-sofya-volman" title="Посмотреть работу">Софья Вольман</a>
+                        
+                      </td>
+                    
+                      <td>32</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-12-kirill-zelenkovskiy" title="Посмотреть работу">Кирилл Зеленковский</a>
+                        
+                      </td>
+                    
+                      <td>32</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-1-homepunk" title="Посмотреть работу">homepunk</a>
+                        
+                      </td>
+                    
+                      <td>31</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-13-fedor-pushkarev" title="Посмотреть работу">Фёдор Пушкарев</a>
+                        
+                      </td>
+                    
+                      <td>28.5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-2-anatoliy-aleksandriyskiy" title="Посмотреть работу">Анатолий Александрийский</a>
+                        
+                      </td>
+                    
+                      <td>28</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Егор Черных
+                        
+                      </td>
+                    
+                      <td>27</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Виталик Романченко
+                        
+                      </td>
+                    
+                      <td>25</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-14-dima-matveev" title="Посмотреть работу">Dima Matveev</a>
+                        
+                      </td>
+                    
+                      <td>24</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-4-perfect-snake" title="Посмотреть работу">Perfect Snake</a>
+                        
+                      </td>
+                    
+                      <td>24</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-15-viktoriya-kuznetsova" title="Посмотреть работу">Виктория Кузнецова</a>
+                        
+                      </td>
+                    
+                      <td>23.5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-18-jeyjgry" title="Посмотреть работу">jeyjgry</a>
+                        
+                      </td>
+                    
+                      <td>20</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-7-sergey-khramtsov" title="Посмотреть работу">Сергей Храмцов</a>
+                        
+                      </td>
+                    
+                      <td>20</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Александр Ковалев
+                        
+                      </td>
+                    
+                      <td>18</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-10-sasha-markina" title="Посмотреть работу">Саша Маркина</a>
+                        
+                      </td>
+                    
+                      <td>17</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-5-maksim-semisenko" title="Посмотреть работу">Максим Семисенко</a>
+                        
+                      </td>
+                    
+                      <td>15</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-6-hypernothingness" title="Посмотреть работу">Hypernothingness</a>
+                        
+                      </td>
+                    
+                      <td>15</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-16-danila-khozayev" title="Посмотреть работу">Данила Хозяев</a>
+                        
+                      </td>
+                    
+                      <td>13</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-8-dasha-zemtsova" title="Посмотреть работу">Даша Земцова</a>
+                        
+                      </td>
+                    
+                      <td>12</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-17-aleksandr-pavlov" title="Посмотреть работу">Александр Павлов</a>
+                        
+                      </td>
+                    
+                      <td>8</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Amelia Stark
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Яков Андреевич
+                        
+                      </td>
+                    
+                      <td>7</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          aimbot
+                        
+                      </td>
+                    
+                      <td>6</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          <a href="/2021-round-iii.html#author-9-maksim-novikov" title="Посмотреть работу">Максим Новиков</a>
+                        
+                      </td>
+                    
+                      <td>5</td>
+                    </tr><tr>
+                      <td>
+                        
+                        
+                        
+                          Лев Брекалов
+                        
+                      </td>
+                    
+                      <td>3</td>
+                    </tr></tbody></table></div>
           </section>
           
         
       
     </div>
+    
     <script>
+      function alignPosterHeight() {
+        const contentColumn = document.querySelector('.intro-content-column');
+        const posterColumn = document.querySelector('.intro-poster-column');
+        
+        if (contentColumn && posterColumn) {
+          const contentHeight = contentColumn.offsetHeight;
+          posterColumn.style.height = `${contentHeight}px`;
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', alignPosterHeight);
+      window.addEventListener('resize', alignPosterHeight);
+
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
@@ -1310,4 +1940,7 @@
       });
     </script>
 </body>
+
+
+
 </html>
