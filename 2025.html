@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,143 +8,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
-    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <style>
-      :root {
-        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #444444; --border-color: #e0e0e0; --accent-color: #8e44ad;
-        --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
-        --content-indent: 25px;
-      }
-      body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
-      .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; }
-      
-      .main-nav { position: sticky; top: 0; background-color: var(--surface-color); border-bottom: 1px solid var(--border-color); z-index: 1000; display: flex; justify-content: space-between; align-items: center; min-height: var(--nav-height); padding: 0 15px; }
-      .nav-toggle { display: none; background: transparent; border: none; padding: 0; width: 30px; height: 30px; flex-direction: column; justify-content: space-around; cursor: pointer; z-index: 1001; }
-      .nav-toggle .line { width: 100%; height: 3px; background-color: var(--primary-text-color); border-radius: 3px; transition: transform 0.3s, opacity 0.3s; }
-      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-      
-      .nav-links { display: flex; align-items: center; width: 100%; justify-content: space-between; }
-      .nav-group { display: flex; align-items: center; height: 100%; flex-wrap: wrap; }
-      .year-nav { justify-content: flex-end; }
-      
-      .nav-group-title { display: none; }
-      .nav-group a { padding: 0 15px; text-decoration: none; color: var(--secondary-text-color); font-weight: 700; display: flex; align-items: center; height: var(--nav-height); transition: all 0.2s; }
-      .nav-group a:hover { color: var(--primary-text-color); }
-      .nav-group a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; }
-      
-      .results-link-nav { font-size: 0.8em; font-weight: 400; margin-left: 8px; opacity: 0.7; color: var(--accent-color); text-decoration: none; cursor: pointer; }
-      .nav-group a:hover .results-link-nav, .nav-group a.active .results-link-nav { text-decoration: underline; opacity: 1; }
-
-      .main-header, .subgroups-nav-container, .subgroup-header, .pair-divider { padding-left: var(--content-indent); }
-      .main-header { padding-top: 20px; margin-bottom: 30px; }
-      .main-header h1 { font-size: 3.5rem; margin: 0; text-align: left; }
-      .main-header h2 { font-size: 3rem; margin: 10px 0; text-align: left; }
-      .subgroups-nav-container { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; }
-      .subgroup-nav-column { flex: 1; min-width: 0; }
-      .subgroup-nav-column h3 { font-size: 1.5rem; text-align: left; color: var(--secondary-text-color); margin-bottom: 15px; }
-      .subgroup-nav-column ol { padding-left: 20px; margin: 0; }
-      .subgroup-nav-column li { margin-bottom: 12px; }
-      .subgroup-nav-column a { color: var(--accent-color); }
-      .subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
-      .pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
-      .pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
-      .pair-divider:first-of-type { margin-top: 0; }
-      .author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
-      .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); }
-      .author-header .author-name a:hover { color: var(--accent-color); }
-      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 5px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); }
-      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
-      .text-block p { margin: 0 0 0.75em 0; }
-      .text-block p:last-child { margin-bottom: 0; }
-      .text-block a { color: var(--accent-color); }
-      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-      .image-row { display: flex; flex-direction: row; gap: 10px; }
-      .image-item { flex-grow: 1; position: relative; line-height: 0; }
-      .image-item img { width: 100%; height: auto; display: block; }
-      .image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
-      
-      .results-link-container { margin-top: 60px; padding: 40px var(--content-indent); text-align: center; border-top: 1px solid var(--border-color); }
-      .results-link-button { display: inline-block; padding: 12px 24px; border: 2px solid var(--accent-color); background-color: transparent; color: var(--accent-color); font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
-      .results-link-button:hover { background-color: var(--accent-color); color: white; }
-
-      .poll-container { margin-top: 30px; display: flex; justify-content: center; }
-      .subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
-      .subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; } 
-      .strikethrough { text-decoration: line-through; text-decoration-thickness: 1px; text-decoration-color: var(--secondary-text-color); }
-
-.subgroup-nav-column a,
-.author-header .author-name a {
-  text-decoration: underline;
-  text-decoration-color: transparent;  
-  text-decoration-thickness: 2px;  
-  text-underline-offset: 3px;  
-  transition: text-decoration-color 300ms ease;  
-}
-
-.subgroup-nav-column a:hover,
-.author-header .author-name a:hover {
-  text-decoration-color: var(--accent-color);  
-}
-      
-      @media (max-width: 768px) {
-          :root { --content-indent: 15px; }
-          .container { padding: 10px; }
-          .main-nav { justify-content: flex-end; }
-          .nav-toggle { display: flex; }
-          .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background-color: var(--surface-color); border-top: 1px solid var(--border-color); max-height: calc(100vh - var(--nav-height) - 1px); }
-          .nav-links.is-open { display: flex; flex-direction: column; }
-          .round-nav { order: 1; overflow-y: auto; }
-          .year-nav { order: 2; }
-          .nav-group { flex-direction: column; width: 100%; align-items: stretch; }
-          .nav-group-title { display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary-text-color); background-color: #e9ecef; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
-          .round-nav a { justify-content: flex-start; border-bottom: 1px solid var(--border-color); }
-          .round-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-left: 4px solid var(--accent-color); padding-left: calc(15px - 4px); }
-          .year-nav { display: flex; flex-direction: row; flex-wrap: nowrap; background-color: #e9ecef; align-items: stretch; }
-          .year-nav .nav-group-title { display: none; }
-          .year-nav::before { content: ''; flex-grow: 1; }
-          .year-nav a { flex-shrink: 0; justify-content: center; border-left: 1px solid var(--border-color); border-bottom: none; }
-          .year-nav a:first-of-type { border-left: none; }
-          .year-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-right: 4px solid var(--accent-color); border-left: 1px solid var(--border-color); padding-right: calc(15px - 4px); }
-          .subgroups-nav-container { display: none; }
-          .main-header h1 { font-size: 2.2rem; }
-          .main-header h2 { font-size: 1.8rem; }
-          .image-row { flex-direction: column; }
-          .image-item { flex-basis: auto !important; width: 100%; }
-          .main-header h1, .main-header h2, .subgroup-header, .pair-divider span { white-space: normal; overflow-wrap: break-word; word-wrap: break-word; }
-      }
-    </style>
-</head>
-<body>
     
-<nav class="main-nav">
-  <button class="nav-toggle" aria-controls="main-nav-links" aria-expanded="false">
-    <span class="sr-only">Открыть меню</span>
-    <span class="line"></span><span class="line"></span><span class="line"></span>
-  </button>
+    <link href="/static/css/main.css" rel="stylesheet" />
+    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
+</head>
+<body class="round-page">
+    
+    
+<nav class="main-nav" aria-label="Основная навигация">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links-container">
+        <span class="sr-only">Открыть меню</span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <div class="nav-links" id="nav-links-container">
+        
+        <div class="nav-group round-nav">
+            <span class="nav-group-title">Раунды 2025</span><a href="/2025-round-i.html" class="active">
+                Раунд I
+                
+                <span class="results-link-nav" data-year="2025" data-round-name="round-i">Итоги</span>
+            </a><a href="/2025-round-ii.html" >
+                Раунд II
+                
+                
+            </a></div>
+        
 
-  <div class="nav-links" id="main-nav-links">
-    <div class="nav-group round-nav">
-      <div class="nav-group-title">Раунды 2025</div>
-      
-        <a href="/2025-round-i.html" class="active">
-          Раунд I
-          
-          
-            <span class="results-link-nav">[Итоги]</span>
-          
-        </a>
-      
+        <div class="nav-group year-nav">
+            <a href="/authors.html" >Участники</a>
+            <a href="/judges.html" >Судьи</a>
+            <span class="nav-group-title">Годы</span><a href="/2020.html" >2020</a><a href="/2021.html" >2021</a><a href="/2025.html" class="active">2025</a></div>
     </div>
-    <div class="nav-group year-nav">
-      <div class="nav-group-title">Другие годы</div>
-      
-        <a href="/2021.html" >2021</a>
-      
-        <a href="/2025.html" class="active">2025</a>
-      
-    </div>
-  </div>
 </nav>
 
     <div class="container">
@@ -176,6 +73,7 @@
             
               
                 <section id="author-1-qqqqq" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/qqqqq.html">?????</a></h2></div>
                   <div class="instruments">Инструменты: Cheat Engine</div>
                   
@@ -185,8 +83,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/1-qqqqq/1.jpg" data-lightbox="author-1-qqqqq-block-0" data-title="?????" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/1-qqqqq/1.jpg" alt="Медиа от ?????" loading="lazy">
+                                <a href="/images/2025/round-i/1-qqqqq/1.jpg" data-lightbox="author-1-qqqqq-block-0" data-title="?????" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/1-qqqqq/1.jpg" alt="Медиа от ?????" loading="lazy">
                                 </a>
                               
                             
@@ -195,8 +93,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/1-qqqqq/2.jpg" data-lightbox="author-1-qqqqq-block-0" data-title="?????" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/1-qqqqq/2.jpg" alt="Медиа от ?????" loading="lazy">
+                                <a href="/images/2025/round-i/1-qqqqq/2.jpg" data-lightbox="author-1-qqqqq-block-0" data-title="?????" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/1-qqqqq/2.jpg" alt="Медиа от ?????" loading="lazy">
                                 </a>
                               
                             
@@ -210,6 +108,7 @@
             
               
                 <section id="author-2-klahoma-the-cupid" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/klahoma-the-cupid.html">Klahoma The Cupid</a></h2></div>
                   <div class="instruments">Инструменты: Reshade | Cheat Engine<br>использовала Picsart для наложения на фотке n13 и отражения по вертикали фоток n10,12</div>
                   
@@ -219,8 +118,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/1.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/1.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/1.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/1.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
@@ -229,30 +128,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/2.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/2.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/2.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/2.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/3.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/3.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/2-klahoma-the-cupid/4.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/4.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/2-klahoma-the-cupid/5.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/5.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/3.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/3.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
@@ -261,14 +144,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/6.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/6.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/4.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/4.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/7.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/7.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/5.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/5.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/6.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/6.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/7.png" data-lightbox="author-2-klahoma-the-cupid-block-0" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/7.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
@@ -288,30 +187,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/8.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/8.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/8.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/8.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/9.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/9.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/2-klahoma-the-cupid/10.jpg" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/10.jpg" alt="Медиа от Klahoma The Cupid" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/2-klahoma-the-cupid/11.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/11.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/9.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/9.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
@@ -320,14 +203,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/12.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 462px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/12.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/10.jpg" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/10.jpg" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/2-klahoma-the-cupid/13.jpg" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 388px;">
-                                  <img src="/thumbnails/2-klahoma-the-cupid/13.jpg" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/11.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/11.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/12.png" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 462px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/12.png" alt="Медиа от Klahoma The Cupid" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/2-klahoma-the-cupid/13.jpg" data-lightbox="author-2-klahoma-the-cupid-block-2" data-title="Klahoma The Cupid" class="image-item" style="flex-basis: 388px;">
+                                  <img src="/thumbnails/2025/round-i/2-klahoma-the-cupid/13.jpg" alt="Медиа от Klahoma The Cupid" loading="lazy">
                                 </a>
                               
                             
@@ -347,6 +246,7 @@
             
               
                 <section id="author-3-lowskeel" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/lowskeel.html">lowskeel</a></h2></div>
                   
                   
@@ -356,8 +256,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/3-lowskeel/1.png" data-lightbox="author-3-lowskeel-block-0" data-title="lowskeel" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/3-lowskeel/1.png" alt="Медиа от lowskeel" loading="lazy">
+                                <a href="/images/2025/round-i/3-lowskeel/1.png" data-lightbox="author-3-lowskeel-block-0" data-title="lowskeel" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/3-lowskeel/1.png" alt="Медиа от lowskeel" loading="lazy">
                                 </a>
                               
                             
@@ -366,8 +266,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/3-lowskeel/2.png" data-lightbox="author-3-lowskeel-block-0" data-title="lowskeel" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/3-lowskeel/2.png" alt="Медиа от lowskeel" loading="lazy">
+                                <a href="/images/2025/round-i/3-lowskeel/2.png" data-lightbox="author-3-lowskeel-block-0" data-title="lowskeel" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/3-lowskeel/2.png" alt="Медиа от lowskeel" loading="lazy">
                                 </a>
                               
                             
@@ -381,6 +281,7 @@
             
               
                 <section id="author-4-sari-s-usami" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/sari-s-usami.html">sari s usami</a></h2></div>
                   <div class="instruments">Инструменты: New AoE3 Editor XY + Krita</div>
                   
@@ -390,8 +291,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/4-sari-s-usami/1.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/4-sari-s-usami/1.png" alt="Медиа от sari s usami" loading="lazy">
+                                <a href="/images/2025/round-i/4-sari-s-usami/1.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/4-sari-s-usami/1.png" alt="Медиа от sari s usami" loading="lazy">
                                 </a>
                               
                             
@@ -400,14 +301,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/4-sari-s-usami/2.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 574px;">
-                                  <img src="/thumbnails/4-sari-s-usami/2.png" alt="Медиа от sari s usami" loading="lazy">
+                                <a href="/images/2025/round-i/4-sari-s-usami/2.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 574px;">
+                                  <img src="/thumbnails/2025/round-i/4-sari-s-usami/2.png" alt="Медиа от sari s usami" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/4-sari-s-usami/3.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 276px;">
-                                  <img src="/thumbnails/4-sari-s-usami/3.png" alt="Медиа от sari s usami" loading="lazy">
+                                <a href="/images/2025/round-i/4-sari-s-usami/3.png" data-lightbox="author-4-sari-s-usami-block-0" data-title="sari s usami" class="image-item" style="flex-basis: 276px;">
+                                  <img src="/thumbnails/2025/round-i/4-sari-s-usami/3.png" alt="Медиа от sari s usami" loading="lazy">
                                 </a>
                               
                             
@@ -427,6 +328,7 @@
             
               
                 <section id="author-5-rostik" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/rostik.html">ростик</a></h2></div>
                   <div class="instruments">Инструменты: внутриигровой фотоаппарат, paint.net, Cheat Engine | таблица мяу вау</div>
                   
@@ -441,8 +343,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/1.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/5-rostik/1.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/1.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/1.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -451,42 +353,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/2.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/2.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/2.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/2.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/3.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/3.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/3.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/3.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/4.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/4.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/5-rostik/5.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 241px;">
-                                  <img src="/thumbnails/5-rostik/5.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/6.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 342px;">
-                                  <img src="/thumbnails/5-rostik/6.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/7.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 257px;">
-                                  <img src="/thumbnails/5-rostik/7.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/4.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/4.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -495,30 +375,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/8.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
-                                  <img src="/thumbnails/5-rostik/8.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/5.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 241px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/5.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/9.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
-                                  <img src="/thumbnails/5-rostik/9.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/6.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 342px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/6.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/10.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 268px;">
-                                  <img src="/thumbnails/5-rostik/10.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/5-rostik/11.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/5-rostik/11.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/7.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 257px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/7.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -527,42 +397,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/12.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 229px;">
-                                  <img src="/thumbnails/5-rostik/12.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/8.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/8.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/13.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 305px;">
-                                  <img src="/thumbnails/5-rostik/13.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/9.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/9.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/14.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 305px;">
-                                  <img src="/thumbnails/5-rostik/14.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/5-rostik/15.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/15.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/16.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/16.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/17.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/17.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/10.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 268px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/10.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -571,20 +419,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/18.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
-                                  <img src="/thumbnails/5-rostik/18.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/19.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
-                                  <img src="/thumbnails/5-rostik/19.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/20.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 268px;">
-                                  <img src="/thumbnails/5-rostik/20.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/11.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/11.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -593,8 +429,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/21.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/5-rostik/21.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/12.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 229px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/12.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/13.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 305px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/13.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/14.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 305px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/14.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -603,42 +451,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/22.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 245px;">
-                                  <img src="/thumbnails/5-rostik/22.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/15.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/15.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/23.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 245px;">
-                                  <img src="/thumbnails/5-rostik/23.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/16.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/16.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/24.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 349px;">
-                                  <img src="/thumbnails/5-rostik/24.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/5-rostik/25.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 258px;">
-                                  <img src="/thumbnails/5-rostik/25.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/26.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 258px;">
-                                  <img src="/thumbnails/5-rostik/26.png" alt="Медиа от ростик" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/5-rostik/27.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 323px;">
-                                  <img src="/thumbnails/5-rostik/27.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/17.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/17.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -647,20 +473,96 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/5-rostik/28.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/28.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/18.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/18.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/29.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/29.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/19.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 286px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/19.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/5-rostik/30.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/5-rostik/30.png" alt="Медиа от ростик" loading="lazy">
+                                <a href="/images/2025/round-i/5-rostik/20.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 268px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/20.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/21.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/21.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/22.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 245px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/22.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/23.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 245px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/23.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/24.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 349px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/24.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/25.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 258px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/25.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/26.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 258px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/26.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/27.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 323px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/27.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/28.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/28.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/29.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/29.png" alt="Медиа от ростик" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/5-rostik/30.png" data-lightbox="author-5-rostik-block-1" data-title="ростик" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/5-rostik/30.png" alt="Медиа от ростик" loading="lazy">
                                 </a>
                               
                             
@@ -674,6 +576,7 @@
             
               
                 <section id="author-6-cogonelo" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/cogonelo.html">cogonelo</a></h2></div>
                   <div class="instruments">Инструменты: Cheat Engine | таблица мяу вау</div>
                   
@@ -690,30 +593,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/6-cogonelo/1.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/1.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/1.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/1.png" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/6-cogonelo/2.jpg" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/2.jpg" alt="Медиа от cogonelo" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/6-cogonelo/3.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/3.png" alt="Медиа от cogonelo" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/6-cogonelo/4.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/4.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/2.jpg" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/2.jpg" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
@@ -722,14 +609,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/6-cogonelo/5.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/5.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/3.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/3.png" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/6-cogonelo/6.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/6.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/4.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/4.png" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
@@ -738,14 +625,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/6-cogonelo/7.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/7.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/5.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/5.png" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/6-cogonelo/8.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/6-cogonelo/8.png" alt="Медиа от cogonelo" loading="lazy">
+                                <a href="/images/2025/round-i/6-cogonelo/6.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/6.png" alt="Медиа от cogonelo" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/6-cogonelo/7.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/7.png" alt="Медиа от cogonelo" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/6-cogonelo/8.png" data-lightbox="author-6-cogonelo-block-1" data-title="cogonelo" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/6-cogonelo/8.png" alt="Медиа от cogonelo" loading="lazy">
                                 </a>
                               
                             
@@ -765,6 +668,7 @@
             
               
                 <section id="author-7-egor-chernykh" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/egor-chernykh.html">Егор Черных</a></h2></div>
                   <div class="instruments">Инструменты: Cinematic Unity Explorer</div>
                   
@@ -774,42 +678,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/7-egor-chernykh/1.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/1.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/1.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/1.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/7-egor-chernykh/2.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/2.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/2.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/2.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/7-egor-chernykh/3.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/3.png" alt="Медиа от Егор Черных" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/7-egor-chernykh/4.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/4.png" alt="Медиа от Егор Черных" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/7-egor-chernykh/5.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/5.png" alt="Медиа от Егор Черных" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/7-egor-chernykh/6.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/6.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/3.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/3.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
@@ -818,20 +700,42 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/7-egor-chernykh/7.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/7.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/4.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/4.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/7-egor-chernykh/8.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/8.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/5.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/5.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/7-egor-chernykh/9.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/7-egor-chernykh/9.png" alt="Медиа от Егор Черных" loading="lazy">
+                                <a href="/images/2025/round-i/7-egor-chernykh/6.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/6.png" alt="Медиа от Егор Черных" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/7-egor-chernykh/7.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/7.png" alt="Медиа от Егор Черных" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/7-egor-chernykh/8.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/8.png" alt="Медиа от Егор Черных" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/7-egor-chernykh/9.png" data-lightbox="author-7-egor-chernykh-block-0" data-title="Егор Черных" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/7-egor-chernykh/9.png" alt="Медиа от Егор Черных" loading="lazy">
                                 </a>
                               
                             
@@ -845,6 +749,7 @@
             
               
                 <section id="author-8-krivoy" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/krivoy.html">Кривой</a></h2></div>
                   <div class="instruments">Инструменты: ReShade | Unity Explorer | Lightroom</div>
                   
@@ -854,8 +759,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/8-krivoy/1.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/8-krivoy/1.jpg" alt="Медиа от Кривой" loading="lazy">
+                                <a href="/images/2025/round-i/8-krivoy/1.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/8-krivoy/1.jpg" alt="Медиа от Кривой" loading="lazy">
                                 </a>
                               
                             
@@ -864,14 +769,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/8-krivoy/2.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 486px;">
-                                  <img src="/thumbnails/8-krivoy/2.jpg" alt="Медиа от Кривой" loading="lazy">
+                                <a href="/images/2025/round-i/8-krivoy/2.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 486px;">
+                                  <img src="/thumbnails/2025/round-i/8-krivoy/2.jpg" alt="Медиа от Кривой" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/8-krivoy/3.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 364px;">
-                                  <img src="/thumbnails/8-krivoy/3.jpg" alt="Медиа от Кривой" loading="lazy">
+                                <a href="/images/2025/round-i/8-krivoy/3.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 364px;">
+                                  <img src="/thumbnails/2025/round-i/8-krivoy/3.jpg" alt="Медиа от Кривой" loading="lazy">
                                 </a>
                               
                             
@@ -880,14 +785,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/8-krivoy/4.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/8-krivoy/4.jpg" alt="Медиа от Кривой" loading="lazy">
+                                <a href="/images/2025/round-i/8-krivoy/4.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/8-krivoy/4.jpg" alt="Медиа от Кривой" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/8-krivoy/5.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/8-krivoy/5.jpg" alt="Медиа от Кривой" loading="lazy">
+                                <a href="/images/2025/round-i/8-krivoy/5.jpg" data-lightbox="author-8-krivoy-block-0" data-title="Кривой" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/8-krivoy/5.jpg" alt="Медиа от Кривой" loading="lazy">
                                 </a>
                               
                             
@@ -907,6 +812,7 @@
             
               
                 <section id="author-9-toozanny" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/toozanny.html">toozanny</a></h2></div>
                   
                   
@@ -916,8 +822,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/9-toozanny/1.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/9-toozanny/1.png" alt="Медиа от toozanny" loading="lazy">
+                                <a href="/images/2025/round-i/9-toozanny/1.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/9-toozanny/1.png" alt="Медиа от toozanny" loading="lazy">
                                 </a>
                               
                             
@@ -926,14 +832,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/9-toozanny/2.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/9-toozanny/2.png" alt="Медиа от toozanny" loading="lazy">
+                                <a href="/images/2025/round-i/9-toozanny/2.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/9-toozanny/2.png" alt="Медиа от toozanny" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/9-toozanny/3.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/9-toozanny/3.png" alt="Медиа от toozanny" loading="lazy">
+                                <a href="/images/2025/round-i/9-toozanny/3.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/9-toozanny/3.png" alt="Медиа от toozanny" loading="lazy">
                                 </a>
                               
                             
@@ -942,14 +848,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/9-toozanny/4.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 486px;">
-                                  <img src="/thumbnails/9-toozanny/4.png" alt="Медиа от toozanny" loading="lazy">
+                                <a href="/images/2025/round-i/9-toozanny/4.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 486px;">
+                                  <img src="/thumbnails/2025/round-i/9-toozanny/4.png" alt="Медиа от toozanny" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/9-toozanny/5.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 364px;">
-                                  <img src="/thumbnails/9-toozanny/5.png" alt="Медиа от toozanny" loading="lazy">
+                                <a href="/images/2025/round-i/9-toozanny/5.png" data-lightbox="author-9-toozanny-block-0" data-title="toozanny" class="image-item" style="flex-basis: 364px;">
+                                  <img src="/thumbnails/2025/round-i/9-toozanny/5.png" alt="Медиа от toozanny" loading="lazy">
                                 </a>
                               
                             
@@ -963,6 +869,7 @@
             
               
                 <section id="author-10-akia-plow" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/akia-plow.html">akia plow</a></h2></div>
                   
                   
@@ -977,8 +884,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/10-akia-plow/1.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/10-akia-plow/1.jpg" alt="Медиа от akia plow" loading="lazy">
+                                <a href="/images/2025/round-i/10-akia-plow/1.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/10-akia-plow/1.jpg" alt="Медиа от akia plow" loading="lazy">
                                 </a>
                               
                             
@@ -987,14 +894,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/10-akia-plow/2.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/10-akia-plow/2.jpg" alt="Медиа от akia plow" loading="lazy">
+                                <a href="/images/2025/round-i/10-akia-plow/2.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/10-akia-plow/2.jpg" alt="Медиа от akia plow" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/10-akia-plow/3.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/10-akia-plow/3.jpg" alt="Медиа от akia plow" loading="lazy">
+                                <a href="/images/2025/round-i/10-akia-plow/3.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/10-akia-plow/3.jpg" alt="Медиа от akia plow" loading="lazy">
                                 </a>
                               
                             
@@ -1003,14 +910,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/10-akia-plow/4.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/10-akia-plow/4.jpg" alt="Медиа от akia plow" loading="lazy">
+                                <a href="/images/2025/round-i/10-akia-plow/4.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/10-akia-plow/4.jpg" alt="Медиа от akia plow" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/10-akia-plow/5.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/10-akia-plow/5.jpg" alt="Медиа от akia plow" loading="lazy">
+                                <a href="/images/2025/round-i/10-akia-plow/5.jpg" data-lightbox="author-10-akia-plow-block-1" data-title="akia plow" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/10-akia-plow/5.jpg" alt="Медиа от akia plow" loading="lazy">
                                 </a>
                               
                             
@@ -1030,6 +937,7 @@
             
               
                 <section id="author-11-amaru-viales" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/amaru-viales.html">Amaru Viales</a></h2></div>
                   <div class="instruments">Инструменты: Cinematic Unity Explorer</div>
                   
@@ -1039,20 +947,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/11-amaru-viales/1.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/11-amaru-viales/1.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/1.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/1.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/11-amaru-viales/2.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/11-amaru-viales/2.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/2.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/2.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/11-amaru-viales/3.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/11-amaru-viales/3.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/3.png" data-lightbox="author-11-amaru-viales-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/3.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
@@ -1072,30 +980,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/11-amaru-viales/4.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/4.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/4.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/4.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/11-amaru-viales/5.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/5.png" alt="Медиа от Amaru Viales" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/11-amaru-viales/6.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/6.png" alt="Медиа от Amaru Viales" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/11-amaru-viales/7.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/7.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/5.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/5.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
@@ -1104,14 +996,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/11-amaru-viales/8.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/8.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/6.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/6.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/11-amaru-viales/9.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/9.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/7.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/7.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
@@ -1120,14 +1012,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/11-amaru-viales/10.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/10.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/8.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/8.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/11-amaru-viales/11.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/11-amaru-viales/11.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                <a href="/images/2025/round-i/11-amaru-viales/9.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/9.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/11-amaru-viales/10.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/10.png" alt="Медиа от Amaru Viales" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/11-amaru-viales/11.png" data-lightbox="author-11-amaru-viales-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/11-amaru-viales/11.png" alt="Медиа от Amaru Viales" loading="lazy">
                                 </a>
                               
                             
@@ -1149,6 +1057,7 @@
             
               
                 <section id="author-13-kosmistskiy-express" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/kosmistskiy-express.html">Космистский Экспресс</a></h2></div>
                   <div class="instruments">Инструменты: консольные команды</div>
                   
@@ -1158,8 +1067,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/1.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/1.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/1.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/1.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1168,42 +1077,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/2.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 289px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/2.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/2.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 289px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/2.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/3.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 380px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/3.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/3.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 380px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/3.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/4.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 171px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/4.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/5.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 127px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/5.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/6.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 123px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/6.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/7.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 590px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/7.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/4.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 171px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/4.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1212,30 +1099,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/8.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/8.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/5.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 127px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/5.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/9.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/9.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/6.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 123px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/6.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/10.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/10.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/11.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/11.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/7.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 590px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/7.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1244,42 +1121,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/12.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/12.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/8.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/8.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/13.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 294px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/13.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/9.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/9.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/14.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 231px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/14.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/15.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 251px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/15.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/16.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 337px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/16.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/17.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 251px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/17.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/10.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/10.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1288,20 +1143,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/18.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 317px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/18.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/19.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 205px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/19.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/20.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 317px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/20.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/11.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/11.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1310,8 +1153,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/21.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/21.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/12.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/12.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/13.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 294px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/13.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/14.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 231px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/14.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1320,42 +1175,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/22.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/22.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/15.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 251px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/15.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/23.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/23.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/16.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 337px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/16.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/24.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/24.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/25.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/25.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/26.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/26.png" alt="Медиа от Космистский Экспресс" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/13-kosmistskiy-express/27.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/27.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/17.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 251px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/17.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1364,20 +1197,96 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/13-kosmistskiy-express/28.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/28.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/18.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 317px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/18.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/29.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/29.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/19.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 205px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/19.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/13-kosmistskiy-express/30.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 212px;">
-                                  <img src="/thumbnails/13-kosmistskiy-express/30.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/20.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 317px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/20.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/21.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/21.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/22.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/22.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/23.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/23.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/24.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/24.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/25.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/25.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/26.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/26.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/27.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/27.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/28.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/28.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/29.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 314px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/29.png" alt="Медиа от Космистский Экспресс" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/13-kosmistskiy-express/30.png" data-lightbox="author-13-kosmistskiy-express-block-0" data-title="Космистский Экспресс" class="image-item" style="flex-basis: 212px;">
+                                  <img src="/thumbnails/2025/round-i/13-kosmistskiy-express/30.png" alt="Медиа от Космистский Экспресс" loading="lazy">
                                 </a>
                               
                             
@@ -1391,7 +1300,8 @@
             
               
                 <section id="author-14-vitaliy-romanchenko" class="author-block">
-                  <div class="author-header"><h2 class="author-name"><a href="/authors/vitaliy-romanchenko.html">Виталий Романченко</a></h2></div>
+                  
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/vitalik-romanchenko.html">Виталий Романченко</a></h2></div>
                   <div class="instruments">Инструменты: консольные команды</div>
                   
                     
@@ -1400,36 +1310,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/1.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/1.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/1.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/1.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/2.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/2.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/3.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/3.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/4.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/4.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/5.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/5.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/2.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/2.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1438,20 +1326,42 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/6.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/6.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/3.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/3.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/7.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/7.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/4.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/4.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/8.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/8.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/5.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/5.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/6.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/6.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/7.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/7.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/8.png" data-lightbox="author-14-vitaliy-romanchenko-block-0" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/8.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1466,8 +1376,8 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/9.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 860px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/9.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/9.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 860px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/9.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1476,42 +1386,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/10.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/10.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/10.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/10.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/11.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/11.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/11.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/11.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/12.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/12.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/13.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/13.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/14.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/14.png" alt="Медиа от Виталий Романченко" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/14-vitaliy-romanchenko/15.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/15.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/12.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/12.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1520,20 +1408,42 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/16.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/16.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/13.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/13.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/17.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/17.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/14.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/14.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/18.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/18.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/15.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/15.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/16.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/16.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/17.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/17.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/18.png" data-lightbox="author-14-vitaliy-romanchenko-block-1" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/18.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1554,20 +1464,20 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/1-1.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/1-1.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/1-1.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/1-1.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/2-2.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/2-2.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/2-2.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/2-2.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/14-vitaliy-romanchenko/3-3.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/14-vitaliy-romanchenko/3-3.png" alt="Медиа от Виталий Романченко" loading="lazy">
+                                <a href="/images/2025/round-i/14-vitaliy-romanchenko/3-3.png" data-lightbox="author-14-vitaliy-romanchenko-block-3" data-title="Виталий Романченко" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/14-vitaliy-romanchenko/3-3.png" alt="Медиа от Виталий Романченко" loading="lazy">
                                 </a>
                               
                             
@@ -1587,6 +1497,7 @@
             
               
                 <section id="author-15-zinksarg" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/zinksarg.html">zinksarg</a></h2></div>
                   <div class="instruments">Инструменты: UniversalUE4Unlocker by Otis Inf | Reshade</div>
                   
@@ -1596,30 +1507,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/15-zinksarg/1.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 204px;">
-                                  <img src="/thumbnails/15-zinksarg/1.png" alt="Медиа от zinksarg" loading="lazy">
+                                <a href="/images/2025/round-i/15-zinksarg/1.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 204px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/1.png" alt="Медиа от zinksarg" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/15-zinksarg/2.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 646px;">
-                                  <img src="/thumbnails/15-zinksarg/2.png" alt="Медиа от zinksarg" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/15-zinksarg/3.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 646px;">
-                                  <img src="/thumbnails/15-zinksarg/3.png" alt="Медиа от zinksarg" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/15-zinksarg/4.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 204px;">
-                                  <img src="/thumbnails/15-zinksarg/4.png" alt="Медиа от zinksarg" loading="lazy">
+                                <a href="/images/2025/round-i/15-zinksarg/2.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 646px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/2.png" alt="Медиа от zinksarg" loading="lazy">
                                 </a>
                               
                             
@@ -1628,20 +1523,36 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/15-zinksarg/5.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/15-zinksarg/5.png" alt="Медиа от zinksarg" loading="lazy">
+                                <a href="/images/2025/round-i/15-zinksarg/3.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 646px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/3.png" alt="Медиа от zinksarg" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/15-zinksarg/6.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/15-zinksarg/6.png" alt="Медиа от zinksarg" loading="lazy">
+                                <a href="/images/2025/round-i/15-zinksarg/4.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 204px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/4.png" alt="Медиа от zinksarg" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/15-zinksarg/5.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/5.png" alt="Медиа от zinksarg" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/15-zinksarg/7.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
-                                  <img src="/thumbnails/15-zinksarg/7.png" alt="Медиа от zinksarg" loading="lazy">
+                                <a href="/images/2025/round-i/15-zinksarg/6.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/6.png" alt="Медиа от zinksarg" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/15-zinksarg/7.png" data-lightbox="author-15-zinksarg-block-0" data-title="zinksarg" class="image-item" style="flex-basis: 280px;">
+                                  <img src="/thumbnails/2025/round-i/15-zinksarg/7.png" alt="Медиа от zinksarg" loading="lazy">
                                 </a>
                               
                             
@@ -1655,6 +1566,7 @@
             
               
                 <section id="author-16-hehov" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/hehov.html">хехов</a></h2></div>
                   <div class="instruments">Инструменты: Universal Unreal Engine 4 Unlocker | Cheat Engine</div>
                   
@@ -1664,30 +1576,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/16-hehov/1.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/1.png" alt="Медиа от хехов" loading="lazy">
+                                <a href="/images/2025/round-i/16-hehov/1.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/1.png" alt="Медиа от хехов" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/16-hehov/2.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/2.png" alt="Медиа от хехов" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/16-hehov/3.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/3.png" alt="Медиа от хехов" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/16-hehov/4.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/4.png" alt="Медиа от хехов" loading="lazy">
+                                <a href="/images/2025/round-i/16-hehov/2.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/2.png" alt="Медиа от хехов" loading="lazy">
                                 </a>
                               
                             
@@ -1696,14 +1592,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/16-hehov/5.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/5.png" alt="Медиа от хехов" loading="lazy">
+                                <a href="/images/2025/round-i/16-hehov/3.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/3.png" alt="Медиа от хехов" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/16-hehov/6.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/16-hehov/6.png" alt="Медиа от хехов" loading="lazy">
+                                <a href="/images/2025/round-i/16-hehov/4.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/4.png" alt="Медиа от хехов" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/16-hehov/5.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/5.png" alt="Медиа от хехов" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/16-hehov/6.png" data-lightbox="author-16-hehov-block-0" data-title="хехов" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/16-hehov/6.png" alt="Медиа от хехов" loading="lazy">
                                 </a>
                               
                             
@@ -1723,6 +1635,7 @@
             
               
                 <section id="author-17-phontum" class="author-block">
+                  
                   <div class="author-header"><h2 class="author-name"><a href="/authors/phontum.html">phontum</a></h2></div>
                   <div class="instruments">Инструменты: Toggle HUD mod | Injectable camera for Mafia III | RealLongExposure ReShade (решейд на последнем фото и на гифке)</div>
                   
@@ -1732,30 +1645,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/17-phontum/0.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 331px;">
-                                  <img src="/thumbnails/17-phontum/0.png" alt="Медиа от phontum" loading="lazy">
+                                <a href="/images/2025/round-i/17-phontum/0.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 331px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/0.png" alt="Медиа от phontum" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/17-phontum/1.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 519px;">
-                                  <img src="/thumbnails/17-phontum/1.png" alt="Медиа от phontum" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/17-phontum/2.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 319px;">
-                                  <img src="/thumbnails/17-phontum/2.png" alt="Медиа от phontum" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/17-phontum/3.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 531px;">
-                                  <img src="/thumbnails/17-phontum/3.png" alt="Медиа от phontum" loading="lazy">
+                                <a href="/images/2025/round-i/17-phontum/1.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 519px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/1.png" alt="Медиа от phontum" loading="lazy">
                                 </a>
                               
                             
@@ -1764,14 +1661,30 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/17-phontum/4.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 344px;">
-                                  <img src="/thumbnails/17-phontum/4.png" alt="Медиа от phontum" loading="lazy">
+                                <a href="/images/2025/round-i/17-phontum/2.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 319px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/2.png" alt="Медиа от phontum" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/17-phontum/5.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 506px;">
-                                  <img src="/thumbnails/17-phontum/5.png" alt="Медиа от phontum" loading="lazy">
+                                <a href="/images/2025/round-i/17-phontum/3.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 531px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/3.png" alt="Медиа от phontum" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/17-phontum/4.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 344px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/4.png" alt="Медиа от phontum" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/17-phontum/5.png" data-lightbox="author-17-phontum-block-0" data-title="phontum" class="image-item" style="flex-basis: 506px;">
+                                  <img src="/thumbnails/2025/round-i/17-phontum/5.png" alt="Медиа от phontum" loading="lazy">
                                 </a>
                               
                             
@@ -1782,7 +1695,7 @@
                               
                                 <div class="image-item" style="flex-basis: 860px;">
                                   <video loop autoplay muted playsinline>
-                                    <source src="/images/17-phontum/6.mp4" type="video/mp4">
+                                    <source src="/images/2025/round-i/17-phontum/6.mp4" type="video/mp4">
                                     Ваш браузер не поддерживает тег video.
                                   </video>
                                 </div>
@@ -1797,8 +1710,9 @@
               
             
               
-                <section id="author-18-myau-wau" class="author-block">
-                  <div class="author-header"><h2 class="author-name"><a href="/authors/myau-wau.html">мяу вау</a></h2></div>
+                <section id="author-18-myau-vau" class="author-block">
+                  
+                  <div class="author-header"><h2 class="author-name"><a href="/authors/myau-vau.html">мяу вау</a></h2></div>
                   <div class="instruments">Инструменты: Mafia 3 Player Model Changer by jedijosh920 | NVIDIA Ansel |<br>Injectable camera for Mafia III</div>
                   
                     
@@ -1813,36 +1727,14 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/18-myau-wau/1.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/18-myau-wau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                                <a href="/images/2025/round-i/18-myau-vau/1.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/18-myau-wau/2.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                                  <img src="/thumbnails/18-myau-wau/2.png" alt="Медиа от мяу вау" loading="lazy">
-                                </a>
-                              
-                            
-                          </div>
-                        
-                          <div class="image-row">
-                            
-                              
-                                <a href="/images/18-myau-wau/3.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
-                                  <img src="/thumbnails/18-myau-wau/3.png" alt="Медиа от мяу вау" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/18-myau-wau/4.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
-                                  <img src="/thumbnails/18-myau-wau/4.png" alt="Медиа от мяу вау" loading="lazy">
-                                </a>
-                              
-                            
-                              
-                                <a href="/images/18-myau-wau/5.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
-                                  <img src="/thumbnails/18-myau-wau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                                <a href="/images/2025/round-i/18-myau-vau/2.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
@@ -1851,20 +1743,42 @@
                           <div class="image-row">
                             
                               
-                                <a href="/images/18-myau-wau/6.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
-                                  <img src="/thumbnails/18-myau-wau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                                <a href="/images/2025/round-i/18-myau-vau/3.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/18-myau-wau/7.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
-                                  <img src="/thumbnails/18-myau-wau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                                <a href="/images/2025/round-i/18-myau-vau/4.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
                               
-                                <a href="/images/18-myau-wau/8.png" data-lightbox="author-18-myau-wau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
-                                  <img src="/thumbnails/18-myau-wau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                                <a href="/images/2025/round-i/18-myau-vau/5.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                          </div>
+                        
+                          <div class="image-row">
+                            
+                              
+                                <a href="/images/2025/round-i/18-myau-vau/6.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/18-myau-vau/7.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                                </a>
+                              
+                            
+                              
+                                <a href="/images/2025/round-i/18-myau-vau/8.png" data-lightbox="author-18-myau-vau-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                                  <img src="/thumbnails/2025/round-i/18-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
                                 </a>
                               
                             
@@ -1881,8 +1795,21 @@
 </div>
         
         
+        <div class="subgroup-polls-container">
+          
+            <h4>Общее голосование за лучшую серию</h4>
+          
+          
+          
+            <div class="poll-container"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="ingameph_polls/53" data-width="100%" data-userpic="false" data-color="29B127" data-dark-color="72E350"></script>
+</div>
+          
+            <div class="poll-container"><script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-post="ingameph_polls/54" data-width="100%" data-userpic="false" data-color="29B127" data-dark-color="72E350"></script>
+</div>
+          
+        </div>
+        
        
-
 
       
       <div class="results-link-container">
@@ -1892,33 +1819,43 @@
       </div>
       
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
-    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-                const resultsLink = document.querySelector('.results-link-nav');
-        if (resultsLink) {
-          resultsLink.addEventListener('click', function(e) { e.preventDefault(); e.stopPropagation(); window.location.href = `/2025-round-i-results.html`; });
-        }
+        lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.results-link-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const year = this.dataset.year;
+                    const roundName = this.dataset.roundName;
+                    if (year && roundName) {
+                        window.location.href = `/${year}-${roundName}-results.html`;
+                    }
+                });
+            });
 
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('#main-nav-links');
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('is-open');
-                this.setAttribute('aria-expanded', navLinks.classList.contains('is-open'));
-            });
-            document.addEventListener('click', function(event) {
-                const isClickInsideMenu = navLinks.contains(event.target);
-                const isClickOnToggle = navToggle.contains(event.target);
-                if (navLinks.classList.contains('is-open') && !isClickInsideMenu && !isClickOnToggle) {
-                    navLinks.classList.remove('is-open');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                }
-            });
-        }
-      });
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('is-open');
+                });
+            }
+            
+        });
+
+        
+
     </script>
 </body>
 </html>

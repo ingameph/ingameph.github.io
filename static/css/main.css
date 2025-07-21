@@ -1,0 +1,443 @@
+/* static/css/main.css - ОКОНЧАТЕЛЬНАЯ ВЕРСИЯ */
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+:root {
+  --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
+  --secondary-text-color: #555; --border-color: #e0e0e0; --accent-color: #8e44ad;
+  --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
+  --content-indent: 25px;
+}
+body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
+.container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+/* Навигация */
+.main-nav { position: sticky; top: 0; background-color: var(--surface-color); border-bottom: 1px solid var(--border-color); z-index: 1000; display: flex; justify-content: space-between; align-items: center; min-height: var(--nav-height); padding: 0 15px; }
+.nav-toggle { display: none; background: transparent; border: none; padding: 0; width: 30px; height: 30px; flex-direction: column; justify-content: space-around; cursor: pointer; z-index: 1001; }
+.nav-toggle .line { width: 100%; height: 3px; background-color: var(--primary-text-color); border-radius: 3px; transition: transform 0.3s, opacity 0.3s; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+.nav-links { display: flex; align-items: center; width: 100%; justify-content: space-between; }
+.nav-group { display: flex; align-items: center; height: 100%; flex-wrap: wrap; }
+.year-nav { 
+    justify-content: flex-end;
+    margin-left: auto; 
+}
+.nav-group-title { display: none; }
+.nav-group a { padding: 0 15px; text-decoration: none; color: var(--secondary-text-color); font-weight: 700; display: flex; align-items: center; height: var(--nav-height); transition: all 0.2s; }
+.nav-group a:hover { color: var(--primary-text-color); }
+.nav-group a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; }
+.results-link-nav { font-size: 0.8em; font-weight: 400; margin-left: 8px; opacity: 0.7; color: var(--accent-color); text-decoration: none; cursor: pointer; }
+.nav-group a:hover .results-link-nav, .nav-group a.active .results-link-nav { text-decoration: underline; opacity: 1; }
+
+
+/* ==========================================================================
+   Round Page Styles
+   ========================================================================== */
+.main-header, .subgroups-nav-container, .subgroup-header, .pair-divider { padding-left: var(--content-indent); }
+.main-header { padding-top: 20px; margin-bottom: 30px; }
+.main-header h1 { font-size: 3.5rem; margin: 0; text-align: left; }
+.main-header h2 { font-size: 3rem; margin: 10px 0; text-align: left; }
+.subgroups-nav-container { display: flex; gap: 40px; align-items: flex-start; margin-bottom: 40px; }
+.subgroup-nav-column { flex: 1; min-width: 0; }
+.subgroup-nav-column h3 {
+    font-size: 1.5rem;
+    text-align: left;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+.subgroup-nav-column ol { padding-left: 20px; margin: 0; }
+.subgroup-nav-column li { margin-bottom: 12px; }
+.subgroup-nav-column a { color: var(--accent-color); }
+.subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+.pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
+.pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.pair-divider:first-of-type { margin-top: 0; }
+.author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
+.author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); }
+.author-header .author-name a:hover { color: var(--accent-color); }
+.instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 5px; padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+.text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
+.text-block p { margin: 0 0 0.75em 0; }
+.text-block p:last-child { margin-bottom: 0; }
+.text-block a { color: var(--accent-color); }
+
+.images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.image-row { display: flex; flex-direction: row; gap: 10px; }
+.image-item { flex-grow: 1; position: relative; line-height: 0; }
+.image-item img { width: 100%; height: auto; display: block; }
+.image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
+.results-link-container { margin-top: 60px; padding: 40px var(--content-indent); text-align: center; border-top: 1px solid var(--border-color); }
+.results-link-button { display: inline-block; padding: 12px 24px; border: 2px solid var(--accent-color); background-color: transparent; color: var(--accent-color); font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+.results-link-button:hover { background-color: var(--accent-color); color: white; }
+.poll-container { margin-top: 30px; display: flex; justify-content: center; }
+.subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+.subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; }
+.strikethrough { text-decoration: line-through; text-decoration-thickness: 1px; text-decoration-color: var(--secondary-text-color); }
+.subgroup-nav-column a, .author-header .author-name a { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 300ms ease; }
+.subgroup-nav-column a:hover, .author-header .author-name a:hover { text-decoration-color: var(--accent-color); }
+/* Это правило теперь работает и на странице раунда, и на странице автора */
+.author-block .images-gallery + .text-block,
+.author-page .images-gallery + .text-block {
+  margin-top: 40px;
+}
+/* ==========================================================================
+   Results Page Styles
+   ========================================================================== */
+.results-page .main-header { padding-top: 0; margin-bottom: 30px; }
+.results-page .container > .main-header { padding-top: 20px; }
+.results-page .main-header h2 { color: var(--secondary-text-color); }
+.page-intro-grid { display: flex; gap: 40px; margin-bottom: 50px; }
+.intro-content-column { flex: 3; min-width: 0; }
+.intro-poster-column { flex: 4; min-width: 0; height: 500px; background-size: contain; background-repeat: no-repeat; background-position: center; }
+.intro-poster-column img { display: none; }
+.intro-content-column .main-header { padding-left: var(--content-indent); margin-bottom: 40px; }
+.intro-content-column .results-nav-column { padding-left: var(--content-indent); }
+.scroll-target { scroll-margin-top: calc(var(--nav-height) + 20px); }
+
+.results-nav-column h3, 
+.results-page .subgroup-nav-column h3 {
+    font-size: 1.5rem;
+    text-align: left;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+}
+.results-nav-column ul, .results-nav-column ol,
+.results-page .subgroup-nav-column ol, .results-page .subgroup-nav-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.results-nav-column li,
+.results-page .subgroup-nav-column li {
+    margin-bottom: 12px;
+}
+.results-nav-column a,
+.results-page .subgroup-nav-column a {
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+.results-table-section { margin-bottom: 50px; }
+.results-table-section h3 { font-size: 1.8rem; font-weight: 700; color: var(--primary-text-color); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border-color); padding-left: var(--content-indent); }
+.table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.results-table { width: 100%; border-collapse: collapse; background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+.results-table th, .results-table td { padding: 12px var(--content-indent); text-align: left; border-bottom: 1px solid var(--border-color); }
+.results-table th:first-child, .results-table td:first-child { padding-left: var(--content-indent); }
+.results-table th { background-color: #f9f9f9; font-weight: 700; white-space: nowrap; }
+.results-table tr:last-child td { border-bottom: none; }
+.results-table tr { background-color: var(--surface-color); }
+.pair-shade td { background-color: #f7f7f7; }
+
+/* Общий стиль для заголовков с именем судьи */
+.judge-name,
+.judge-page .main-header h1 {
+    font-size: 3.5rem;
+    /* font-weight: 800; */
+}
+/* Уникальные стили для заголовка на странице результатов */
+.judge-name {
+    color: var(--primary-text-color);
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    margin-bottom: 30px;
+    padding-left: var(--content-indent);
+}
+
+.judge-name a { color: inherit; text-decoration: none; }
+.judge-name a:hover { color: var(--accent-color); }
+.judge-intro, .subgroup-intro { padding-left: var(--content-indent); max-width:700px; padding-right: var(--content-indent); margin-bottom: 30px; line-height: 1.5; color: var(--primary-text-color); font-size: 1rem; }
+.judge-intro p, .subgroup-intro p, .author-review-comment p { margin: 0 0 0.75em 0; max-width: 700px }
+.judge-intro p:last-child, .subgroup-intro p:last-child, .author-review-comment p:last-child { margin-bottom: 0; }
+.subgroup-intro { margin-bottom: 25px; }
+.subgroup-section { margin-bottom: 40px; }
+.subgroup-theme { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-bottom: 20px; padding-left: var(--content-indent); }
+.pair-section { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px var(--content-indent); margin-bottom: 20px; }
+.pair-game { font-size: 1.3rem; font-weight: 700; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); color: var(--secondary-text-color); }
+.author-separator { border: 0; height: 1px; background-color: var(--border-color); margin: 20px 0; }
+.author-review { margin-bottom: 15px; }
+.author-review:last-child { margin-bottom: 0; }
+.author-review-header { font-size: 1.1rem; font-weight: bold; }
+.author-review-header a { color: inherit; }
+.author-review-comment { margin-top: 8px; line-height: 1.5; color: #333; }
+.pair-overall-comment { margin-bottom: 25px; }
+.author-review-header.is-winner { font-weight: 800; color: var(--accent-color); }
+#summary-judges .results-table, #summary-audience .results-table, [id^="summary-final-"] .results-table { table-layout: fixed; width: 100%; }
+#summary-judges .results-table th:first-child, #summary-judges .results-table td:first-child, #summary-audience .results-table th:first-child, #summary-audience .results-table td:first-child, [id^="summary-final-"] .results-table th:first-child, [id^="summary-final-"] .results-table td:first-child { width: 30%; }
+.results-table-section .results-table th:not(:first-child), .results-table-section .results-table td:not(:first-child) { text-align: right; border-left: 1px solid var(--border-color); }
+#summary-judges .results-table th, #summary-audience .results-table th, [id^="summary-final-"] .results-table th { white-space: normal; word-wrap: break-word; }
+
+.results-page .subgroup-nav-column a, .results-nav-column a, .page-toc a, .author-review-header a, .results-table td a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 300ms ease;
+}
+.results-page .subgroup-nav-column a, .results-nav-column a, .page-toc a, .results-table td a {
+    color: var(--accent-color);
+}
+.results-page .subgroup-nav-column a:hover, .results-nav-column a:hover, .page-toc a:hover, .author-review-header a:hover, .results-table td a:hover {
+    text-decoration-color: var(--accent-color);
+}
+.author-review-header a:hover {
+    color: var(--accent-color);
+}
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root { --content-indent: 15px; }
+    .container { padding: 10px; }
+
+    /* Мобильная навигация */
+    .main-nav { justify-content: flex-end; }
+    .nav-toggle { display: flex; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background-color: var(--surface-color); border-top: 1px solid var(--border-color); max-height: calc(100vh - var(--nav-height) - 1px); }
+    .nav-links.is-open { display: flex; flex-direction: column; }
+    .round-nav { order: 1; overflow-y: auto; }
+    .year-nav { order: 2; margin-left: 0; }
+    .nav-group { flex-direction: column; width: 100%; align-items: stretch; }
+    .nav-group-title { display: block; padding: 10px 15px; font-size: 0.9rem; font-weight: 700; color: var(--secondary-text-color); background-color: #e9ecef; text-transform: uppercase; border-bottom: 1px solid var(--border-color); }
+    .round-nav a { justify-content: flex-start; border-bottom: 1px solid var(--border-color); }
+    .round-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-left: 4px solid var(--accent-color); padding-left: calc(15px - 4px); }
+    .year-nav { display: flex; flex-direction: row; flex-wrap: nowrap; background-color: #e9ecef; align-items: stretch; }
+    .year-nav .nav-group-title { display: none; }
+    .year-nav::before { content: ''; flex-grow: 1; }
+    .year-nav a { flex-shrink: 0; justify-content: center; border-left: 1px solid var(--border-color); border-bottom: none; }
+    .year-nav a:first-of-type { border-left: none; }
+    .year-nav a.active { background-color: var(--nav-active-bg); color: var(--nav-active-text); font-weight: 800; border-right: 4px solid var(--accent-color); border-left: 1px solid var(--border-color); padding-right: calc(15px - 4px); }
+    
+    /* Мобильные стили страниц */
+    .subgroups-nav-container { display: none; }
+    .judges-list-page .subgroups-nav-container,
+    .authors-list-page .subgroups-nav-container {
+        display: block;
+    }
+    .main-header { padding-left: 0; }
+    .round-page .main-header,
+    .judges-list-page .main-header,
+    .authors-list-page .main-header {
+        padding-left: var(--content-indent);
+    }
+    .main-header h1 { font-size: 2.2rem; }
+    .main-header h2 { font-size: 1.8rem; }
+    .image-row { flex-direction: column; }
+    .image-item { flex-basis: auto !important; width: 100%; }
+    .main-header h1, .main-header h2, .subgroup-header, .pair-divider span { white-space: normal; overflow-wrap: break-word; word-wrap: break-word; }
+
+    .page-intro-grid { flex-direction: column; gap: 30px; }
+    .intro-poster-column { order: -1; flex: none; width: 100%; height: 400px; background-size: contain; background-repeat: no-repeat; background-position: center; }
+    .intro-poster-column img { width: 100%; height: auto; object-fit: cover; border: 1px solid var(--border-color); display: block; }
+    .results-table-section h3 { font-size: 1.5rem; } .judge-name { font-size: 1.8rem; }
+    .subgroup-theme { font-size: 1.4rem; } .pair-game { font-size: 1.1rem; }
+    .judge-name, .subgroup-theme, .pair-game { overflow-wrap: break-word; word-wrap: break-word; }
+    .results-table { border-radius: 0; border-left: none; border-right: none; }
+    .table-wrapper { border: 1px solid var(--border-color); border-radius: 8px; margin-left: -1px; margin-right: -1px; }
+
+    .authors-list-page .subgroup-nav-column ol {
+        column-count: 1;
+    }
+
+    .author-page .main-header h1 { font-size: 2.2rem; }
+    .round-title-main { font-size: 1.3rem !important; }
+    .round-title-sub { font-size: 1.1rem !important; }
+}
+
+/* ==========================================================================
+   Judge & Author Page Styles
+   ========================================================================== */
+/* --- Корректировка отступа для bio в списке судей --- */
+.judges-list-page .text-block {
+    margin-top: 0.5em;
+}
+
+/* --- Общий стиль для заголовков с линией --- */
+.judges-list-page .main-header,
+.judge-page .main-header,
+.authors-list-page .main-header,
+.author-page .main-header {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--accent-color);
+    text-align: left;
+}
+.author-page .main-header h1,
+.authors-list-page .main-header h1 {
+    font-size: 3.5rem;
+    /* font-weight: 800; */
+}
+
+/* Уникальный стиль для страниц с аватаром (только судьи) */
+.judge-page .main-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.judge-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--surface-color);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+}
+.judge-page .main-header h1,
+.author-page .main-header h1 {
+    margin: 0;
+}
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 10px;
+}
+.social-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.social-link-item:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+.social-link-item svg {
+    width: 1.1em;
+    height: 1.1em;
+    stroke-width: 2.2;
+    flex-shrink: 0;
+    margin-top: -2px;
+}
+
+.judge-page .main-header,
+.author-page .main-header,
+.judge-bio,
+.page-toc {
+    padding-left: var(--content-indent);
+    padding-right: var(--content-indent);
+}
+
+.judge-bio {
+    margin-bottom: 40px;
+}
+.page-toc {
+    margin-bottom: 50px;
+}
+.page-toc h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-text-color);
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+.page-toc ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.page-toc li {
+    margin-bottom: 12px;
+}
+
+
+.round-decisions-block {
+    margin-bottom: 50px;
+}
+
+.new-year-separator {
+    padding-top: 50px;
+    border-top: 1px solid var(--border-color);
+}
+
+.round-title-link-block {
+    display: block;
+    padding: 0 var(--content-indent) 20px;
+    /* margin-bottom: 20px; */
+    text-decoration: none;
+}
+.judge-page .round-title-link-block {
+    border-bottom: 1px solid var(--border-color);
+}
+.round-title-main,
+.round-title-sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--secondary-text-color);
+    transition: color 0.2s;
+}
+.round-title-main {
+    margin-bottom: 5px;
+}
+.round-title-link-block:hover .round-title-main,
+.round-title-link-block:hover .round-title-sub {
+    color: var(--accent-color);
+}
+/* --- КОНЕЦ ИЗМЕНЕНИЯ --- */
+
+.authors-list-page .subgroup-nav-column ol {
+    column-count: 2;
+    column-gap: 40px;
+}
+
+.authors-list-page .subgroup-nav-column li {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+
+/* Медиа-запросы для страниц судей и авторов */
+@media (max-width: 768px) {
+    .judges-list-page .main-header h1,
+    .authors-list-page .main-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .judge-page .main-header {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+    .judge-avatar {
+        width: 80px;
+        height: 80px;
+    }
+    .judge-page .main-header h1,
+    .author-page .main-header h1 {
+        font-size: 1.8rem;
+    }
+    .page-toc h3 {
+        font-size: 1.3rem;
+    }
+    .round-title-main { font-size: 1.3rem !important; }
+    .round-title-sub { font-size: 1.1rem !important; }
+}
+.author-aliases {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    :* font-style: italic; */
+}
+/* ... другие стили ... */
+
+/* Стиль для строки-разделителя подгруппы в сводных таблицах */
+.results-table tr.subgroup-divider td {
+    background-color: #f0f0f0; /* Слегка темнее, чем фон */
+    font-weight: 700;
+    color: var(--secondary-text-color);
+    text-align: left;
+    border-top: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+/* ... другие стили ... */

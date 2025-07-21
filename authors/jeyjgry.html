@@ -1,350 +1,667 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <title>jeyjgry | Портфолио</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link href="/static/css/main.css" rel="stylesheet" />
     <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <style>
-      :root {
-        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #555; --border-color: #e0e0e0; --accent-color: #8e44ad;
-        --round-card-bg: #ffffff;
-        --content-indent: 30px;
-      }
-      body { margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); scroll-behavior: smooth; }
-      .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-      
-      .main-header {
-          padding: 20px 0; 
-          margin-bottom: 40px; 
-          border-bottom: 1px solid var(--border-color);
-          padding-left: var(--content-indent);
-          text-align: left;
-      }
-      .main-header h1 { font-size: 3rem; margin: 0; }
-      .main-header .portfolio-link { display: inline-block; margin-top: 10px; color: var(--accent-color); text-decoration: none; font-size: 1.2rem; }
-      .main-header .portfolio-link:hover { text-decoration: underline; }
-      
-      .back-link {
-          display: inline-block; margin-bottom: 20px; 
-          color: var(--secondary-text-color); text-decoration: none; font-weight: bold;
-          padding-left: var(--content-indent);
-      }
-      .back-link:hover { color: var(--primary-text-color); }
-      
-      .round-block {
-          background-color: var(--round-card-bg); 
-          border: 1px solid var(--border-color); 
-          border-radius: 12px; 
-          margin-bottom: 40px;
-          padding: 15px var(--content-indent) var(--content-indent);
-          scroll-margin-top: 20px;  
-      }
-      .round-header { padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); }
-      .round-header h2 { font-size: 2.2rem; margin: 0; }
-      .round-header h3 { font-size: 1.5rem; color: var(--secondary-text-color); margin: 5px 0 0 0; font-weight: 400; }
-      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 15px; }
-      
-      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
-      .text-block p { margin: 0 0 0.75em 0; }
-      .text-block p:last-child { margin-bottom: 0; }
-      .text-block a { color: var(--accent-color); }
-
-      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
-      .image-row { display: flex; flex-direction: row; gap: 10px; }
-      .image-item { flex-grow: 1; position: relative; }
-      .image-item img { width: 100%; height: auto; display: block; }
-
-      @media (max-width: 768px) {
-          :root { --content-indent: 15px; }
-          .container { padding: 10px; }
-          .main-header h1 { font-size: 2rem; }
-          .round-header h2 { font-size: 1.5rem; }
-          .round-header h3 { font-size: 1.1rem; }
-          .image-row { flex-direction: column; }
-          .image-item { flex-basis: auto !important; width: 100%; }
-          .main-header h1, .round-header h2, .round-header h3 { overflow-wrap: break-word; word-wrap: break-word; }
-      }
-    </style>
 </head>
-<body>
+<body class="author-page">
+    
+    
+<nav class="main-nav" aria-label="Основная навигация">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links-container">
+        <span class="sr-only">Открыть меню</span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <div class="nav-links" id="nav-links-container">
+        
+
+        <div class="nav-group year-nav">
+            <a href="/authors.html" class="active">Участники</a>
+            <a href="/judges.html" >Судьи</a>
+            <span class="nav-group-title">Годы</span><a href="/2020.html" >2020</a><a href="/2021.html" >2021</a><a href="/2025.html" >2025</a></div>
+    </div>
+</nav>
+
     <div class="container">
-      <a href="/authors.html" class="back-link">← К списку авторов</a>
       <header class="main-header">
         <h1>jeyjgry</h1>
-        <a href="https://vk.com/id114175438" target="_blank" rel="noopener noreferrer" class="portfolio-link">Страница автора</a>
+   
+        
+          <div class="social-links">
+            
+            <a href="https://vk.com/id114175438" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 19h-4a8 8 0 0 1 -8 -8v-5h4v5a4 4 0 0 0 4 4h0v-9h4v4.5l.03 0a4.531 4.531 0 0 1 3.97 -4.496h2v4a5.18 5.18 0 0 1 -2.26 4.413a4.773 4.773 0 0 1 -2.74 1.087h-1v4" /></svg>
+                
+                <span></span>
+            </a>
+            
+          </div>
+        
       </header>
-      
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд I</h2>
-          <h3>Тема: Свет | Игра: Syndicate</h3>
 
-        </div>
+      <nav class="page-toc">
+        <h3>Годы участия</h3>
+        <ul>
+              <li><a href="#year-2021">2021</a></li>
+              <li><a href="#year-2020">2020</a></li>
+        </ul>
+      </nav>
+      
+      
+      
+      
         
+
           
-            <div class="text-block"><p>1</p>
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-i.html#author-5-jeyjgry" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд I</span>
+                <span class="round-title-sub"> Свет |  Syndicate</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>1</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/5-jeyjgry/1-1.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 427px;">
-                      <img src="/thumbnails/5-jeyjgry/1-1.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/5-jeyjgry/1-2.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 423px;">
-                      <img src="/thumbnails/5-jeyjgry/1-2.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/1-1.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 427px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/1-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/1-2.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 423px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/1-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/1-3.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/1-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/1-4.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/1-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                </div>
-              
-                <div class="image-row">
+                
                   
-                    <a href="/images/5-jeyjgry/1-3.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
-                      <img src="/thumbnails/5-jeyjgry/1-3.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/1-4.jpg" data-lightbox="submission-0-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
-                      <img src="/thumbnails/5-jeyjgry/1-4.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-            </div>
-          
-        
-          
-            <div class="text-block"><p>2</p>
+                    <div class="text-block"><p>2</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/5-jeyjgry/2-1.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 860px;">
-                      <img src="/thumbnails/5-jeyjgry/2-1.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                </div>
-              
-                <div class="image-row">
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/2-1.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 860px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/2-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/2-2.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/2-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/2-3.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/2-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                    <a href="/images/5-jeyjgry/2-2.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/5-jeyjgry/2-2.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/5-jeyjgry/2-3.jpg" data-lightbox="submission-0-block-3" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/5-jeyjgry/2-3.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-            </div>
-          
-        
-          
-            <div class="text-block"><p>3</p>
+                    <div class="text-block"><p>3</p>
 <p>падение башни</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/5-jeyjgry/3-1.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/5-jeyjgry/3-1.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/5-jeyjgry/3-2.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/5-jeyjgry/3-2.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-1.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-2.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-3.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-4.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-5.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 282px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-5.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/3-6.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/3-6.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                    <a href="/images/5-jeyjgry/3-3.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/5-jeyjgry/3-3.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/5-jeyjgry/3-4.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
-                      <img src="/thumbnails/5-jeyjgry/3-4.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/3-5.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 282px;">
-                      <img src="/thumbnails/5-jeyjgry/3-5.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/3-6.jpg" data-lightbox="submission-0-block-5" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/5-jeyjgry/3-6.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-            </div>
-          
-        
-          
-            <div class="text-block"><p>4</p>
+                    <div class="text-block"><p>4</p>
 <p>падение башни</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/5-jeyjgry/4-1.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/5-jeyjgry/4-1.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/5-jeyjgry/4-2.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/5-jeyjgry/4-2.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-1.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-2.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-3.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-4.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-5.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 281px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-5.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-6.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-6.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-7.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-7.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-8.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-8.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/5-jeyjgry/4-9.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
+                              <img src="/thumbnails/2021/round-i/5-jeyjgry/4-9.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/5-jeyjgry/4-3.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 279px;">
-                      <img src="/thumbnails/5-jeyjgry/4-3.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/4-4.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/5-jeyjgry/4-4.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/4-5.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 281px;">
-                      <img src="/thumbnails/5-jeyjgry/4-5.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/5-jeyjgry/4-6.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
-                      <img src="/thumbnails/5-jeyjgry/4-6.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/4-7.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
-                      <img src="/thumbnails/5-jeyjgry/4-7.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/5-jeyjgry/4-8.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 424px;">
-                      <img src="/thumbnails/5-jeyjgry/4-8.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/5-jeyjgry/4-9.jpg" data-lightbox="submission-0-block-7" data-title="jeyjgry" class="image-item" style="flex-basis: 426px;">
-                      <img src="/thumbnails/5-jeyjgry/4-9.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
-          
-        
-      </section>
-      
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд II</h2>
-          <h3>Тема: Криминалистическая фотография | Игра: Mafia II</h3>
+          </section>
 
-        </div>
-        
-      </section>
-      
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд III</h2>
-          <h3>Тема: Сверхъестественное | Игра: Grand Theft Auto IV</h3>
-
-        </div>
-        
           
-            <div class="text-block"><p>Моя мама сейчас в больнице, а я болею, нахожусь на карантине. Мне очень одиноко и под ночь становится беспокойно, и очень странно ломается восприятие, когда ты фактически ни с кем не общаешься напрямую уже несколько дней.</p>
+          
+
+        
+      
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iii.html#author-18-jeyjgry" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд III</span>
+                <span class="round-title-sub"> Сверхъестественное |  Grand Theft Auto IV</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>Моя мама сейчас в больнице, а я болею, нахожусь на карантине. Мне очень одиноко и под ночь становится беспокойно, и очень странно ломается восприятие, когда ты фактически ни с кем не общаешься напрямую уже несколько дней.</p>
 <p>В силу того, что я всегда умудрялась довести обыденные происшествия до состояния сверхъестественного, мое вечернее времяпровождение сейчас наполнено тревожностью, всматриванием в предметы, в щели открытых дверок шкафа. Каждый раз перед сном, я представляю, что дверь в квартиру не заперта и кто-то ее вот-вот откроет и убьет меня и кота.</p>
 <p>Все это время я живу в комнате мамы, потому как в моей темнота ощущается более весомо и глубоко, в ней тихо, и из-за беспорядка, вещи издают различные странные звуки шорохов и скрипа, а темнота в коридоре кажется бесконечной..</p>
 <p>Обычно, когда у меня сонный паралич, мне часто виделось, что по этому длинному коридору ко мне приближается существо говорящее со мной тяжелыми хрипами и оглушающими криками. Сонный паралич у меня бывает, наверное, каждую неделю, вот уже лет 7, его присутствие в моей жизни настолько значимо, что созданные им иллюзии сильно влияют на мое бодрствующее сознание. Я часто вспоминаю ощущения и существ из таких приключений в жизни, от того, обычные предметы вокруг наполняются более темным и тревожным смыслом..</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/18-jeyjgry/1.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/1.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/18-jeyjgry/2.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/2.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/1.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/2.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/3.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/4.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/5.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/5.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/6.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/6.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/7.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/7.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/8.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/8.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/18-jeyjgry/9.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/18-jeyjgry/9.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                    <a href="/images/18-jeyjgry/3.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/3.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/18-jeyjgry/4.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/4.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/18-jeyjgry/5.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/5.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/18-jeyjgry/6.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/6.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/18-jeyjgry/7.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/7.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/18-jeyjgry/8.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/8.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/18-jeyjgry/9.jpg" data-lightbox="submission-2-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/18-jeyjgry/9.jpg" alt="Фото jeyjgry" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
+          </section>
+
           
+          
+
         
-      </section>
       
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iv.html#author-12-jeyjgry" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд IV</span>
+                <span class="round-title-sub"> Автопортрет |  The Elder Scrolls IV: Oblivion</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Ansel
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>Моя репрезентация себя – это девушка, мечущаяся от одного источника света к другому.</p>
+<p>В своем идеале я бы хотела быть "человеком эпохи возрождения", умеющей делать множество вещей и владеть множеством знаний. Пока ментально это не очень получается, и мое будущее видится мне размытым.</p>
+<p>В самой игре мне было очень тяжело находить качественные источники освещения, потому, подобные "колодца" света становились наиболее важными участками в мире. Все они встречались только под землей.</p>
+<p>Отсылаясь к моей оппонентке Виктория Кузнецова, которая рассказала в своей работе о внутреннем свете как о нахождении истинного "я", хочется сказать:</p>
+<p>- надеюсь, я его найду</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/1.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 504px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/2.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 346px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/3.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/4.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/5.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/5.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/6.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/6.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/7.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/7.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/12-jeyjgry/8.jpg" data-lightbox="submission-3-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/12-jeyjgry/8.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target new-year-separator" id="year-2020">
+            <a href="/2020-round-i.html#author-42-jeyjgry" class="round-title-link-block">
+                <span class="round-title-main">2020 — Раунд I</span>
+                <span class="round-title-sub"> Абстракция |  Din&#39;s Curse</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Debug console | Trainer (v. 1.0) | Photoshop
+                    </div>
+                
+                
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/1.jpg" data-lightbox="submission-4-block-0" data-title="jeyjgry" class="image-item" style="flex-basis: 434px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/1.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/2.jpg" data-lightbox="submission-4-block-0" data-title="jeyjgry" class="image-item" style="flex-basis: 416px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/2.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/3.jpg" data-lightbox="submission-4-block-0" data-title="jeyjgry" class="image-item" style="flex-basis: 473px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/3.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/4.jpg" data-lightbox="submission-4-block-0" data-title="jeyjgry" class="image-item" style="flex-basis: 377px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/4.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/5.jpg" data-lightbox="submission-4-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 300px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/5.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/6.jpg" data-lightbox="submission-4-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 300px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/6.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/7.jpg" data-lightbox="submission-4-block-1" data-title="jeyjgry" class="image-item" style="flex-basis: 241px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/7.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/8.jpg" data-lightbox="submission-4-block-2" data-title="jeyjgry" class="image-item" style="flex-basis: 434px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/8.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/42-jeyjgry/9.jpg" data-lightbox="submission-4-block-2" data-title="jeyjgry" class="image-item" style="flex-basis: 416px;">
+                              <img src="/thumbnails/2020/round-i/42-jeyjgry/9.jpg" alt="Медиа от jeyjgry" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+      
+
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
-    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+    <script>
+        lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.results-link-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const year = this.dataset.year;
+                    const roundName = this.dataset.roundName;
+                    if (year && roundName) {
+                        window.location.href = `/${year}-${roundName}-results.html`;
+                    }
+                });
+            });
+
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('is-open');
+                });
+            }
+            
+        });
+
+        
+    </script>
 </body>
 </html>

@@ -1,93 +1,281 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <title>мяу вау | Портфолио</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link href="/static/css/main.css" rel="stylesheet" />
     <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <style>
-      :root {
-        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #555; --border-color: #e0e0e0; --accent-color: #8e44ad;
-        --round-card-bg: #ffffff;
-        --content-indent: 30px;
-      }
-      body { margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); scroll-behavior: smooth; }
-      .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-      
-      .main-header {
-          padding: 20px 0; 
-          margin-bottom: 40px; 
-          border-bottom: 1px solid var(--border-color);
-          padding-left: var(--content-indent);
-          text-align: left;
-      }
-      .main-header h1 { font-size: 3rem; margin: 0; }
-      .main-header .portfolio-link { display: inline-block; margin-top: 10px; color: var(--accent-color); text-decoration: none; font-size: 1.2rem; }
-      .main-header .portfolio-link:hover { text-decoration: underline; }
-      
-      .back-link {
-          display: inline-block; margin-bottom: 20px; 
-          color: var(--secondary-text-color); text-decoration: none; font-weight: bold;
-          padding-left: var(--content-indent);
-      }
-      .back-link:hover { color: var(--primary-text-color); }
-      
-      .round-block {
-          background-color: var(--round-card-bg); 
-          border: 1px solid var(--border-color); 
-          border-radius: 12px; 
-          margin-bottom: 40px;
-          padding: 15px var(--content-indent) var(--content-indent);
-          scroll-margin-top: 20px;  
-      }
-      .round-header { padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); }
-      .round-header h2 { font-size: 2.2rem; margin: 0; }
-      .round-header h3 { font-size: 1.5rem; color: var(--secondary-text-color); margin: 5px 0 0 0; font-weight: 400; }
-      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 15px; }
-      
-      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
-      .text-block p { margin: 0 0 0.75em 0; }
-      .text-block p:last-child { margin-bottom: 0; }
-      .text-block a { color: var(--accent-color); }
-
-      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
-      .image-row { display: flex; flex-direction: row; gap: 10px; }
-      .image-item { flex-grow: 1; position: relative; }
-      .image-item img { width: 100%; height: auto; display: block; }
-
-      @media (max-width: 768px) {
-          :root { --content-indent: 15px; }
-          .container { padding: 10px; }
-          .main-header h1 { font-size: 2rem; }
-          .round-header h2 { font-size: 1.5rem; }
-          .round-header h3 { font-size: 1.1rem; }
-          .image-row { flex-direction: column; }
-          .image-item { flex-basis: auto !important; width: 100%; }
-          .main-header h1, .round-header h2, .round-header h3 { overflow-wrap: break-word; word-wrap: break-word; }
-      }
-    </style>
 </head>
-<body>
+<body class="author-page">
+    
+    
+<nav class="main-nav" aria-label="Основная навигация">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links-container">
+        <span class="sr-only">Открыть меню</span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <div class="nav-links" id="nav-links-container">
+        
+
+        <div class="nav-group year-nav">
+            <a href="/authors.html" class="active">Участники</a>
+            <a href="/judges.html" >Судьи</a>
+            <span class="nav-group-title">Годы</span><a href="/2020.html" >2020</a><a href="/2021.html" >2021</a><a href="/2025.html" >2025</a></div>
+    </div>
+</nav>
+
     <div class="container">
-      <a href="/authors.html" class="back-link">← К списку авторов</a>
       <header class="main-header">
         <h1>мяу вау</h1>
-        <a href="https://vk.com/id599189276" target="_blank" rel="noopener noreferrer" class="portfolio-link">Страница автора</a>
-      </header>
-      
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд I</h2>
-          <h3>Тема: Свет | Игра: Deus Ex</h3>
-
-        </div>
+   
         
+          <div class="social-links">
+            
+            <a href="https://t.me/dontlookingformee" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+                
+                <span>с🫧ви всaышyи</span>
+            </a>
+            
+          </div>
+        
+      </header>
+
+      <nav class="page-toc">
+        <h3>Годы участия</h3>
+        <ul>
+              <li><a href="#year-2025">2025</a></li>
+              <li><a href="#year-2021">2021</a></li>
+              <li><a href="#year-2020">2020</a></li>
+        </ul>
+      </nav>
+      
+      
+      
+      
+        
+
           
-            <div class="text-block"><p>я прочитала пару статей про свет в википедии ха ха и я люблю свет за то что его так по всякому можно интерпретировать но я сейчас конечно больше про метафорический смысол говорю и то што его тоже много разного цветного</p>
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2025">
+            <a href="/2025-round-i.html#author-18-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2025 — Раунд I</span>
+                <span class="round-title-sub"> Отражения |  Mafia III</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Mafia 3 Player Model Changer by jedijosh920 | NVIDIA Ansel |<br>Injectable camera for Mafia III
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>🪞мы посмотрелись в зеркало обратно🪞</p>
+<p>практика смотреть на свое отражение часто может быть токсичной и только усиливать чувство дисморфофобии <br>на моих снимках персонажы отворачиваются от зеркала или не могут увидеть свое отражение <br>and this is for good 😁</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/1.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/2.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/3.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/4.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/5.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/6.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 368px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/7.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/18-myau-vau/8.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 236px;">
+                              <img src="/thumbnails/2025/round-i/18-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2025">
+            <a href="/2025-round-ii.html#author-10-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2025 — Раунд II</span>
+                <span class="round-title-sub"> Интерфейсы |  Wizardry 8 (2001)</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Cheat Engine | таблица константина ремизова | <a href ="https://steamcommunity.com/sharedfiles/filedetails/?id=2008373131">кастом портретс гайд</a> (токсик)
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>ввизардри 8 портреты персонажый играют ключевую роль и вплетены в механику геймплея<br>помимо этого они занимают большую часть икрана шьто побудило миня утилизировать эту особенность игры по максимуму и снять каждый портрет отдельно и всей семьей</p>
+<p>благодаря наводке константина ремизова я создала кастомные портреты моей пати используя разных чюдикоф с моих рисункоф и так родилось мое чюдище<br>бихолд</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/1.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/2.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/3.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/4.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/5.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/6.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/7.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/10-myau-vau/8.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-ii/10-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target new-year-separator" id="year-2021">
+            <a href="/2021-round-i.html#author-7-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд I</span>
+                <span class="round-title-sub"> Свет |  Deus Ex</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>я прочитала пару статей про свет в википедии ха ха и я люблю свет за то что его так по всякому можно интерпретировать но я сейчас конечно больше про метафорический смысол говорю и то што его тоже много разного цветного</p>
 <p>вот я и пыталась что то такое создать чтобы у вас (у кого?) было такое большое поле для экспериментов со своими контекстами в тандеме с моими свето фотками</p>
 <p>я смотрела видосы про биолюминесценцию и боже я почувствовала как преисполнилась в познании там еще звук был такой эмбиентный што погружало меня в kinda трансцендентальное состояние мне это оч ень понравилось и я постаралась запереть все эти чувства в себе и выдавливать почучуть для фоточек</p>
 <p>еше в этом видео рыпки морские черти сравнивались с блуждающими огнями и мне очень понравилась концепция етого народного поверья и я вот тоже много блуждала во всех смыслах делая свои фотки и много думала про willow-the-wisp (а в thief 3 они есть по дефолту!)</p>
@@ -99,255 +287,361 @@
 <p>смотрите мои свето снимки ослепните от их светосвета смакуйте свет запивайте светом ставьте свет делайте свет</p>
 <p>свет внутри каждого из нас и в общем мне уже както стремно далее следуют смайлики (благодарите ваше зрение что вы можете их видеть ведь они так красивы но в мобильной версии в сообщениях они больше и красивее почему везде не так) 🎀🐛🚨💫🔥✨⚡👅🌈</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/7-myau-vau/1.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 860px;">
-                      <img src="/thumbnails/7-myau-vau/1.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                
                   
-                </div>
-              
-                <div class="image-row">
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/1.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 860px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/2.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/3.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/4.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/5.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/6.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/7.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/8.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/9.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/10.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/10.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/11.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/11.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/12.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/12.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/13.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/14.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/14.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/15.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/15.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/16.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/16.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/17.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/17.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/18.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/18.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/7-myau-vau/19.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-i/7-myau-vau/19.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                    <a href="/images/7-myau-vau/2.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/2.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/3.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/3.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/4.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/4.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/7-myau-vau/5.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/5.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/6.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/6.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/7.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/7.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/7-myau-vau/8.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/7-myau-vau/8.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/9.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/7-myau-vau/9.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/10.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
-                      <img src="/thumbnails/7-myau-vau/10.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/7-myau-vau/11.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/11.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/12.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/12.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/13.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/13.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/7-myau-vau/14.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/14.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/15.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/15.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/16.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/16.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/7-myau-vau/17.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/17.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/18.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/18.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/7-myau-vau/19.png" data-lightbox="submission-0-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/7-myau-vau/19.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
+          </section>
+
           
+          
+
         
-      </section>
       
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд II</h2>
-          <h3>Тема: Криминалистическая фотография | Игра: The Guild 2</h3>
-<div class="instruments">Инструменты: для создания и редактирования фотограмметрии я использовала программы COLMAP и Meshlab</div>
-        </div>
         
+
           
-            <div class="text-block"><p>в средневековье была распространена практика судов над животными, которая просуществовала вплоть до начала прошлого века. животных могли судить за уголовные преступления так же как и людей, хотя формально закон не предусматривал такого.</p>
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-ii.html#author-1-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд II</span>
+                <span class="round-title-sub"> Криминалистическая фотография |  The Guild 2</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: для создания и редактирования фотограмметрии я использовала программы COLMAP и Meshlab
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>в средневековье была распространена практика судов над животными, которая просуществовала вплоть до начала прошлого века. животных могли судить за уголовные преступления так же как и людей, хотя формально закон не предусматривал такого.</p>
 <p>и поскольку мне выпал симулятор средневековой жизни то грех было не использовать эту замечательную информацию в качестве темы для моего раунда (на самом деле не грех я даже не знала об этом до того как мне не подсказал дружелюбный сосед)</p>
 <p>в общем у меня всё довольно кукольно и монструозно вышло: можно представить што это криминалистическая фотография потустороннего мира который был проклят быть искаженным за то что там вовремя не сдали работы на фотобаттл</p>
 <p>да вот<br>у меня кот на судебном заседании а потом свинья но кажется им по барабану. фотограмметрия — один из способов 'запечатлевающей' (как сказано в книжке "Криминалистическая фотография") фотографии и представляет собой 3d реконструкцию объекта или пространства сделанную с помощью пула фотографий этого объекта или пространства<br>я совершенно незнакома с этим процессом, но мне моя неопытность даже играет на руку, ведь это часто приводит ко всяким там неожиданным и интересным результатам и мне это нравится.<br>к сожалению мощности моего компика было недостаточно чтобы нормально работать (ненавижу это слово) и по ходу я постоянно плевалась (неправда) и злилась из-за медлительности моей железки. возможно, я бы сделала что-то еще, если бы не технические ограничения, но я в принципе довольна какая мясистая и дикая штука у меня получилась..</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/1-myau-vau/1.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/1.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/1-myau-vau/2.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/2.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/1.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/2.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/3.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/4.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/5.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 335px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/6.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 170px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/7.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 335px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/8.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 564px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/9.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 286px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/10.jpg" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/10.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/11.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/11.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/12.jpg" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/12.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/13.png" data-lightbox="submission-3-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                </div>
-              
-                <div class="image-row">
+                
                   
-                    <a href="/images/1-myau-vau/3.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/3.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/4.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/4.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/1-myau-vau/5.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 335px;">
-                      <img src="/thumbnails/1-myau-vau/5.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/6.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 170px;">
-                      <img src="/thumbnails/1-myau-vau/6.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/7.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 335px;">
-                      <img src="/thumbnails/1-myau-vau/7.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/1-myau-vau/8.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 564px;">
-                      <img src="/thumbnails/1-myau-vau/8.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/9.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 286px;">
-                      <img src="/thumbnails/1-myau-vau/9.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/1-myau-vau/10.jpg" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/10.jpg" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/11.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/11.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/1-myau-vau/12.jpg" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/12.jpg" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/1-myau-vau/13.png" data-lightbox="submission-1-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/1-myau-vau/13.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-            </div>
-          
-        
-          
-            <div class="text-block"><p>вкусняшки   <br>(супер fancy магшоты с задействованием высокотехнологичных логий)</p>
+                    <div class="text-block"><p>вкусняшки   <br>(супер fancy магшоты с задействованием высокотехнологичных логий)</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/1-myau-vau/1-1.png" data-lightbox="submission-1-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/1-myau-vau/1-1.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/1-myau-vau/1-2.png" data-lightbox="submission-1-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/1-myau-vau/1-2.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/1-1.png" data-lightbox="submission-3-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/1-1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/1-2.png" data-lightbox="submission-3-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/1-2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/1-myau-vau/1-3.png" data-lightbox="submission-3-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/1-myau-vau/1-3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                    <a href="/images/1-myau-vau/1-3.png" data-lightbox="submission-1-block-3" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/1-myau-vau/1-3.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
+          </section>
+
           
+          
+
         
-      </section>
       
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд III</h2>
-          <h3>Тема: Сверхъестественное | Игра: Far Cry 2</h3>
-<div class="instruments">Инструменты: Cheat Engine | Far Cry 2 Multifixer</div>
-        </div>
         
+
           
-            <div class="text-block"><p>о̯̯ч̛̛̯̯̯̯̯̯̯̯̯̯̯̯̯̯̰̰̰̽ч̰̰̰̰̰̰̰̰̰̰̰̰̰̱̱̱̱̱̱̱̽̾̾ч̱̱̱̱̱̱̱̱̱ки . <br>единственное што осталось от мистера пупс᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂ͤͤи᷂ка после того большого взрыва в Жыже <br>он не успел сдел̫̫̫̫̫̫̫̫̫̫̫̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̔̔а̬ть кое что важное спеть нелепую песню перед своими друзьями которых он считал животными или мразями или губусеницами</p>
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iii.html#author-11-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд III</span>
+                <span class="round-title-sub"> Сверхъестественное |  Far Cry 2</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Cheat Engine | Far Cry 2 Multifixer
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>о̯̯ч̛̛̯̯̯̯̯̯̯̯̯̯̯̯̯̯̰̰̰̽ч̰̰̰̰̰̰̰̰̰̰̰̰̰̱̱̱̱̱̱̱̽̾̾ч̱̱̱̱̱̱̱̱̱ки . <br>единственное што осталось от мистера пупс᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂᷂ͤͤи᷂ка после того большого взрыва в Жыже <br>он не успел сдел̫̫̫̫̫̫̫̫̫̫̫̬̬̬̬̬̬̬̬̬̬̬̬̬̬̬̔̔а̬ть кое что важное спеть нелепую песню перед своими друзьями которых он считал животными или мразями или губусеницами</p>
 <p>сначала были пятна͎͎͎ и он думал што его друзья наконец то пл̴̖̖̖̖̖̖̖̖̖̗̗̗̗̗̀́а̵̗̗̗̗̗̗̗̗̗̗̗́вятся от его пения но он не заметил што занимался этим сам (плавался) и он немного расстроился сначала что это были не его друзя но потом окоченел и успокоился</p>
 <p>кажется ему больше комфортнее быть без лица и тела теперь никто не сможет прочитать какие морщины на его лице отвечают за убийство тысяч невинных чипсиков лэйс <br>пр̳̳̳̳̳̳̳̳̳̳̳̳̳̀̀а̳̳̳вда колу теперь особо не попьеш и не пописаеш и не подрочиш <br>но ладно мне и так хорошо <br>но все это загадочно <br>во т</p>
 <p>-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡-͟͡ -͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡-͟͡-͟͡ -͟͡-͟͡ -͟͡-͟͡-͟͡</p>
@@ -357,172 +651,538 @@
 <p>для прыганий по локациям использовалась команда teleport_to_current_objective</p>
 <p>с помощью cheat engine были найдены fov, ячейки с разрешением игры (благодаря чему можно было делать около сплитскрины и штото странное еше)(за помощи спасибо <a href="https://vk.com/id20700961">i̵͖͖͖͖͖͖͆͆͆͆͆͆ͅu᷂᷂̪̪̪̪̪͆͌͌͌͌̓ͅm͇͕͕͊͗͗͗͗</a>), камера, и еше разные мистические приколы которые не очень легко описать</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/11-myau-vau/1.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 351px;">
-                      <img src="/thumbnails/11-myau-vau/1.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/11-myau-vau/2.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 499px;">
-                      <img src="/thumbnails/11-myau-vau/2.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/1.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 351px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/2.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 499px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/3.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/4.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 349px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/5.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/6.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/7.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/8.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/9.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/10.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/10.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/11.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/11.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/11f.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/11f.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/12.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 349px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/12.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/13.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/14.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/14.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/15.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/15.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/16.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/16.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/17.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/17.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/18.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/18.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/19.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/19.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/20.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/20.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/21.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/21.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/23.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/23.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/24.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/24.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/11-myau-vau/25.png" data-lightbox="submission-4-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-iii/11-myau-vau/25.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/3.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
-                      <img src="/thumbnails/11-myau-vau/3.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/4.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 349px;">
-                      <img src="/thumbnails/11-myau-vau/4.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/5.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
-                      <img src="/thumbnails/11-myau-vau/5.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/6.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/6.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/7.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
-                      <img src="/thumbnails/11-myau-vau/7.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/8.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/8.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/9.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/9.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/10.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/10.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/11.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/11.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/11f.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
-                      <img src="/thumbnails/11-myau-vau/11f.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/12.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 349px;">
-                      <img src="/thumbnails/11-myau-vau/12.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/13.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 245px;">
-                      <img src="/thumbnails/11-myau-vau/13.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/14.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/14.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/15.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/15.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/16.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-myau-vau/16.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/17.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/17.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/18.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
-                      <img src="/thumbnails/11-myau-vau/18.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/19.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/19.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/20.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/20.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/21.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 311px;">
-                      <img src="/thumbnails/11-myau-vau/21.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/23.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 218px;">
-                      <img src="/thumbnails/11-myau-vau/23.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-myau-vau/24.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-myau-vau/24.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-myau-vau/25.png" data-lightbox="submission-2-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-myau-vau/25.png" alt="Фото мяу вау" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
-          
-        
-      </section>
-      
-      <section class="round-block" id="submission-2021">
-        <div class="round-header">
-          <h2>2021 — Раунд IV</h2>
-          <h3>Тема: Автопортрет | Игра: Mount &amp; Blade</h3>
+          </section>
 
-        </div>
-        
           
-        
           
-            <div class="images-gallery">
-              
-            </div>
-          
+
         
-      </section>
       
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iv.html#author-1-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд IV</span>
+                <span class="round-title-sub"> Автопортрет |  Mount &amp; Blade</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>бо́льное острое мяхкое скользящее маршмелоу единороги я там сплю мне там радостно мне там больно<br>я тысяча еловых еголок пронзающих мое ебало я вопль</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/1.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/2.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/2.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/3.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/3.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/4.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/4.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/4-1.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/4-1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/5.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/5.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/6.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/6.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/7.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/7.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/8.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/8.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/8-1.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/8-1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/9.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/9.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/10.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/10.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/11.jpg" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/11.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/12.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/12.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/13.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/13.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/14.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/14.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/15.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/15.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/15-1.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/15-1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/16.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/16.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/1-myau-vau/16-1.png" data-lightbox="submission-5-block-1" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iv/1-myau-vau/16-1.png" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target new-year-separator" id="year-2020">
+            <a href="/2020-round-i.html#author-14-myau-vau" class="round-title-link-block">
+                <span class="round-title-main">2020 — Раунд I</span>
+                <span class="round-title-sub"> Абстракция |  серия Risen</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Reshade 4.6 | debug console | Cheat Engine | Trainer (iNvIcTUs oRCuS / HoG)
+                    </div>
+                
+                
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/1.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/1.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/2.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/2.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/3.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/3.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/4.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/4.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/5.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/5.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/6.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/6.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/7.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/7.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/8.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/8.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/9.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/9.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/14-myau-vau/10.jpg" data-lightbox="submission-6-block-0" data-title="мяу вау" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/14-myau-vau/10.jpg" alt="Медиа от мяу вау" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+      
+
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
-    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+    <script>
+        lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.results-link-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const year = this.dataset.year;
+                    const roundName = this.dataset.roundName;
+                    if (year && roundName) {
+                        window.location.href = `/${year}-${roundName}-results.html`;
+                    }
+                });
+            });
+
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('is-open');
+                });
+            }
+            
+        });
+
+        
+    </script>
 </body>
 </html>

@@ -1,177 +1,1109 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <title>Amaru Viales | Портфолио</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link href="/static/css/main.css" rel="stylesheet" />
     <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <style>
-      :root {
-        --bg-color: #f5f5f5; --surface-color: #ffffff; --primary-text-color: #121212;
-        --secondary-text-color: #555; --border-color: #e0e0e0; --accent-color: #8e44ad;
-        --round-card-bg: #ffffff;
-        --content-indent: 30px;
-      }
-      body { margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); scroll-behavior: smooth; }
-      .container { max-width: 900px; margin: 0 auto; padding: 20px; }
-      
-      .main-header {
-          padding: 20px 0; 
-          margin-bottom: 40px; 
-          border-bottom: 1px solid var(--border-color);
-          padding-left: var(--content-indent);
-          text-align: left;
-      }
-      .main-header h1 { font-size: 3rem; margin: 0; }
-      .main-header .portfolio-link { display: inline-block; margin-top: 10px; color: var(--accent-color); text-decoration: none; font-size: 1.2rem; }
-      .main-header .portfolio-link:hover { text-decoration: underline; }
-      
-      .back-link {
-          display: inline-block; margin-bottom: 20px; 
-          color: var(--secondary-text-color); text-decoration: none; font-weight: bold;
-          padding-left: var(--content-indent);
-      }
-      .back-link:hover { color: var(--primary-text-color); }
-      
-      .round-block {
-          background-color: var(--round-card-bg); 
-          border: 1px solid var(--border-color); 
-          border-radius: 12px; 
-          margin-bottom: 40px;
-          padding: 15px var(--content-indent) var(--content-indent);
-          scroll-margin-top: 20px;  
-      }
-      .round-header { padding-bottom: 15px; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); }
-      .round-header h2 { font-size: 2.2rem; margin: 0; }
-      .round-header h3 { font-size: 1.5rem; color: var(--secondary-text-color); margin: 5px 0 0 0; font-weight: 400; }
-      .instruments { font-size: 0.9rem; color: var(--secondary-text-color); margin-top: 15px; }
-      
-      .text-block { margin-top: 20px; line-height: 1.5; max-width: 700px; }
-      .text-block p { margin: 0 0 0.75em 0; }
-      .text-block p:last-child { margin-bottom: 0; }
-      .text-block a { color: var(--accent-color); }
-
-      .images-gallery { display: flex; flex-direction: column; gap: 10px; margin-top: 25px; }
-      .image-row { display: flex; flex-direction: row; gap: 10px; }
-      .image-item { flex-grow: 1; position: relative; }
-      .image-item img { width: 100%; height: auto; display: block; }
-
-      @media (max-width: 768px) {
-          :root { --content-indent: 15px; }
-          .container { padding: 10px; }
-          .main-header h1 { font-size: 2rem; }
-          .round-header h2 { font-size: 1.5rem; }
-          .round-header h3 { font-size: 1.1rem; }
-          .image-row { flex-direction: column; }
-          .image-item { flex-basis: auto !important; width: 100%; }
-          .main-header h1, .round-header h2, .round-header h3 { overflow-wrap: break-word; word-wrap: break-word; }
-      }
-    </style>
 </head>
-<body>
+<body class="author-page">
+    
+    
+<nav class="main-nav" aria-label="Основная навигация">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links-container">
+        <span class="sr-only">Открыть меню</span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <div class="nav-links" id="nav-links-container">
+        
+
+        <div class="nav-group year-nav">
+            <a href="/authors.html" class="active">Участники</a>
+            <a href="/judges.html" >Судьи</a>
+            <span class="nav-group-title">Годы</span><a href="/2020.html" >2020</a><a href="/2021.html" >2021</a><a href="/2025.html" >2025</a></div>
+    </div>
+</nav>
+
     <div class="container">
-      <a href="/authors.html" class="back-link">← К списку авторов</a>
       <header class="main-header">
         <h1>Amaru Viales</h1>
+   
+        <p class="author-aliases">
+          псевдонимы:&nbsp;Dima Matveev</p>
+        
+        
+          <div class="social-links">
+            
+            <a href="https://t.me/AmaruViales" target="_blank" rel="noopener noreferrer" class="social-link-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+                
+                <span></span>
+            </a>
+            
+          </div>
         
       </header>
+
+      <nav class="page-toc">
+        <h3>Годы участия</h3>
+        <ul>
+              <li><a href="#year-2025">2025</a></li>
+              <li><a href="#year-2021">2021</a></li>
+              <li><a href="#year-2020">2020</a></li>
+        </ul>
+      </nav>
       
-      <section class="round-block" id="submission-2025">
-        <div class="round-header">
-          <h2>2025 — Раунд I</h2>
-          <h3>Тема: Отражения | Игра: High Hell</h3>
-<div class="instruments">Инструменты: Cinematic Unity Explorer</div>
-        </div>
+      
+      
+      
         
+
           
-            <div class="images-gallery">
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-amaru-viales/1.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-amaru-viales/1.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-amaru-viales/2.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-amaru-viales/2.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-amaru-viales/3.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
-                      <img src="/thumbnails/11-amaru-viales/3.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-            </div>
           
-        
-          
-            <div class="text-block"><p>все снимки были созданы с помощью зеркала: на одном уровне — украденного из тренажерного зала, на другом — из туалета. после зеркало было растянуто по осям. при копировании зеркала и размещении его напротив оригинального, я, к счастью, не исчез в бесконечном рекурсивном отражении, вместо этого, залетев под правильным углом внутрь зеркала, получил эффект, похожий на #hallofmirrors. к сожалению, на некоторых снимках я потерял голову — буквально. появляется ли она на оригинальной модели или на отражённой я уже сказать не могу: в процессе съёмки камера была перекручена настолько много раз что где там низ а где верх я не знаю. (некоторые снимки также были перевёрнуты вверх ногами при составлении финальной серии) ((в игре была возможность изменить текстуру лица, добавив в файлы изображение с названием face.png, так в игре появилось третье зеркало — прямо у меня на лице))</p>
+
+          <section class="round-decisions-block scroll-target " id="year-2025">
+            <a href="/2025-round-i.html#author-11-amaru-viales" class="round-title-link-block">
+                <span class="round-title-main">2025 — Раунд I</span>
+                <span class="round-title-sub"> Отражения |  High Hell</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Cinematic Unity Explorer
+                    </div>
+                
+                
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/1.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/1.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/2.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/2.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/3.png" data-lightbox="submission-0-block-0" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/3.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="text-block"><p>все снимки были созданы с помощью зеркала: на одном уровне — украденного из тренажерного зала, на другом — из туалета. после зеркало было растянуто по осям. при копировании зеркала и размещении его напротив оригинального, я, к счастью, не исчез в бесконечном рекурсивном отражении, вместо этого, залетев под правильным углом внутрь зеркала, получил эффект, похожий на #hallofmirrors. к сожалению, на некоторых снимках я потерял голову — буквально. появляется ли она на оригинальной модели или на отражённой я уже сказать не могу: в процессе съёмки камера была перекручена настолько много раз что где там низ а где верх я не знаю. (некоторые снимки также были перевёрнуты вверх ногами при составлении финальной серии) ((в игре была возможность изменить текстуру лица, добавив в файлы изображение с названием face.png, так в игре появилось третье зеркало — прямо у меня на лице))</p>
 </div>
-          
-        
-          
-            <div class="images-gallery">
-              
-                <div class="image-row">
                   
-                    <a href="/images/11-amaru-viales/4.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/4.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
+                
                   
-                    <a href="/images/11-amaru-viales/5.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/5.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/4.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/4.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/5.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/5.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/6.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/6.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/7.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/7.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/8.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/8.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/9.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/9.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/10.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/10.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-i/11-amaru-viales/11.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-i/11-amaru-viales/11.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
                   
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-amaru-viales/6.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/6.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-amaru-viales/7.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/7.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-amaru-viales/8.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/8.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-amaru-viales/9.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/9.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                </div>
-              
-                <div class="image-row">
-                  
-                    <a href="/images/11-amaru-viales/10.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/10.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                    <a href="/images/11-amaru-viales/11.png" data-lightbox="submission-0-block-2" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
-                      <img src="/thumbnails/11-amaru-viales/11.png" alt="Фото Amaru Viales" loading="lazy">
-                    </a>
-                  
-                </div>
-              
+                
             </div>
+          </section>
+
           
+          
+
         
-      </section>
       
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2025">
+            <a href="/2025-round-ii.html#author-2-amaru-viales" class="round-title-link-block">
+                <span class="round-title-main">2025 — Раунд II</span>
+                <span class="round-title-sub"> Интерфейсы |  Silent Storm: Sentinels (2004)</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Cheat Engine | консольные команды
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>🤍🤍🤍</p>
+<p>за таблицы спасибо 💜Егору Черных💙 и 💛Константина Ремизову❤️</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/2-amaru-viales/1.png" data-lightbox="submission-1-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 860px;">
+                              <img src="/thumbnails/2025/round-ii/2-amaru-viales/1.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/2-amaru-viales/2.png" data-lightbox="submission-1-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-ii/2-amaru-viales/2.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/2-amaru-viales/3.png" data-lightbox="submission-1-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2025/round-ii/2-amaru-viales/3.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2025/round-ii/2-amaru-viales/4.jpg" data-lightbox="submission-1-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 433px;">
+                              <img src="/thumbnails/2025/round-ii/2-amaru-viales/4.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2025/round-ii/2-amaru-viales/5.png" data-lightbox="submission-1-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 417px;">
+                              <img src="/thumbnails/2025/round-ii/2-amaru-viales/5.png" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target new-year-separator" id="year-2021">
+            <a href="/2021-round-i.html#author-32-dima-matveev" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд I</span>
+                <span class="round-title-sub"> Решающий момент |  Urban Chaos</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Cheat Engine | ReShade
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>"Нелегки полицейские будни, особенно в суперсовременном Union City. Там, где последние технологические разработки применяются повсеместно, где жители купаются в достатке и благодати – там, несомненно, начнется гниение, ибо не может плод зреть вечно. Преступность – вот что стало началом разрушения прекрасного города, стоящего на рубеже веков."</p>
+<p>Во время составления серии я не стал использовать определение решающего момента как "основанного на молниеносной реакции" и "одномоментного", а больше относящегося к моментам в сюжете игры и роли игрока, как главного решателя всех проблем в городе. Описание сюжета и миссий на снимках взяты <a href="http://www.lki.ru/text.php?id=2682">c сайта по прохождению</a>.</p>
+<p>(за таблицу и информацию по игре спасибо <a href="https://vk.com/vulgarmodernist">Константину</a>, <a href="https://vk.com/egorchrnykh">Егору</a> и <a href="https://vk.com/hizo0100">Александру</a>)</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/1.jpg" data-lightbox="submission-2-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/2.jpg" data-lightbox="submission-2-block-1" data-title="Jump
+
+                                &#34;Наконец-то хоть один человек в этом сумасшедшем городе перестал воспринимать
+                                ситуацию как данность и выразил свой протест. Немного антисоциально, но все же... На
+                                Китинг-авеню должно вот-вот совершиться самоубийство: отчаявшийся гражданин залез на
+                                крышу высокого дома и грозится броситься вниз, если к нему кто-нибудь подойдет. Прыгать
+                                он пока не решается, чем и нужно воспользоваться. В принципе, никому нет дела до
+                                самоубийцы, но, видимо, полицию вызвали дворники, которым потом этого человека
+                                отскребать от асфальта.&#34;" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/2.jpg" alt="Jump
+
+                                &#34;Наконец-то хоть один человек в этом сумасшедшем городе перестал воспринимать
+                                ситуацию как данность и выразил свой протест. Немного антисоциально, но все же... На
+                                Китинг-авеню должно вот-вот совершиться самоубийство: отчаявшийся гражданин залез на
+                                крышу высокого дома и грозится броситься вниз, если к нему кто-нибудь подойдет. Прыгать
+                                он пока не решается, чем и нужно воспользоваться. В принципе, никому нет дела до
+                                самоубийцы, но, видимо, полицию вызвали дворники, которым потом этого человека
+                                отскребать от асфальта.&#34;" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/3.jpg" data-lightbox="submission-2-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/3.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/4.jpg" data-lightbox="submission-2-block-1" data-title="Target UC 
+
+                                &#34;На город нацелены три ракеты, которые должны вот-вот взлететь. Если это
+                                произойдет, город умрет в прахе. Допустить такое, конечно же, нельзя.&#34;" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/4.jpg" alt="Target UC 
+
+                                &#34;На город нацелены три ракеты, которые должны вот-вот взлететь. Если это
+                                произойдет, город умрет в прахе. Допустить такое, конечно же, нельзя.&#34;" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/5.jpg" data-lightbox="submission-2-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/5.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-i/32-dima-matveev/6.jpg" data-lightbox="submission-2-block-1" data-title="Day of Reckoning 
+
+                            &#34;«Убить Бэйна» – как давно я ждал этих слов! Иными словами, ты добрался до финала,
+                                последней миссии. Порой казалось, что этого уже не случится...&#34;" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2021/round-i/32-dima-matveev/6.jpg" alt="Day of Reckoning 
+
+                            &#34;«Убить Бэйна» – как давно я ждал этих слов! Иными словами, ты добрался до финала,
+                                последней миссии. Порой казалось, что этого уже не случится...&#34;" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-ii.html#author-22-dima-matveev" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд II</span>
+                <span class="round-title-sub"> Фотографии из семейного альбома |  Assassin&#39;s Creed III</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Reshade | Cheat Engine | Trainer (Aleksander D)
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>фотографии из семейного альбома за авторством обычного Бостонского молодого человека (надписи с обратной стороны фотографий добавлены в описания)</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/1.jpg" data-lightbox="submission-3-block-1" data-title="В театре.&lt;br&gt; Сестра с ухажёром" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/1.jpg" alt="В театре.&lt;br&gt; Сестра с ухажёром" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/2.jpg" data-lightbox="submission-3-block-1" data-title="Улыбнитесь в камеру! (Отец, Мать и младший брат)" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/2.jpg" alt="Улыбнитесь в камеру! (Отец, Мать и младший брат)" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/3.jpg" data-lightbox="submission-3-block-1" data-title="Момент с любимой" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/3.jpg" alt="Момент с любимой" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/4.jpg" data-lightbox="submission-3-block-1" data-title="Детвора выгуливает крысу (младший брат с друзьями)" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/4.jpg" alt="Детвора выгуливает крысу (младший брат с друзьями)" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/5.jpg" data-lightbox="submission-3-block-1" data-title="Мать в саду" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/5.jpg" alt="Мать в саду" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/6.jpg" data-lightbox="submission-3-block-1" data-title="Дядя работает" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/6.jpg" alt="Дядя работает" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/7.jpg" data-lightbox="submission-3-block-1" data-title="Дворняга" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/7.jpg" alt="Дворняга" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/8.jpg" data-lightbox="submission-3-block-1" data-title="Дома у бабушки в городе. Вечер. Все разошлись" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/8.jpg" alt="Дома у бабушки в городе. Вечер. Все разошлись" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-ii/22-dima-matveev/9.jpg" data-lightbox="submission-3-block-1" data-title="Служба в Бостоне" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-ii/22-dima-matveev/9.jpg" alt="Служба в Бостоне" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iii.html#author-14-dima-matveev" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд III</span>
+                <span class="round-title-sub"> Сверхъестественное |  Dark Messiah of Might &amp; Magic</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>Ходят легенды об одном городе, в который не ведёт ни одна дорога и не даёт уйти ни один выход. Его жителями являются одинокие души, потерявшие свой прежний человеческий облик и обречённые провести свой бесконечный остаток времени в мучениях и страданиях.</p>
+<p>Единственный проводник в это место - дух, божество или демон, нечистая сила женского образа, сущность, обрекающая людей на нескончаемую пытку. Где, когда и кто становится её очередной жертвой никто не знает, но всё сразу следуют за ней по своей воле, заводя самих себя в ловушку.</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/1.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/2.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/2.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/3.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/3.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/4.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/4.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/5.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/5.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/6.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/6.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/7.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/7.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/8.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/8.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iii/14-dima-matveev/9.jpg" data-lightbox="submission-4-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2021/round-iii/14-dima-matveev/9.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2021">
+            <a href="/2021-round-iv.html#author-10-dima-matveev" class="round-title-link-block">
+                <span class="round-title-main">2021 — Раунд IV</span>
+                <span class="round-title-sub"> Автопортрет |  The Movies</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                    <div class="instruments">
+                        Инструменты: Adobe Photoshop
+                    </div>
+                
+                
+                
+                  
+                    <div class="text-block"><p>Развернув камеру в обратную сторону, я обнаружил что я лишен какой-либо внешности и мою роль играет марионетка. В такой неловкой ситуации она решила раскрыть себя с другой стороны и провела меня по своим музыкальным вкусам и ассоциациям с любимыми песнями. Разрешила показать вам, но просила не выдавать все детали.</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/1.jpg" data-lightbox="submission-5-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 437px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/2.jpg" data-lightbox="submission-5-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 413px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/2.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/3.jpg" data-lightbox="submission-5-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 500px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/3.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/4.jpg" data-lightbox="submission-5-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 350px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/4.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="text-block"><p>мета-часть</p>
+<p>тут в качестве изображения самого себя я испольозвал аватарки со своей страницы, которые засунул в игру отредактировав текстурки задников в павильоне съёмок фильмов<br>ну и конечно же, пятый снимок.</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/1-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 426px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/1-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/2-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 424px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/2-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/3-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 455px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/3-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/4-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 395px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/4-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/5-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 321px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/5-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2021/round-iv/10-dima-matveev/6-1.jpg" data-lightbox="submission-5-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 529px;">
+                              <img src="/thumbnails/2021/round-iv/10-dima-matveev/6-1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target new-year-separator" id="year-2020">
+            <a href="/2020-round-i.html#author-17-dima-matveev" class="round-title-link-block">
+                <span class="round-title-main">2020 — Раунд I</span>
+                <span class="round-title-sub"> Абстракция |  серия Neverwinter Nights</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="text-block"><p>Часть 1/4</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/1.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/1.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/2.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/2.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/3.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/3.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/4.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/4.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/5.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/5.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/6.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/6.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/7.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/7.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/8.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/8.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/9.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/9.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/10.jpg" data-lightbox="submission-6-block-1" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/10.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="text-block"><p>Часть 2/4</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/11.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/11.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/12.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/12.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/13.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/13.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/14.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/14.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/15.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/15.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/16.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/16.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/17.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/17.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/18.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/18.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/19.jpg" data-lightbox="submission-6-block-3" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/19.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="text-block"><p>Часть 3/4</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/20.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/20.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/21.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/21.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/22.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/22.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/23.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/23.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/24.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/24.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/25.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/25.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/26.jpg" data-lightbox="submission-6-block-5" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/26.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+                  
+                    <div class="text-block"><p>Часть 4/4</p>
+</div>
+                  
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/27.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/27.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/28.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/28.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/29.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/29.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/30.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/30.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/31.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/31.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/32.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/32.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/33.jpg" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/33.jpg" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/1.gif" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/1.gif" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/2.gif" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/2.gif" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/17-dima-matveev/3.gif" data-lightbox="submission-6-block-7" data-title="Amaru Viales" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/17-dima-matveev/3.gif" alt="Медиа от Amaru Viales" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+      
+
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
-    <script>lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });</script>
+    <script>
+        lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.results-link-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const year = this.dataset.year;
+                    const roundName = this.dataset.roundName;
+                    if (year && roundName) {
+                        window.location.href = `/${year}-${roundName}-results.html`;
+                    }
+                });
+            });
+
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('is-open');
+                });
+            }
+            
+        });
+
+        
+    </script>
 </body>
 </html>
