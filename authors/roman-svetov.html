@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"> 
+    <title>Роман Светов | Портфолио</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link href="/static/css/main.css" rel="stylesheet" />
+    <link href="/static/lightbox/css/lightbox.min.css" rel="stylesheet" />
+</head>
+<body class="author-page">
+    
+    
+<nav class="main-nav" aria-label="Основная навигация">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links-container">
+        <span class="sr-only">Открыть меню</span>
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <div class="nav-links" id="nav-links-container">
+        
+
+        <div class="nav-group year-nav">
+            <a href="/authors.html" class="active">Участники</a>
+            <a href="/judges.html" >Судьи</a>
+            <span class="nav-group-title">Годы</span><a href="/2020.html" >2020</a><a href="/2021.html" >2021</a><a href="/2025.html" >2025</a></div>
+    </div>
+</nav>
+
+    <div class="container">
+      <header class="main-header">
+        <h1>Роман Светов</h1>
+   
+        
+      </header>
+
+      <nav class="page-toc">
+        <h3>Годы участия</h3>
+        <ul>
+              <li><a href="#year-2020">2020</a></li>
+        </ul>
+      </nav>
+      
+      
+      
+      
+        
+
+          
+          
+
+          <section class="round-decisions-block scroll-target " id="year-2020">
+            <a href="/2020-round-i.html#author-45-roman-svetov" class="round-title-link-block">
+                <span class="round-title-main">2020 — Раунд I</span>
+                <span class="round-title-sub"> Абстракция |  Arx Fatalis</span>
+            </a>
+            
+            <div class="pair-section">
+                
+                
+                
+                  
+                    <div class="images-gallery">
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/45-roman-svetov/1.jpg" data-lightbox="submission-0-block-0" data-title="Роман Светов" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/45-roman-svetov/1.jpg" alt="Медиа от Роман Светов" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/45-roman-svetov/2.jpg" data-lightbox="submission-0-block-0" data-title="Роман Светов" class="image-item" style="flex-basis: 425px;">
+                              <img src="/thumbnails/2020/round-i/45-roman-svetov/2.jpg" alt="Медиа от Роман Светов" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                        <div class="image-row">
+                          
+                            
+                            <a href="/images/2020/round-i/45-roman-svetov/3.jpg" data-lightbox="submission-0-block-0" data-title="Роман Светов" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/45-roman-svetov/3.jpg" alt="Медиа от Роман Светов" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/45-roman-svetov/4.jpg" data-lightbox="submission-0-block-0" data-title="Роман Светов" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/45-roman-svetov/4.jpg" alt="Медиа от Роман Светов" loading="lazy">
+                            </a>
+                            
+                          
+                            
+                            <a href="/images/2020/round-i/45-roman-svetov/5.jpg" data-lightbox="submission-0-block-0" data-title="Роман Светов" class="image-item" style="flex-basis: 280px;">
+                              <img src="/thumbnails/2020/round-i/45-roman-svetov/5.jpg" alt="Медиа от Роман Светов" loading="lazy">
+                            </a>
+                            
+                          
+                        </div>
+                      
+                    </div>
+                  
+                
+            </div>
+          </section>
+
+          
+          
+
+        
+      
+        
+      
+      
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="/static/lightbox/js/lightbox.min.js"></script>
+    <script>
+        lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelectorAll('.results-link-nav').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const year = this.dataset.year;
+                    const roundName = this.dataset.roundName;
+                    if (year && roundName) {
+                        window.location.href = `/${year}-${roundName}-results.html`;
+                    }
+                });
+            });
+
+            
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (navToggle && navLinks) {
+                navToggle.addEventListener('click', function () {
+                    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+                    navToggle.setAttribute('aria-expanded', !isExpanded);
+                    navLinks.classList.toggle('is-open');
+                });
+            }
+            
+        });
+
+        
+    </script>
+</body>
+</html>
