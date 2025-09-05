@@ -1175,11 +1175,6 @@
                         
                       </td>
                     <td>14</td><td>0</td><td>14</td></tr></tbody></table></div>
-                <div style=" margin: 40px 0; text-align: left; font-size: 2rem; line-height: 1.6;">
-    <p>
-        Таким образом, победителем фотобаттла этого года становится <a href="/authors/rostik.html#year-2025" style="font-weight: 800; color: #8e44ad; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">ростик</a>! Поздравляем!
-    </p>
-</div>
           </section>
           
         
@@ -1189,55 +1184,6 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
-
-        </script>
-     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-<script>
-
-    let fireworksLaunched = false;
-
-
-    function launchFireworks() {
-        var duration = 7 * 1000;
-        var animationEnd = Date.now() + duration;
-        var defaults = { startVelocity: 25, spread: 360, ticks: 60, zIndex: 0 };
-
-        function randomInRange(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        var interval = setInterval(function() {
-            var timeLeft = animationEnd - Date.now();
-            if (timeLeft <= 0) {
-                return clearInterval(interval);
-            }
-            var particleCount = 200 * (timeLeft / duration);
-            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-        }, 250);
-    }
-
-    
-    function checkScrollAndLaunch() {
-
-        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight && !fireworksLaunched) {
-            
-
-            fireworksLaunched = true;
-            
-
-            launchFireworks();
-
-            window.removeEventListener('scroll', checkScrollAndLaunch);
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', checkScrollAndLaunch);
-
-
-    window.addEventListener('scroll', checkScrollAndLaunch);
-
-</script>
     <script>
         lightbox.option({ 'fadeDuration': 150, 'resizeDuration': 200, 'imageFadeDuration': 0, 'wrapAround': true });
         
@@ -1270,7 +1216,7 @@
         });
 
         
-
+    <script>
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
@@ -1281,6 +1227,6 @@
       });
     </script>
 
-
+    </script>
 </body>
 </html>
