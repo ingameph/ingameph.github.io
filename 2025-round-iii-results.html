@@ -76,7 +76,7 @@
     <h3>Итоги</h3>
     <ol>
       
-      <li><a href="#summary-judges">Сводка по судьям</a></li>
+      <li><a href="#summary-judges">Судейские баллы</a></li>
       
       
       <li><a href="#summary-audience">Зрительское голосование</a></li>
@@ -93,7 +93,7 @@
 
             </div>
           </div>
-          <div class="intro-poster-column" style="background-image: url('/images/2025/round-iii/round3-results.jpg');" title="Постер раунда Раунд III"></div>
+          <div class="intro-poster-column" style="background-image: url('/images/2025/round-iii/round3-results.jpg');" title=""></div>
         </div>
       
 
@@ -294,6 +294,11 @@
 </section>
 
 
+
+
+
+
+
         </section>
         
         <section id="judge-nastya-f" class="scroll-target">
@@ -492,6 +497,11 @@
 </section>
 
 
+
+
+
+
+
         </section>
         
         <section id="judge-ieronim-k" class="scroll-target">
@@ -682,6 +692,11 @@
 </section>
 
 
+
+
+
+
+
         </section>
         
       
@@ -691,7 +706,7 @@
       
         
         <section id="summary-judges" class="results-table-section scroll-target">
-          <h3>Решения судей (сводка)</h3>
+          <h3>Судейские баллы</h3>
           <div class="table-wrapper"><table class="results-table"><thead><tr><th>Участник</th><th>Виталик Ушаков</th><th>настя ф.</th><th>Иероним К.</th></tr></thead><tbody>
               
               
@@ -1175,63 +1190,24 @@
                         
                       </td>
                     <td>14</td><td>0</td><td>14</td></tr></tbody></table></div>
-                    <div style=" margin: 40px 0; text-align: left; font-size: 2rem; line-height: 1.6;">
-    <p>
-        Таким образом, победителем фотобаттла этого года становится <a href="/authors/rostik.html#year-2025" style="font-weight: 800; color: #8e44ad; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px;">ростик</a>! Поздравляем!
-    </p>
-</div>
           </section>
           
         
       
+
+      
+  <div class="results-postscriptum">
+      <div class="text-block">
+          <p>таким образом, победителем фотобаттла этого года становится <b><a href="https://ingameph.github.io/authors/rostik.html#year-2025">ростик</a></b>! поздравляем!</p>
+<p>спасибо всем, кто участвовал в фотобаттле в этом году, проследовав за нами сквозь серию поверхностей, в которых преломляются игровые процессы. и спасибо всем, кто следил за ходом баттла и принимал участие в голосова~ <i>с этими словами фотобаттл INGAME благополучно вылетает на рабочий стол.</i></p>
+
+      </div>
+  </div>
+
+
     </div>
 
-<script>
 
-    let fireworksLaunched = false;
-
-
-    function launchFireworks() {
-        var duration = 7 * 1000;
-        var animationEnd = Date.now() + duration;
-        var defaults = { startVelocity: 25, spread: 360, ticks: 60, zIndex: 0 };
-
-        function randomInRange(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        var interval = setInterval(function() {
-            var timeLeft = animationEnd - Date.now();
-            if (timeLeft <= 0) {
-                return clearInterval(interval);
-            }
-            var particleCount = 200 * (timeLeft / duration);
-            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
-            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
-        }, 250);
-    }
-
-    
-    function checkScrollAndLaunch() {
-
-        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight && !fireworksLaunched) {
-            
-
-            fireworksLaunched = true;
-            
-
-            launchFireworks();
-
-            window.removeEventListener('scroll', checkScrollAndLaunch);
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', checkScrollAndLaunch);
-
-
-    window.addEventListener('scroll', checkScrollAndLaunch);
-
-</script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="/static/lightbox/js/lightbox.min.js"></script>
     <script>
@@ -1265,7 +1241,8 @@
             
         });
 
-
+        
+    <script>
       document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           anchor.addEventListener('click', function (e) {
