@@ -9,7 +9,7 @@
   --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
   --content-indent: 25px;
 }
-body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
+body { scroll-behavior: smooth; margin: 0; font-family: 'Roboto', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
 .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
 /* Навигация */
@@ -49,9 +49,9 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
 .subgroup-nav-column ol { padding-left: 20px; margin: 0; }
 .subgroup-nav-column li { margin-bottom: 12px; }
 .subgroup-nav-column a { color: var(--accent-color); }
-.subgroup-header { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+.subgroup-header { font-size: 2rem; font-weight: 700; color: var(--secondary-text-color); margin-top: 60px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid var(--accent-color); }
 .pair-divider { display: flex; align-items: center; margin-top: 60px; margin-bottom: 20px; }
-.pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 1.2rem; font-weight: 700; white-space: nowrap; }
+.pair-divider span { padding-right: 20px; color: var(--secondary-text-color); font-size: 2rem; font-weight: 700; white-space: nowrap; }
 .pair-divider:first-of-type { margin-top: 0; }
 .author-block { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding-top: 15px; padding-right: var(--content-indent); padding-bottom: var(--content-indent); padding-left: var(--content-indent); margin-bottom: 30px; scroll-margin-top: calc(var(--nav-height) + 10px); }
 .author-header .author-name a { font-size: 2rem; font-weight: 700; color: var(--primary-text-color); }
@@ -67,12 +67,12 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
 .image-item { flex-grow: 1; position: relative; line-height: 0; }
 .image-item img { width: 100%; height: auto; display: block; }
 .image-item video { width: 100%; height: auto; display: block; border-radius: 4px; }
-.results-link-container { margin-top: 60px; padding: 40px var(--content-indent); text-align: center; border-top: 1px solid var(--border-color); }
-.results-link-button { display: inline-block; padding: 12px 24px; border: 2px solid var(--accent-color); background-color: transparent; color: var(--accent-color); font-size: 1.1rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
+.results-link-container { margin-top: 30px; padding: 30px var(--content-indent); text-align: center; border-top: 2px solid var(--accent-color); }
+.results-link-button { display: inline-block; padding: 12px 24px; background-color: transparent; color: var(--accent-color); font-size: 2rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: all 0.2s ease; }
 .results-link-button:hover { background-color: var(--accent-color); color: white; }
 .poll-container { margin-top: 30px; display: flex; justify-content: center; }
-.subgroup-polls-container { margin-top: 60px; padding-top: 30px; border-top: 1px solid var(--border-color); }
-.subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 1.2rem; margin-bottom: 0; }
+.subgroup-polls-container { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+.subgroup-polls-container h4 { text-align: center; color: var(--secondary-text-color); font-size: 2rem; margin-bottom: 0; }
 .strikethrough { text-decoration: line-through; text-decoration-thickness: 1px; text-decoration-color: var(--secondary-text-color); }
 .subgroup-nav-column a, .author-header .author-name a { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 3px; transition: text-decoration-color 300ms ease; }
 .subgroup-nav-column a:hover, .author-header .author-name a:hover { text-decoration-color: var(--accent-color); }
@@ -132,7 +132,7 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
 /* Общий стиль для заголовков с именем судьи */
 .judge-name,
 .judge-page .main-header h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     /* font-weight: 800; */
 }
 /* Уникальные стили для заголовка на странице результатов */
@@ -146,13 +146,13 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
 
 .judge-name a { color: inherit; text-decoration: none; }
 .judge-name a:hover { color: var(--accent-color); }
-.judge-intro, .subgroup-intro { padding-left: var(--content-indent); max-width:700px; padding-right: var(--content-indent); margin-bottom: 30px; line-height: 1.5; color: var(--primary-text-color); font-size: 1rem; }
+.judge-intro, .subgroup-intro { padding-left: var(--content-indent); max-width:700px; padding-right: var(--content-indent); margin-top: 30px; margin-bottom:30px; line-height: 1.5; color: var(--primary-text-color); font-size: 1rem; }
 .judge-intro p, .subgroup-intro p, .author-review-comment p { margin: 0 0 0.75em 0; max-width: 700px }
 .judge-intro p:last-child, .subgroup-intro p:last-child, .author-review-comment p:last-child { margin-bottom: 0; }
 .subgroup-intro { margin-bottom: 25px; }
 .subgroup-section { margin-bottom: 40px; }
-.subgroup-theme { font-size: 1.8rem; font-weight: 700; color: var(--secondary-text-color); margin-bottom: 20px; padding-left: var(--content-indent); }
-.pair-section { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px var(--content-indent); margin-bottom: 20px; }
+.subgroup-theme { font-size: 2rem; font-weight: 700; color: var(--secondary-text-color); margin-bottom: 15px; padding-left: var(--content-indent); }
+.pair-section { background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px var(--content-indent); margin-bottom: 20px; margin-top:30px}
 .pair-game { font-size: 1.3rem; font-weight: 700; margin: 0 0 15px 0; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); color: var(--secondary-text-color); }
 .author-separator { border: 0; height: 1px; background-color: var(--border-color); margin: 20px 0; }
 .author-review { margin-bottom: 15px; }
@@ -405,23 +405,24 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
 
 .round-title-link-block {
     display: block;
-    padding: 0 var(--content-indent) 20px;
+    padding: 0 var(--content-indent) 15px;
     /* margin-bottom: 20px; */
     text-decoration: none;
 }
 .judge-page .round-title-link-block {
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--accent-color);
 }
 .round-title-main,
 .round-title-sub {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--secondary-text-color);
     transition: color 0.2s;
 }
 .round-title-main {
     margin-bottom: 5px;
+    margin-top: 60px;
 }
 .round-title-link-block:hover .round-title-main,
 .round-title-link-block:hover .round-title-sub {
@@ -440,6 +441,32 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; b
     break-inside: avoid;
 }
 
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+.main-footer {
+    /* margin-top: 80px; */
+    padding: 20px 0;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+}
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+.footer-content a {
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+.footer-content a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
 
 /* Медиа-запросы для страниц судей и авторов */
 @media (max-width: 768px) {
