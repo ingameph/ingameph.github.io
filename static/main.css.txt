@@ -472,6 +472,59 @@ body { scroll-behavior: smooth; margin: 0; font-family: 'Roboto', sans-serif; ba
 }
 
 
+
+/* ==========================================================================
+   Feature Page Styles
+   ========================================================================== */
+.feature-category {
+    margin-bottom: 50px; /* Увеличим отступ между категориями */
+}
+
+/* Сетка для контента категории (текст + галерея) */
+.category-grid {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding-left: var(--content-indent);
+}
+.category-grid-text {
+    flex: 2;
+    min-width: 0;
+}
+.category-grid-gallery {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Стили для элементов внутри текстовой колонки */
+.feature-category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    margin: 0 0 5px 0;
+    padding-left: 0; 
+}
+.feature-category-description {
+    font-style: italic;
+    color: var(--secondary-text-color);
+    margin: 0 0 15px 0;
+    padding-left: 0;
+}
+.feature-entry-list {
+    list-style-type: disc;
+    padding-left: 20px; /* Отступ только для маркеров */
+    margin: 0;
+}
+.feature-entry-list li {
+    margin-bottom: 0.75em;
+    line-height: 1.5;
+}
+
+
+  
+
+  
+
 /* ==========================================================================
    Footer Styles
    ========================================================================== */
