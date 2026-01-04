@@ -9,7 +9,7 @@
   --nav-active-bg: #f0e698; --nav-active-text: #121212; --nav-height: 50px;
   --content-indent: 25px;
 }
-body { scroll-behavior: smooth; margin: 0; font-family: 'Manrope', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
+body { scroll-behavior: smooth; margin: 0; font-family: 'Roboto', sans-serif; background-color: var(--bg-color); color: var(--primary-text-color); }
 .container { max-width: 900px; margin: 0 auto; padding: 20px; }
 
 /* Навигация */
